@@ -65,9 +65,9 @@
 
   <script type="text/javascript" src="/template-resources/admin/assets/tiny_mce/tiny_mce.js"></script>
   <!-- Place the first <script> tag in your HTML's <head> -->
-  <script src="https://cdn.tiny.cloud/1/l6n1660q22vkqaxa52b30xaqirgghakmjsr9d1isk7oqfegv/tinymce/7/tinymce.min.js"
-    referrerpolicy="origin"></script>
-  <script>
+  <!-- <script src="https://cdn.tiny.cloud/1/l6n1660q22vkqaxa52b30xaqirgghakmjsr9d1isk7oqfegv/tinymce/7/tinymce.min.js"
+    referrerpolicy="origin"></script> -->
+  <!-- <script>
     tinymce.init({
       selector: 'textarea.editor-area',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
@@ -83,8 +83,8 @@
       ],
       ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
     });
-  </script>
-  <!-- <script type="text/javascript">
+  </script> -->
+  <script type="text/javascript">
     tinyMCE.init({
       // General options
       mode: "textareas",
@@ -134,7 +134,7 @@
         staffid: "991234"
       }
     });
-  </script> -->
+  </script>
 
   <script>
       const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
