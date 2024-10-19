@@ -23,15 +23,21 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::prefix('/')->group(function(){
-    Route::get('', [WebsiteController::class,'index']);
+    Route::get('', [WebsiteController::class,'index'])->name('home');;
+    Route::get('about-us', function () { return view('default.about'); })->name('about');
+    Route::get('food', function () { return view('default.food'); })->name('food');
+    Route::get('rent-for-property', function () { return view('default.property'); })->name('property');
+    Route::get('rent-bike', function () { return view('default.bike'); })->name('bike');
+    Route::get('furniture', function () { return view('default.furniture'); })->name('furniture');
+    Route::get('printout', function () { return view('default.printout'); })->name('printout');
+    Route::get('assignment', function () { return view('default.assignment'); })->name('assignment');
     
-    // Route::get('contact', function () {
-    //     return view('template-one.contact');
-    // })->name('contact.create');
+    // Route::get('contact', function () { return view('default.contact'); });
+     // ->name('contact.create');
 
     // Route::post('contact', [WebsiteController::class,'submitEnquiry'])->name('contact.store');
 
-     Route::resource('contact', EnquiryController::class)->names([
+     Route::resource('contact-us', EnquiryController::class)->names([
             'index' => 'contact',
             'create' => 'contact.create',
             'store' => 'contact.store',

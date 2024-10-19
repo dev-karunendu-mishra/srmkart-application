@@ -29,5 +29,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('categories', $categories);
         View::share('pages', $pages);
         View::share('siteData', $siteData);
+        $pageClass = ['home' => 'home', 'about' => 'about-us', 'assignment' => 'assignment', 'contact' => 'contact-us'];
+        View::share('pageClass', $pageClass);
     }
 }

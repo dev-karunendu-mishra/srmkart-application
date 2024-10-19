@@ -17,7 +17,7 @@ class WebsiteController extends Controller
         $sliders = Slider::all();
         $products = Product::all();
         $clients = Client::all();
-        return view('template-one.home', compact('sliders', 'products', 'clients'));
+        return view('default.home', compact('sliders', 'products', 'clients'));
     }
 
     public function getPage(Request $request, $page)

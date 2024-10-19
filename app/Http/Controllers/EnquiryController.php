@@ -13,7 +13,7 @@ class EnquiryController extends Controller
      */
     public function index()
     {
-        return view('template-one.contact');
+        return view('default.contact');
     }
 
     /**
