@@ -45,6 +45,64 @@
         </li>
 
         <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.foods') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Food</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.properties') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Property</span>
+          </a>
+        </li>
+
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.furniture') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Furniture</span>
+          </a>
+        </li>
+
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.bikes') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Bike</span>
+          </a>
+        </li>
+
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.printouts') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Print Out</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.assignments') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Assignment</span>
+          </a>
+        </li>
+
+
+        <!-- <li class="sidebar-item">
           <a class="sidebar-link" href="{{ route('admin.categories') }}" aria-expanded="false">
             <span>
               <i class="ti ti-layout-dashboard"></i>
@@ -150,7 +208,7 @@
             </span>
             <span class="hide-menu">Blogs</span>
           </a>
-        </li>
+        </li> -->
 
         <!-- <li class="sidebar-item">
               <a class="sidebar-link" href="{{ route('admin.catalogs') }}" aria-expanded="false">

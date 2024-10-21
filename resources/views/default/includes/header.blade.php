@@ -147,7 +147,7 @@
                         </a>
                         <a href="/" class="logo">
                         @if($siteData)
-                        <img src="{{ asset('storage/' . $siteData->logo) }}"  alt="logo" width="44px" height="44" />
+                        <img src="{{ asset($siteData->logo) }}"  alt="logo" width="44px" height="44" />
                         @else
                         <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">SRMKART</h1>
                         @endif

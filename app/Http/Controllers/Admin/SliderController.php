@@ -2,60 +2,67 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Slider;
 use App\Http\Controllers\Controller;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
-
     private $indexView = 'admin.sliders.all';
+
     private $storeRoute = 'admin.sliders';
+
     private $editView = 'admin.sliders.edit';
+
     private $deleteRoute = 'admin.sliders';
+
     private $deleteMessage = 'Slider deleted successfully.';
+
     private $createMessage = 'Slider created successfully.';
+
     private $updateMessage = 'Slider updated successfully.';
 
-    public $columns = ["id"=>"ID", "title"=>"Title", "sub_title"=>"SubTitle", "image"=>"Slider Image", "created_at"=>"Created At"];
+    public $columns = ['id' => 'ID', 'title' => 'Title', 'sub_title' => 'SubTitle', 'image' => 'Slider Image', 'created_at' => 'Created At'];
 
     public $fields = [
         [
-            "id"=>"title",
-            "name"=>"title",
-            "type"=>"text",
-            "label"=>"Slider's Title",
-            "placeholder"=>"Slider's Title"
+            'id' => 'title',
+            'name' => 'title',
+            'type' => 'text',
+            'label' => "Slider's Title",
+            'placeholder' => "Slider's Title",
         ],
         [
-            "id"=>"subTitle",
-            "name"=>"sub_title",
-            "type"=>"text",
-            "label"=>"Slider's SubTitle",
-            "placeholder"=>"Slider's SubTitle"
+            'id' => 'subTitle',
+            'name' => 'sub_title',
+            'type' => 'text',
+            'label' => "Slider's SubTitle",
+            'placeholder' => "Slider's SubTitle",
         ],
         [
-            "id"=>"shopLink",
-            "name"=>"shop_link",
-            "type"=>"text",
-            "label"=>"Shop Link",
-            "placeholder"=>"Shop Link"
+            'id' => 'shopLink',
+            'name' => 'shop_link',
+            'type' => 'text',
+            'label' => 'Shop Link',
+            'placeholder' => 'Shop Link',
         ],
         [
-            "id"=>"sliderImage",
-            "name"=>"image",
-            "type"=>"file",
-            "label"=>"Slider Image",
-            "placeholder"=>"Slider Image"
-        ]
+            'id' => 'sliderImage',
+            'name' => 'image',
+            'type' => 'file',
+            'label' => 'Slider Image',
+            'placeholder' => 'Slider Image',
+        ],
     ];
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $records = Slider::all();
-        return view($this->indexView,['columns'=>$this->columns,'fields'=>$this->fields,'edit'=>false,'records'=>$records,'model'=>null]);
+
+        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null]);
     }
 
     /**
@@ -72,21 +79,22 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=>'required',
-            'sub_title'=>'required',
-            'shop_link'=>'nullable',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'title' => 'required',
+            'sub_title' => 'required',
+            'shop_link' => 'nullable',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Handle file upload
-        $filePath=null;
+        $filePath = null;
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $filePath = $file->storeAs('uploads/sliders', $fileName);
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $filePath = $file->storeAs('uploads/sliders', $fileName, 'uploads');
         }
 
-        Slider::create(['title'=>$request->title, 'sub_title'=>$request->sub_title, 'shop_link'=>$request->shop_link, 'image'=>$filePath]);
+        Slider::create(['title' => $request->title, 'sub_title' => $request->sub_title, 'shop_link' => $request->shop_link, 'image' => $filePath]);
+
         return redirect()->route($this->storeRoute)->with('success', $this->createMessage);
     }
 
@@ -103,7 +111,7 @@ class SliderController extends Controller
      */
     public function edit(Slider $slider)
     {
-        return view($this->editView,['columns'=>$this->columns,'fields'=>$this->fields, 'model'=>$slider, 'edit'=>true]);
+        return view($this->editView, ['columns' => $this->columns, 'fields' => $this->fields, 'model' => $slider, 'edit' => true]);
     }
 
     /**
@@ -112,21 +120,22 @@ class SliderController extends Controller
     public function update(Request $request, Slider $slider)
     {
         $request->validate([
-            'title'=>'required',
-            'sub_title'=>'required',
-            'shop_link'=>'nullable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'title' => 'required',
+            'sub_title' => 'required',
+            'shop_link' => 'nullable',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Handle file upload
-        $filePath=null;
+        $filePath = null;
         if ($request->hasFile('image')) {
             $file = $request->file('image');
-            $fileName = time() . '_' . $file->getClientOriginalName();
+            $fileName = time().'_'.$file->getClientOriginalName();
             $filePath = $file->storeAs('uploads/sliders', $fileName);
         }
 
-        $slider->create(['title'=>$request->title, 'sub_title'=>$request->sub_title, 'shop_link'=>$request->shop_link, 'image'=>$filePath]);
+        $slider->create(['title' => $request->title, 'sub_title' => $request->sub_title, 'shop_link' => $request->shop_link, 'image' => $filePath]);
+
         return redirect()->route($this->storeRoute)->with('success', $this->updateMessage);
     }
 
@@ -136,6 +145,7 @@ class SliderController extends Controller
     public function destroy(Slider $slider)
     {
         $slider->delete();
+
         return redirect()->route($this->deleteRoute)->with('success', $this->deleteMessage);
     }
 }
