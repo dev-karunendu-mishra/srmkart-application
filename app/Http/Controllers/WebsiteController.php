@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Models\Slider;
-use App\Models\Product;
-use App\Models\Page;
 use App\Models\Enquiry;
-use App\Models\Client;
+use App\Models\Food;
+use App\Models\Page;
+use App\Models\Product;
+use App\Models\Slider;
+use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $sliders = Slider::all();
-        $products = Product::all();
-        $clients = Client::all();
-        return view('default.home', compact('sliders', 'products', 'clients'));
+        $foods = Food::all();
+
+        return view('default.home', compact('sliders', 'foods'));
     }
 
     public function getPage(Request $request, $page)
@@ -26,18 +26,19 @@ class WebsiteController extends Controller
             $pageData = Page::where('url', $page)->first();
             $template = 'template-one';
             $pageTemplate = $template.'.page';
-            return view($pageTemplate, ['page'=>$page, 'pageData'=>$pageData]);
+
+            return view($pageTemplate, ['page' => $page, 'pageData' => $pageData]);
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }
     }
 
-
     public function getCategoryData(Request $request, $category)
     {
         try {
-            $categoryData = Category::where('url', $category)->with(['products','images'])->withCount('products')->first();
-            return view('template-one.shop', ['data'=>$categoryData]);
+            $categoryData = Category::where('url', $category)->with(['products', 'images'])->withCount('products')->first();
+
+            return view('template-one.shop', ['data' => $categoryData]);
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }
@@ -47,24 +48,26 @@ class WebsiteController extends Controller
     {
         try {
             $productData = Product::where('id', $product)->with(['images'])->first();
-            return view('template-one.productDetails', ['product'=>$productData]);
+
+            return view('template-one.productDetails', ['product' => $productData]);
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }
     }
 
-    public function submitEnquiry(Request $request) {
+    public function submitEnquiry(Request $request)
+    {
         try {
             $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required',
-            'subject' => 'required',
-            'message'=>'required' // max 2MB
-        ]);
+                'name' => 'required|max:255',
+                'email' => 'required',
+                'subject' => 'required',
+                'message' => 'required', // max 2MB
+            ]);
 
-        // $enquiry = Enquiry::create($request->all());
-        return redirect()->route('template-one.contact')->with('success', 'Enquiry created successfully!');
-        //return redirect()->route('contact');
+            // $enquiry = Enquiry::create($request->all());
+            return redirect()->route('template-one.contact')->with('success', 'Enquiry created successfully!');
+            //return redirect()->route('contact');
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }

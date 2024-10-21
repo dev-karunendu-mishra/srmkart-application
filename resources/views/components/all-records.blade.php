@@ -1,4 +1,4 @@
-<table id="example" class="table table-striped" style="width:100%">
+<table id="{{!empty($id) ? $id : 'example'}}" class="table table-striped" style="width:100%">
     <thead>
         <tr>
             @foreach($columns as $key=>$column)
@@ -20,16 +20,58 @@
             <td><a href="mailto:{{$record->$key}}">{{$record->$key}}</a></td>
             @break
             @case('images')
-            <td><img src="{{asset('storage/' . $record->$key[0]->path)}}" class="img-thumbnail" alt="{{$record->$key[0]->path}}" height="75" width="75"/></td>
+            <td>
+                @if(!empty($record->$key) && count($record->$key)  > 0)
+                <img src="{{asset($record->$key[0]->path)}}" class="img-thumbnail" alt="{{$record->$key[0]->path}}" height="75" width="75"/>
+                @else
+                 <img src="https://via.placeholder.com/75x75" class="img-fluid" alt=""/>
+                @endif
+            </td>
+            @break
+            @case('file_path')
+            <td><img src="{{asset($record->$key)}}" class="img-thumbnail" alt="{{$record->$key}}" height="75" width="75"/></td>
+            @break
+            @case('profile')
+            <td><img src="{{asset($record->$key)}}" class="img-thumbnail" alt="{{$record->$key}}" height="75" width="75"/></td>
             @break
             @case('parent')
             <td>{{!empty($record->$key) ? $record->$key->name : 'NA'}}</td>
             @break
+            @case('product_url')
+            @if(!empty($record->$key))
+            <td><a href="{{url($record->$key)}}" target="_blank">{{$record->$key}}</a></td>
+            @else
+            <td>NA</td>
+            @endif
+            
+            @break
             @case('category_id')
             <td>{{!empty($record->category) ? $record->category->name : 'NA'}}</td>
             @break
+            @case('product_id')
+            <td>{{!empty($record->product) ? $record->product->name : 'NA'}}</td>
+            @break
+            @case('package_id')
+            <td>{{!empty($record->package) ? $record->package->name.' Rs : '. $record->package->price : 'NA'}}</td>
+            @break
+            @case('selected_attributes')
+            <td>
+                @if(!empty($record->selected_attributes))
+                    <ul>
+                        @foreach($record->selected_attributes as $attribute => $value)
+                            <li><strong>{{ ucfirst($attribute) }}:</strong> {{ $value }}</li>
+                        @endforeach
+                    </ul>
+                @else
+                    NA
+                @endif
+            </td>
+            @break
             @case('brand_id')
             <td>{{!empty($record->brand) ? $record->brand->name : 'NA'}}</td>
+            @break
+            @case('created_at')
+            <td>{{!empty($record->created_at) ? \Carbon\Carbon::parse($record->$key)->timezone('Asia/Kolkata')->format('d-m-Y') : 'NA'}}</td>
             @break
             @default
              <td>{{$record->$key}}</td>
@@ -58,6 +100,7 @@
         @endforeach
 
     </tbody>
+    {{--
     <tfoot>
         <tr>
             @foreach($columns as $column)
@@ -67,7 +110,7 @@
             <th></th>
             @endif
         </tr>
-    </tfoot>
+    </tfoot>--}}
 </table>
 
-<script src="/template-resources/admin/assets/js/dt-table.js"></script>
+<script src="{{url('/template-resources/admin/assets/js/dt-table.js')}}"></script>
