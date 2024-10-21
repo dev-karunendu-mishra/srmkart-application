@@ -12,6 +12,7 @@
     href="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-2.1.2/af-2.7.0/b-3.1.0/b-colvis-3.1.0/b-html5-3.1.0/b-print-3.1.0/cr-2.0.3/date-1.5.3/fc-5.0.1/fh-4.0.1/kt-2.12.1/r-3.0.2/rg-1.5.0/rr-1.5.0/sc-2.4.3/sb-1.7.1/sp-2.3.1/sl-2.0.3/sr-1.4.1/datatables.min.css"
     rel="stylesheet">
   <!-- Include stylesheet -->
+  <link href="/template-resources/admin/assets/css/product-slider.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bs-stepper/dist/css/bs-stepper.min.css" rel="stylesheet" />
   <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/4.0.0/css/jasny-bootstrap.min.css"> -->
@@ -142,6 +143,7 @@
       const popover = new bootstrap.Popover('.popover-dismiss', {trigger: 'focus'});
   
   </script>
+  @push('scripts')
 </body>
 
 </html>

@@ -1,0 +1,131 @@
+.product-view-box {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.main-image {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.thumbnails-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.thumbnails-wrapper {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+.thumbnail-item {
+    position: relative;
+    /* display: inline-block; */
+    margin-right: 10px;
+    flex-shrink: 0;
+    /* Prevent the child from shrinking */
+    width: 100px;
+    /* Set the width of each thumbnail */
+}
+
+.thumbnail-item img {
+    cursor: pointer;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    object-fit: cover;
+    width: 100px;
+    transition: border-color 0.3s ease;
+}
+
+.thumbnail-item img:hover,
+.thumbnail-item img.active {
+    border-color: #007bff;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    display: none;
+    cursor: pointer;
+    font-size: 12px;
+    z-index: 2;
+}
+
+.thumbnail-item:hover .delete-btn {
+    display: block;
+}
+
+.arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.arrow-btn.left {
+    left: -20px;
+}
+
+.arrow-btn.right {
+    right: -20px;
+}
+
+/* Product Attributes */
+.choose-tle {
+    margin: 0px 0;
+    color: #000;
+    font-weight: 700;
+    font-size: 16px !important;
+    text-align: center;
+}
+
+.colordv {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    justify-content: center;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.colordv .actv {
+    box-shadow: 0px 0px 10px darkgray;
+    background: #2e8b57 !important;
+    color: #ffffff !important;
+}
+
+.colordv label {
+    background: gainsboro;
+    border: none;
+    margin: 0;
+    padding: 2%;
+    width: 20%;
+    font-size: 12px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+}

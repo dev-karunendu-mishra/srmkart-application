@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AssignmentController;
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Admin\Auth\EmailVerificationNotificationController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\Auth\VerifyEmailController;
+use App\Http\Controllers\Admin\BikeController;
 use App\Http\Controllers\Admin\BlogCategoryController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
@@ -17,11 +19,15 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\EnquiryController;
 use App\Http\Controllers\Admin\FoodController;
+use App\Http\Controllers\Admin\FurnitureController;
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\IndustryController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\PrintOutController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\PropertyController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
@@ -130,7 +136,7 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
             'destroy' => 'furniture.destroy',
         ]);
 
-        Route::resource('/bikes', BikesController::class)->names([
+        Route::resource('/bikes', BikeController::class)->names([
             'index' => 'bikes',
             'create' => 'bikes.create',
             'store' => 'bikes.store',
@@ -292,6 +298,16 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
             'edit' => 'packages.edit',
             'update' => 'packages.update',
             'destroy' => 'packages.destroy',
+        ]);
+
+        Route::resource('images', ImageController::class)->names([
+            'index' => 'images',
+            'create' => 'images.create',
+            'store' => 'images.store',
+            'show' => 'images.show',
+            'edit' => 'images.edit',
+            'update' => 'images.update',
+            'destroy' => 'images.destroy',
         ]);
     });
 

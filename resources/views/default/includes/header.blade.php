@@ -337,7 +337,7 @@
                                 <li> <a href="/furniture">Furniture</a> </li>
                                 <li> <a href="/rent-bike">Rent Bike</a> </li>
                                 <li> <a href="/printout">Printout</a> </li>
-                                <li> <a href="/assignment">Assinment</a> </li>
+                                <li> <a href="/assignment">Assignment</a> </li>
                                 <!-- <li>
                                     <a href="shop.html">Categories</a>
                                     <div class="megamenu">
