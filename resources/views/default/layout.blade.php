@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>SRM Kart</title>
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="SRM Kart - Ultimate eCommerce Template">
-    <meta name="author" content="D-THEMES">
+    <meta name="keywords" content="SRM Kart">
+    <meta name="description" content="SRM Kart">
+    <meta name="author" content="">
+    <meta name="robots" content="noindex, nofollow" />
 
     <link rel="icon" type="image/png" href="/assets/images/icons/favicon.png">
 
-    <link rel="preload" href="/assets/fonts/riode.ttf?5gap68" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/srm.ttf?5gap68" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
         crossorigin="anonymous">
     <link rel="preload" href="/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2"
@@ -394,7 +395,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="https://d-themes.com/buynow/riodehtml">Buy SRM Kart!</a></li>
+                <li><a href="https://.com/buynow/riodehtml">Buy SRM Kart!</a></li>
             </ul>
 
 
@@ -431,7 +432,7 @@
                 </li>
                 <li><a href="https://themeforest.net/downloads/"><i class="fas fa-star"></i><span>Reviews</span></a>
                 </li>
-                <li><a href="https://d-themes.com/buynow/riodehtml"><i class="fas fa-shopping-cart"></i><span>Buy
+                <li><a href="https://.com/buynow/riodehtml"><i class="fas fa-shopping-cart"></i><span>Buy
                             now!</span></a></li>
             </ul>
         </div>
@@ -446,7 +447,6 @@
         </div>
     </div> -->
 
-    <!-- <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="/assets/vendor/parallax/parallax.min.js"></script>
     <script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
