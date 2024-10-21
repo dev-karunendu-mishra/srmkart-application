@@ -12,7 +12,7 @@
 
     <link rel="icon" type="image/png" href="/assets/images/icons/favicon.png">
 
-    <link rel="preload" href="/assets/fonts/riode.ttf?5gap68" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/srm.ttf?5gap68" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
         crossorigin="anonymous">
     <link rel="preload" href="/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2" as="font" type="font/woff2"
