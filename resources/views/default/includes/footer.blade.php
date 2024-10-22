@@ -93,10 +93,10 @@
                                 <a href="#">Sign in</a>
                             </li>
                             <li>
-                                <a href="cart.html">View Cart</a>
+                                <a href="/cart">View Cart</a>
                             </li>
                             <li>
-                                <a href="wishlist.html">My Wishlist</a>
+                                <a href="/wishlist">My Wishlist</a>
                             </li>
                             <li>
                                 <a href="#">Track My Order</a>

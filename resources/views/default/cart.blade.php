@@ -1,12 +1,15 @@
 @extends('default.layout')
 @section('main')
+@push('style')
+<link rel="stylesheet" type="text/css" href="/assets/css/style.min.css">
+@endpush
 
     <main class="main cart">
         <div class="page-content pt-7 pb-10">
             <div class="step-by pr-4 pl-4">
-                <h3 class="title title-simple title-step active"><a href="cart.html">1. Shopping Cart</a></h3>
-                <h3 class="title title-simple title-step"><a href="checkout.html">2. Checkout</a></h3>
-                <h3 class="title title-simple title-step"><a href="order.html">3. Order Complete</a></h3>
+                <h3 class="title title-simple title-step active"><a href="/cart">1. Shopping Cart</a></h3>
+                <h3 class="title title-simple title-step"><a href="/checkout">2. Checkout</a></h3>
+                <h3 class="title title-simple title-step"><a href="/order">3. Order Complete</a></h3>
             </div>
             <div class="container mt-7 mb-2">
                 <div class="row">

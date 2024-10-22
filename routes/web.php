@@ -64,24 +64,27 @@ Route::prefix('/')->group(function () {
         return 'Symlink created successfully!';
     });
     Route::get('', [WebsiteController::class, 'index'])->name('home');
+
     Route::get('about-us', function () {
         return view('default.about');
     })->name('about');
-    Route::get('food', function () {
-        return view('default.food');
-    })->name('food');
-    Route::get('rent-for-property', function () {
-        return view('default.property');
-    })->name('property');
-    Route::get('rent-bike', function () {
-        return view('default.bike');
-    })->name('bike');
-    Route::get('furniture', function () {
-        return view('default.furniture');
-    })->name('furniture');
+
+    Route::get('foods', [WebsiteController::class, 'getFoodPage'])->name('foods');
+    Route::get('foods/{foodId}', [WebsiteController::class, 'getFoodDetailPage'])->name('food-detail');
+
+    Route::get('rent-for-property', [WebsiteController::class, 'getPropertyPage'])->name('property');
+    Route::get('properties/{propertyId}', [WebsiteController::class, 'getPropertyDetailPage'])->name('property-detail');
+
+    Route::get('rent-bike', [WebsiteController::class, 'getBikePage'])->name('bike');
+    Route::get('bikes/{bikeId}', [WebsiteController::class, 'getBikeDetailPage'])->name('bike-detail');
+
+    Route::get('furniture', [WebsiteController::class, 'getFurniturePage'])->name('furniture');
+    Route::get('furnitures/{furnitureId}', [WebsiteController::class, 'getFurnitureDetailPage'])->name('furniture-detail');
+
     Route::get('printout', function () {
         return view('default.printout');
     })->name('printout');
+
     Route::get('assignment', function () {
         return view('default.assignment');
     })->name('assignment');
@@ -111,11 +114,11 @@ Route::prefix('/')->group(function () {
     Route::get('products/{product}', [WebsiteController::class, 'getProductData']);
 
     Route::get('cart', function () {
-        return view('template-one.cart');
+        return view('default.cart');
     });
 
     Route::get('checkout', function () {
-        return view('template-one.checkout');
+        return view('default.checkout');
     });
     Route::get('categories/{category}', [WebsiteController::class, 'getCategoryData']);
     Route::get('{page}', [WebsiteController::class, 'getPage']);

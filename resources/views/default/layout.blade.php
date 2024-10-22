@@ -453,8 +453,8 @@
     <script src="/assets/vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
     <script src="/assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="/assets/vendor/owl-carousel/owl.carousel.min.js"></script>
-    <script src="/assets/js/main.min.js"></script>
     @stack('scripts')
+    <script src="/assets/js/main.min.js"></script>
 </body>
 
 </html>

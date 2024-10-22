@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->decimal('price', 10, 2)->nullable();
+            $table->decimal('rating', 10, 2)->nullable();
+            $table->decimal('reviews', 10, 2)->nullable();
+            $table->string('seo_title')->nullable();
+            $table->string('seo_keywords')->nullable();
+            $table->string('seo_description')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

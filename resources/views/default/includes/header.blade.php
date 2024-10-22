@@ -315,10 +315,9 @@
                                 </div>
 
                                 <div class="cart-action">
-                                    <a href="cart.html" class="btn btn-dark btn-link">View Cart</a>
-                                    <a href="checkout.html" class="btn btn-dark"><span>Go To Checkout</span></a>
+                                    <a href="/cart" class="btn btn-dark btn-link">View Cart</a>
+                                    <a href="/checkout" class="btn btn-dark"><span>Go To Checkout</span></a>
                                 </div>
-
                             </div>
 
                         </div>
@@ -332,12 +331,12 @@
                             <ul class="menu">
                                 <li class="{{Route::currentRouteName()=='home'?'active':''}}"> <a href="/">Home</a> </li>
                                 <li class="{{Route::currentRouteName()=='about'?'active':''}}"> <a href="/about-us">About Us</a> </li>
-                                <li> <a href="/food">Food</a> </li>
-                                <li> <a href="/rent-for-property">Property for rent</a> </li>
-                                <li> <a href="/furniture">Furniture</a> </li>
-                                <li> <a href="/rent-bike">Rent Bike</a> </li>
-                                <li> <a href="/printout">Printout</a> </li>
-                                <li> <a href="/assignment">Assignment</a> </li>
+                                <li class="{{Route::currentRouteName()=='foods'?'active':''}}"> <a href="/foods">Food</a> </li>
+                                <li class="{{Route::currentRouteName()=='property'?'active':''}}"> <a href="/rent-for-property">Property for rent</a> </li>
+                                <li class="{{Route::currentRouteName()=='furniture'?'active':''}}"> <a href="/furniture">Furniture</a> </li>
+                                <li class="{{Route::currentRouteName()=='bike'?'active':''}}"> <a href="/rent-bike">Rent Bike</a> </li>
+                                <li class="{{Route::currentRouteName()=='printout'?'active':''}}"> <a href="/printout">Printout</a> </li>
+                                <li class="{{Route::currentRouteName()=='assignment'?'active':''}}"> <a href="/assignment">Assignment</a> </li>
                                 <!-- <li>
                                     <a href="shop.html">Categories</a>
                                     <div class="megamenu">
