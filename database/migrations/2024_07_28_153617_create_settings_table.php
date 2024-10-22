@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->string('domain');
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('domain')->nullable();
             $table->string('address')->nullable();
             $table->string('location')->nullable();
             $table->string('branches')->nullable();

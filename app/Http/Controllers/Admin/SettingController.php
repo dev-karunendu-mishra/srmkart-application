@@ -45,13 +45,13 @@ class SettingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'domain' => 'required',
-            'address' => 'required',
-            'mobile' => 'required',
-            'email' => 'required',
-            'logo' => 'required|mimes:png,jpg,jpeg,gif,svg',
+            'title' => 'nullable',
+            'description' => 'nullable',
+            'domain' => 'nullable',
+            'address' => 'nullable',
+            'mobile' => 'nullable',
+            'email' => 'nullable',
+            'logo' => 'nullable|mimes:png,jpg,jpeg,gif,svg',
         ]);
         // Handle file upload
         $logo = null;

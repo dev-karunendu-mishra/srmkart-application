@@ -25,7 +25,7 @@
                 }">
 
         @forelse ($foods as $food)
-        <div class="product text-center product-with-qty">
+        {{--<div class="product text-center product-with-qty">
             <figure class="product-media">
                 <a href="product.html">
                     <img src="{{ asset($food->images[0]->path) }}" alt="Blue Pinafore Denim Dress"
@@ -40,9 +40,9 @@
                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
                             class="d-icon-heart"></i></a>
                 </div>
-                <div class="product-action">
+                <!-- <div class="product-action">
                     <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                </div>
+                </div> -->
             </figure>
             <div class="product-details">
                 <h3 class="product-name">
@@ -69,7 +69,8 @@
                         title="Add to cart"><i class="d-icon-bag"></i><span>Add to cart</span></a>
                 </div>
             </div>
-        </div>
+        </div>--}}
+        <x-food-card :details="$food"/>
         @empty
         <div class="product text-center product-with-qty">
             <figure class="product-media">
@@ -86,9 +87,9 @@
                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
                             class="d-icon-heart"></i></a>
                 </div>
-                <div class="product-action">
+                <!-- <div class="product-action">
                     <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                </div>
+                </div> -->
             </figure>
             <div class="product-details">
                 <h3 class="product-name">
@@ -127,9 +128,9 @@
                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
                             class="d-icon-heart"></i></a>
                 </div>
-                <div class="product-action">
+                <!-- <div class="product-action">
                     <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                </div>
+                </div> -->
             </figure>
             <div class="product-details">
                 <h3 class="product-name">
@@ -171,9 +172,9 @@
                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
                             class="d-icon-heart"></i></a>
                 </div>
-                <div class="product-action">
+                <!-- <div class="product-action">
                     <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                </div>
+                </div> -->
             </figure>
             <div class="product-details">
                 <h3 class="product-name">
@@ -215,9 +216,9 @@
                     <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
                             class="d-icon-heart"></i></a>
                 </div>
-                <div class="product-action">
+                <!-- <div class="product-action">
                     <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                </div>
+                </div> -->
             </figure>
             <div class="product-details">
                 <h3 class="product-name">

@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Setting;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         View::share('categories', $categories);
         View::share('pages', $pages);
         View::share('siteData', $siteData);
-        $pageClass = ['home' => 'home', 'about' => 'about-us', 'assignment' => 'assignment', 'contact' => 'contact-us'];
+        $pageClass = ['home' => 'home', 'about' => 'about-us', 'assignment' => 'assignment', 'printout' => 'PrintOut', 'contact' => 'contact-us'];
         View::share('pageClass', $pageClass);
     }
 }

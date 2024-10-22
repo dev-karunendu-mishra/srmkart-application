@@ -24,7 +24,10 @@
                         }
                     }
                 }">
-        <div class="product text-center">
+        @forelse($furnitures as $furniture)
+        <x-product-card :details="$furniture" path="/furniture"/>
+        @empty
+        {{-- <div class="product text-center">
             <figure class="product-media">
                 <a href="#">
                     <img src="/assets/images/demos/demo8/products/10.jpg" alt="Blue Pinafore Denim Dress" width="220"
@@ -207,6 +210,8 @@
                     <a href="#" class="btn-product btn-cart" title="Enquiry Now">Enquiry Now</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
+        @endforelse
+        
     </div>
 </section>

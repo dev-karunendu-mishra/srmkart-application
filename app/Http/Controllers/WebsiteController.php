@@ -42,7 +42,7 @@ class WebsiteController extends Controller
     public function getFoodDetailPage(Request $request, $foodId)
     {
         try {
-            $detail = Food::where('id', $foodId)->first();
+            $detail = Food::where('id', $foodId)->orWhere('uuid', $foodId)->first();
             $showAddToCart = true;
             $serviceUrl = Route('foods');
             $serviceText = 'Food';
@@ -69,7 +69,7 @@ class WebsiteController extends Controller
     public function getPropertyDetailPage(Request $request, $propertyId)
     {
         try {
-            $detail = Property::where('id', $propertyId)->first();
+            $detail = Property::where('id', $propertyId)->orWhere('uuid', $propertyId)->first();
             $showAddToCart = false;
             $serviceUrl = Route('property');
             $serviceText = 'Properties';
@@ -84,10 +84,10 @@ class WebsiteController extends Controller
     public function getFurniturePage(Request $request)
     {
         try {
-            $furnitures = Furniture::all();
-            $pageTemplate = 'default.property';
+            $records = Furniture::all();
+            $pageTemplate = 'default.furniture';
 
-            return view($pageTemplate, compact('furnitures'));
+            return view($pageTemplate, compact('records'));
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }
@@ -96,11 +96,13 @@ class WebsiteController extends Controller
     public function getFurnitureDetailPage(Request $request, $furnitureId)
     {
         try {
-            $detail = Furniture::where('id', $furnitureId)->first();
+            $detail = Furniture::where('id', $furnitureId)->orWhere('uuid', $furnitureId)->first();
             $showAddToCart = false;
+            $serviceUrl = Route('furniture');
+            $serviceText = 'Furniture';
             $pageTemplate = 'default.product-detail';
 
-            return view($pageTemplate, compact('detail', 'showAddToCart'));
+            return view($pageTemplate, compact('detail', 'showAddToCart', 'serviceUrl', 'serviceText'));
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }
@@ -109,10 +111,25 @@ class WebsiteController extends Controller
     public function getBikePage(Request $request)
     {
         try {
-            $bikes = Bike::all();
-            $pageTemplate = 'default.property';
+            $records = Bike::all();
+            $pageTemplate = 'default.bike';
 
-            return view($pageTemplate, compact('bikes'));
+            return view($pageTemplate, compact('records'));
+        } catch (\Throwable $th) {
+            print_r($th->getMessage());
+        }
+    }
+
+    public function getBikeDetailPage(Request $request, $bikeId)
+    {
+        try {
+            $detail = Bike::where('id', $bikeId)->orWhere('uuid', $bikeId)->first();
+            $showAddToCart = false;
+            $serviceUrl = Route('bikes');
+            $serviceText = 'Bike';
+            $pageTemplate = 'default.product-detail';
+
+            return view($pageTemplate, compact('detail', 'showAddToCart', 'serviceUrl', 'serviceText'));
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }
@@ -126,19 +143,6 @@ class WebsiteController extends Controller
             $pageTemplate = $template.'.page';
 
             return view($pageTemplate, ['page' => $page, 'pageData' => $pageData]);
-        } catch (\Throwable $th) {
-            print_r($th->getMessage());
-        }
-    }
-
-    public function getBikeDetailPage(Request $request, $bikeId)
-    {
-        try {
-            $detail = Bike::where('id', $bikeId)->first();
-            $showAddToCart = false;
-            $pageTemplate = 'default.product-detail';
-
-            return view($pageTemplate, compact('detail', 'showAddToCart'));
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }
@@ -161,6 +165,50 @@ class WebsiteController extends Controller
             $productData = Product::where('id', $product)->with(['images'])->first();
 
             return view('template-one.productDetails', ['product' => $productData]);
+        } catch (\Throwable $th) {
+            print_r($th->getMessage());
+        }
+    }
+
+    public function placePropertyEnquiry(Request $request, $id)
+    {
+        try {
+            $detail = Property::where('id', $id)->orWhere('uuid', $id)->first();
+            $formAction = Route('property-enquiry.store');
+            $enquiryFor = ['service' => 'property_id', 'value' => $detail->id];
+
+            return view('default.enquiry', compact('detail', 'formAction', 'enquiryFor'));
+
+        } catch (\Throwable $th) {
+            print_r($th->getMessage());
+        }
+    }
+
+    public function placeFurnitureEnquiry(Request $request, $id)
+    {
+        try {
+            $detail = Furniture::where('id', $id)->orWhere('uuid', $id)->first();
+            $formAction = Route('furniture-enquiry.store');
+            $enquiryFor = ['service' => 'furniture_id', 'value' => $detail->id];
+
+            return view('default.enquiry', compact('detail', 'formAction', 'enquiryFor'));
+        } catch (\Throwable $th) {
+            print_r($th->getMessage());
+        }
+    }
+
+    public function placeBikeEnquiry(Request $request, $id)
+    {
+        try {
+            try {
+                $detail = Bike::where('id', $id)->orWhere('uuid', $id)->first();
+                $formAction = Route('bike-enquiry.store');
+                $enquiryFor = ['service' => 'bike_id', 'value' => $detail->id];
+
+                return view('default.enquiry', compact('detail', 'formAction', 'enquiryFor'));
+            } catch (\Throwable $th) {
+                print_r($th->getMessage());
+            }
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }

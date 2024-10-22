@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\BikeEnquiry;
 use App\Http\Controllers\Controller;
+use App\Models\BikeEnquiry;
 use Illuminate\Http\Request;
 
 class BikeEnquiryController extends Controller

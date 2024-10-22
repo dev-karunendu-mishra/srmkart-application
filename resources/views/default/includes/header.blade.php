@@ -174,9 +174,11 @@
                                 <p>{{$siteData ? $siteData->mobile : "Mobile No"}}</p>
                             </div>
                         </a>
-                        <span class="divider"></span>
+
+                        <!-- Wishlist -->
+                        <!-- <span class="divider"></span>
                         <div class="dropdown wishlist wishlist-dropdown off-canvas">
-                            <a href="wishlist.html" class="wishlist-toggle">
+                            <a href="/wishlist" class="wishlist-toggle">
                                 <i class="d-icon-heart"></i>
                             </a>
                             <div class="canvas-overlay"></div>
@@ -249,17 +251,19 @@
 
                             </div>
 
-                        </div>
+                        </div> -->
+
+                        <!-- Cart -->
                         <span class="divider"></span>
                         <div class="dropdown cart-dropdown type2 off-canvas mr-0 mr-lg-2">
-                            <a href="#" class="cart-toggle label-block link">
+                            <a href="/cart" class="cart-toggle label-block link">
                                 <div class="cart-label d-lg-show">
                                     <span class="cart-name">Shopping Cart:</span>
                                     <span class="cart-price">₹0.00</span>
                                 </div>
                                 <i class="d-icon-bag"><span class="cart-count">2</span></i>
                             </a>
-                            <div class="canvas-overlay"></div>
+                            <!-- <div class="canvas-overlay"></div>
 
                             <div class="dropdown-box">
                                 <div class="canvas-header">
@@ -318,7 +322,7 @@
                                     <a href="/cart" class="btn btn-dark btn-link">View Cart</a>
                                     <a href="/checkout" class="btn btn-dark"><span>Go To Checkout</span></a>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                     </div>

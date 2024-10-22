@@ -1,7 +1,13 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\BikeEnquiryController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\EnquiryController;
+use App\Http\Controllers\FurnitureEnquiryController;
+use App\Http\Controllers\PrintOutController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PropertyEnquiryController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 
@@ -81,6 +87,10 @@ Route::prefix('/')->group(function () {
     Route::get('furniture', [WebsiteController::class, 'getFurniturePage'])->name('furniture');
     Route::get('furnitures/{furnitureId}', [WebsiteController::class, 'getFurnitureDetailPage'])->name('furniture-detail');
 
+    Route::get('properties/{id}/enquiry', [WebsiteController::class, 'placePropertyEnquiry'])->name('property-enquiry');
+    Route::get('furniture/{id}/enquiry', [WebsiteController::class, 'placeFurnitureEnquiry'])->name('furniture-enquiry');
+    Route::get('bikes/{id}/enquiry', [WebsiteController::class, 'placeBikeEnquiry'])->name('bike-enquiry');
+
     Route::get('printout', function () {
         return view('default.printout');
     })->name('printout');
@@ -120,6 +130,38 @@ Route::prefix('/')->group(function () {
     Route::get('checkout', function () {
         return view('default.checkout');
     });
+
+    Route::resource('assignment', AssignmentController::class)->only([
+        'store',
+    ])->names([
+        'store' => 'assignment.store',
+    ]);
+
+    Route::resource('printout', PrintOutController::class)->only([
+        'store',
+    ])->names([
+        'store' => 'printout.store',
+    ]);
+
+    Route::resource('property-enquiry', PropertyEnquiryController::class)->only([
+        'store',
+    ])->names([
+        'store' => 'property-enquiry.store',
+    ]);
+
+    Route::resource('bike-enquiry', BikeEnquiryController::class)->only([
+        'store',
+    ])->names([
+        'store' => 'bike-enquiry.store',
+    ]);
+
+    Route::resource('furniture-enquiry', FurnitureEnquiryController::class)->only([
+        'store',
+    ])->names([
+        'store' => 'furniture-enquiry.store',
+    ]);
+
+    Route::get('addToCart', [CartController::class, 'addToCartProduct']);
     Route::get('categories/{category}', [WebsiteController::class, 'getCategoryData']);
     Route::get('{page}', [WebsiteController::class, 'getPage']);
 });

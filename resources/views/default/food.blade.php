@@ -61,7 +61,7 @@
                     <div class="row cols-2 cols-md-3 cols-lg-4 product-wrapper">
                         @forelse($foods as $food)
                         <div class="col-xs-6 col-lg-3 mb-4">
-                            <div class="product text-center product-with-qty">
+                            <!-- <div class="product text-center product-with-qty">
                                 <figure class="product-media">
                                     <a href="/foods/{{$food->id}}">
                                         <img src="{{ asset($food->images[0]->path) }}" alt="Blue Pinafore Denim Dress"
@@ -112,7 +112,8 @@
                                                 class="d-icon-bag"></i><span>Add to cart</span></a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
+                            <x-food-card :details="$food" path="/foods"/>
                         </div>
                         @empty
                         <div class="col-xs-6 col-lg-3 mb-4">

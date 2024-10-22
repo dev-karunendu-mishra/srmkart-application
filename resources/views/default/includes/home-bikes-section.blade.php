@@ -24,6 +24,9 @@
                         }
                     }
                 }">
+        @forelse($bikes as $bike)
+         <x-product-card :details="$bike" path="/bikes"/>
+        @empty
         <div class="product text-center">
             <figure class="product-media">
                 <a href="#">
@@ -208,5 +211,7 @@
                 </div>
             </div>
         </div>
+        @endforelse
+        
     </div>
 </section>

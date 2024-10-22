@@ -25,7 +25,7 @@
                     <div class="main-content">
                         <nav class="toolbox sticky-toolbox sticky-content fix-top">
                             <div class="toolbox-left">
-                                <a href="#"
+                                <!-- <a href="#"
                                     class="toolbox-item left-sidebar-toggle btn btn-outline btn-primary btn-rounded btn-icon-right">Filter<i
                                         class="d-icon-arrow-right"></i></a>
                                 <div class="toolbox-item toolbox-sort select-box text-dark">
@@ -39,20 +39,20 @@
                                         <option value="price-high">Sort forward price high</option>
                                         <option value="">Clear custom sort</option>
                                     </select>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="toolbox-right">
-                                <div class="toolbox-item toolbox-show select-box text-dark">
+                                <!-- <div class="toolbox-item toolbox-show select-box text-dark">
                                     <label>Show :</label>
                                     <select name="count" class="form-control">
                                         <option value="12">12</option>
                                         <option value="24">24</option>
                                         <option value="36">36</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="toolbox-item toolbox-layout">
-                                    <a href="shop-list-mode.html" class="d-icon-mode-list btn-layout"></a>
-                                    <a href="shop.html" class="d-icon-mode-grid btn-layout active"></a>
+                                    <a href="shop-list-mode" class="d-icon-mode-list btn-layout"></a>
+                                    <a href="shop" class="d-icon-mode-grid btn-layout active"></a>
                                 </div>
                             </div>
                         </nav>
@@ -60,7 +60,7 @@
                         <div class="row cols-2 cols-md-3 cols-lg-4 product-wrapper">
                             @forelse($records as $record)
                             <div class="col-xs-6 col-lg-3 mb-4">
-                                <div class="product text-center">
+                                {{--<div class="product text-center">
                                     <figure class="product-media">
                                         <a href="/records/{{$record->id}}">
                                             <img src="{{asset($record->images[0]->path)}}" alt="{{$record->name}}"
@@ -96,7 +96,8 @@
                                         <a href="" class="btn-product btn-cart" title="Enquiry Now">Enquiry Now</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--}}
+                                <x-product-card :details="$record" path="/properties"/>
                             </div>
                             @empty
                             <div class="col-xs-6 col-lg-3 mb-4">
@@ -250,7 +251,7 @@
                             @endforelse
                         </div>
 
-                        <nav class="toolbox toolbox-pagination">
+                        <!-- <nav class="toolbox toolbox-pagination">
                             <p class="show-info">Showing <span>12 of 56</span> Products</p>
                             <ul class="pagination">
                                 <li class="page-item disabled">
@@ -270,7 +271,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </nav>
+                        </nav> -->
                     </div>
                     <aside class="col-lg-3 sidebar shop-sidebar">
                         <div class="sidebar-overlay"></div>

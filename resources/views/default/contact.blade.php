@@ -25,11 +25,10 @@
                             <div class="grey-section d-flex align-items-center h-100">
                                 <div>
                                     <h4 class="mb-2 text-capitalize">Headquarters</h4>
-                                    <p>1600 Amphitheatre Parkway<br>New York WC1 1BA</p>
+                                    <p>{{$siteData ? $siteData->address : "Address"}}</p>
                                     <h4 class="mb-2 text-capitalize">Phone Number</h4>
                                     <p>
-                                        <a href="tel:#">1.800.458.56</a><br>
-                                        <a href="tel:#">1.800.458.56</a>
+                                        <a href="tel:#">{{$siteData ? $siteData->mobile : "Mobile No."}}</a>
                                     </p>
                                     <h4 class="mb-2 text-capitalize">Support</h4>
                                     <p class="mb-4">

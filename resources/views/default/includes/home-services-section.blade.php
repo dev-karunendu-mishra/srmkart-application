@@ -81,7 +81,7 @@
                         </figure>
                     </a>
                     <div class="category-content">
-                        <h4 class="category-name font-weight-bold ls-l"><a href="/assignment">ASSINMENT</a></h4>
+                        <h4 class="category-name font-weight-bold ls-l"><a href="/assignment">ASSIGNMENT</a></h4>
                     </div>
                 </div>
             </div>

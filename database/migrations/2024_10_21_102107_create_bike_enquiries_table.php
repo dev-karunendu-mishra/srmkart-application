@@ -13,7 +13,17 @@ return new class extends Migration
     {
         Schema::create('bike_enquiries', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->unique();
             $table->foreignId('bike_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->text('mobile');
+            $table->text('email');
+            $table->string('hostel')->nullable();
+            $table->string('estancia')->nullable();
+            $table->string('abode')->nullable();
+            $table->string('flat_no')->nullable();
+            $table->text('message')->nullable();
+            $table->string('slot_deadline')->nullable();
             $table->timestamps();
         });
     }

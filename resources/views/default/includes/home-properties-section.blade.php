@@ -25,45 +25,7 @@
                     }
                 }">
         @forelse($properties as $property)
-        <div class="product text-center">
-            <figure class="product-media">
-                <a href="/properties/{{$property->id}}">
-                    <img src="{{asset($property->images[0]->path)}}" alt="{{$property->name}}" width="220" height="245"
-                        style="background-color: #f2f3f5;">
-                </a>
-                <div class="product-action-vertical">
-                    <!-- <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                                    data-target="#addCartModal" title="Add to cart"><i class="d-icon-bag"></i></a> -->
-                    <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-                            class="d-icon-heart"></i></a>
-                </div>
-                <div class="product-action">
-                    <a href="#" class="btn-product btn-quickview" title="Enquiry">Enquiry Now</a>
-                </div>
-            </figure>
-            <div class="product-details">
-                <div class="product-cat">
-                    <a href="shop-grid-3cols.html">2BHK</a>
-                </div>
-                <h3 class="product-name">
-                    <a href="/properties/{{$property->id}}">{{$property->name}}</a>
-                </h3>
-                <div class="ratings-container">
-                    @isset($property->rating)
-                    <div class="ratings-full">
-                        <span class="ratings" style="width:40%"></span>
-                        <span class="tooltiptext tooltip-top"></span>
-                    </div>
-                    @endisset
-                    @isset($property->reviews)
-                    <a href="#" class="rating-reviews">( {{$property->reviews}} Reviews )</a>
-                    @endisset
-                </div>
-                <div class="product-action">
-                    <a href="#" class="btn-product btn-cart" title="Enquiry Now">Enquiry Now</a>
-                </div>
-            </div>
-        </div>
+        <x-product-card :details="$property" path="/properties"/>
         @empty
         <div class="product text-center">
             <figure class="product-media">

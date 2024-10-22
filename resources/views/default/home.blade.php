@@ -82,53 +82,54 @@
                         <div class="banner banner-3 overlay-zoom banner-fixed banner-radius content-middle appear-animate"
                             data-animation-options="{'name': 'fadeInLeftShorter', 'duration': '1s', 'delay': '.2s'}">
                             <figure>
-                                <img src="/assets/images/demos/demo1/banners/banner1.jpg" alt="banner" width="380"
+                                <img src="/assets/images/printout.jpg" alt="banner" width="380"
                                     height="207" style="background-color: #836648;">
                             </figure>
                             <div class="banner-content">
-                                <h3 class="banner-title text-white mb-1">For Men's</h3>
-                                <h4 class="banner-subtitle text-uppercase font-weight-normal text-white">
+                                <h3 class="banner-title text-white mb-1">PrintOut</h3>
+                                <!-- <h4 class="banner-subtitle text-uppercase font-weight-normal text-white">
                                     Starting at ₹29
-                                </h4>
+                                </h4> -->
                                 <hr class="banner-divider">
-                                <a href="shop.html" class="btn btn-white btn-link btn-underline">Shop Now<i
+                                <a href="/printout" class="btn btn-white btn-link btn-underline">PrintOut<i
                                         class="d-icon-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-sm-6 mb-4 order-lg-auto order-sm-last">
                         <div class="banner banner-4 banner-fixed banner-radius overlay-effect2 content-middle content-center appear-animate"
                             data-animation-options="{'name': 'fadeIn', 'duration': '1s', 'delay': '.2s'}">
                             <figure>
-                                <img src="/assets/images/demos/demo1/banners/banner2.jpg" alt="banner" width="350"
-                                    height="177" style="background-color: #1e1e1e;">
+                                <img src="/assets/images/furniture.webp" alt="banner" width="380"
+                                    height="207" style="background-color: #1e1e1e;">
                             </figure>
-                            <div class="banner-content d-flex align-items-center w-100 text-left">
-                                <div class="mr-auto mb-4 mb-md-0">
-                                    <h4 class="banner-subtitle text-white">
+                            <div class="banner-content d-flex flex-column align-items-center w-100 text-left">
+                                <div class="mb-4 mb-md-0">
+                                    <!-- <h4 class="banner-subtitle text-white">
                                         Up to 20% Off<br><span class="ls-l">Black Friday</span>
-                                    </h4>
-                                    <h3 class="banner-title text-primary font-weight-bold lh-1 mb-0">Sale</h3>
+                                    </h4> -->
+                                    <h3 class="banner-title text-primary font-weight-bold lh-1 mb-0">Furniture</h3>
                                 </div>
-                                <a href="shop.html"
-                                    class="btn btn-primary btn-outline btn-rounded font-weight-bold text-white">Shop
-                                    Now<i class="d-icon-arrow-right"></i></a>
+                                <a href="/furniture"
+                                    class="btn btn-primary btn-outline btn-rounded font-weight-bold text-white">Furniture<i class="d-icon-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
+
                     <div class="col-lg-4 col-sm-6 mb-4">
                         <div class="banner overlay-zoom banner-5 banner-fixed banner-radius content-middle appear-animate"
                             data-animation-options="{'name': 'fadeInRightShorter', 'duration': '1s', 'delay': '.2s'}">
                             <figure>
-                                <img src="/assets/images/demos/demo1/banners/banner3.jpg" alt="banner" width="380"
+                                <img src="/assets/images/assignment.jpg" alt="banner" width="380"
                                     height="207" style="background-color: #97928b;">
                             </figure>
                             <div class="banner-content">
-                                <h3 class="banner-title text-white mb-1">Fashions</h3>
-                                <h4 class="banner-subtitle text-uppercase font-weight-normal text-white">30% Off
-                                </h4>
+                                <h3 class="banner-title text-white mb-1">Assignment</h3>
+                                <!-- <h4 class="banner-subtitle text-uppercase font-weight-normal text-white">30% Off
+                                </h4> -->
                                 <hr class="banner-divider">
-                                <a href="shop.html" class="btn btn-white btn-link btn-underline">Shop Now<i
+                                <a href="/assignment" class="btn btn-white btn-link btn-underline">Assignment<i
                                         class="d-icon-arrow-right"></i></a>
                             </div>
                         </div>
