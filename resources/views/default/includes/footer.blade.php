@@ -3,7 +3,7 @@
         <div class="footer-top">
             <div class="row align-items-center">
                 <div class="col-lg-3">
-                    <a href="demo1.html" class="logo-footer">
+                    <a href="/" class="logo-footer">
                         @if($siteData)
                         <img src="{{ asset($siteData->logo) }}" alt="logo" width="43" height="43" />
                         @else

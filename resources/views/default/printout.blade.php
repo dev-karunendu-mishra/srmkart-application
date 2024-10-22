@@ -7,14 +7,14 @@
     <nav class="breadcrumb-nav">
         <div class="container">
             <ul class="breadcrumb">
-                <li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
-                <li>About Us</li>
+                <li><a href="/"><i class="d-icon-home"></i></a></li>
+                <li>Print</li>
             </ul>
         </div>
     </nav>
     <div class="page-header pl-4 pr-4" style="background-image: url(/assets/images/page-header/about-us.jpg)">
-        <h3 class="page-subtitle font-weight-bold">Welcome to Riode</h3>
-        <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Our Services</h1>
+        <h3 class="page-subtitle font-weight-bold">Welcome to SRMKART</h3>
+        <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Print</h1>
         <p class="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br> nec
             sagittis sem nibh id elit.</p>
     </div>
@@ -41,79 +41,57 @@
                     <label>Email Address *</label>
                     <input type="email" class="form-control" name="email-address" required="">
                     
-                    <!-- <label>Company Name (Optional)</label>
-                    <input type="text" class="form-control" name="company-name" required=""> -->
-                    <label>Hostel *</label>
-                    <select name="country" class="form-control">
-                        <option value="us" selected="">United States (US)</option>
-                        <option value="uk"> United Kingdom</option>
-                        <option value="fr">France</option>
-                        <option value="aus">Austria</option>
+                    <label>Location *</label>
+                    <select id="main-category" onchange="updateSubCategory()" class="form-control">
+                        <option value="hostel" selected="">Hostel</option>
+                        <option value="estancia">Estancia</option>
+                        <option value="abode">Abode</option>
                     </select>
 
-                    <label>Estancia  *</label>
-                    <select name="country" class="form-control">
-                        <option value="us" selected="">United States (US)</option>
-                        <option value="uk"> United Kingdom</option>
-                        <option value="fr">France</option>
-                        <option value="aus">Austria</option>
-                    </select>
-
-                    <label>Abode  *</label>
-                    <select name="country" class="form-control">
-                        <option value="us" selected="">United States (US)</option>
-                        <option value="uk"> United Kingdom</option>
-                        <option value="fr">France</option>
-                        <option value="aus">Austria</option>
+                    <label for="sub-category">Sub location *</label>
+                    <select id="sub-category" class="form-control">
+                    <!-- Options will be dynamically added here -->
                     </select>
                     
                     <label>Flat No. / Room No. *</label>
                     <input type="text" class="form-control" name="email-address" required="">
-                    <!-- <div class="select-box">
-                    </div> -->
-                    <!-- <label>Street Address *</label>
-                    <input type="text" class="form-control" name="address1" required=""
-                        placeholder="House number and street name">
-                    <input type="text" class="form-control" name="address2" required=""
-                        placeholder="Apartment, suite, unit, etc. (optional)">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <label>Town / City *</label>
-                            <input type="text" class="form-control" name="city" required="">
-                        </div>
-                        <div class="col-xs-6">
-                            <label>State *</label>
-                            <input type="text" class="form-control" name="state" required="">
-                        </div>
-                    </div> -->
-                    <!-- <div class="row">
-                        <-- <div class="col-xs-6">
-                            <label>ZIP *</label>
-                            <input type="text" class="form-control" name="zip" required="">
-                        </div> ->
-                        <div class="col-12">
-                            </div>
-                        </div>
                     
-                    <div class="form-checkbox mb-0">
-                        <input type="checkbox" class="custom-checkbox" id="create-account"
-                            name="create-account">
-                        <label class="form-control-label ls-s" for="create-account">Create an
-                            account?</label>
-                    </div>
-                    <div class="form-checkbox mb-6">
-                        <input type="checkbox" class="custom-checkbox" id="different-address"
-                            name="different-address">
-                        <label class="form-control-label ls-s" for="different-address">Ship to a different
-                            address?</label>
-                    </div> -->
-                    <!-- <h2 class="title title-simple text-uppercase text-left">Additional Information</h2>
-                    <label>Order Notes (Optional)</label> -->
                 </div>
                 <aside class="col-md-6 sticky-sidebar-wrapper">
                     <div class="sticky-sidebar mt-1" data-sticky-options="{'bottom': 50}">
                         <div class="summary pt-5">
                             <h3 class="title title-simple text-left text-uppercase">Additional Information</h3>
+
+                            <div class="pb-5">
+                                <h4 class="h4 summary-subtitle pt-0">Select Slot</h4>
+                                <!-- <label>Location *</label> -->
+                                <select name="location" class="form-control">
+                                    <option value="am" selected="">AM</option>
+                                    <option value="pm">PM</option>
+                                </select>
+
+                                <div class="custom-radio">
+                                    <input type="radio" id="slotOne" name="slots"
+                                        class="custom-control-input" checked="">
+                                    <label class="custom-control-label"
+                                        for="slotOne">2-3</label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" id="slotTwo"
+                                        name="slots" class="custom-control-input">
+                                    <label class="custom-control-label"
+                                        for="slotTwo">5-6</label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" id="slotThree"
+                                        name="slots" class="custom-control-input">
+                                    <label class="custom-control-label"
+                                        for="slotThree">8-9</label>
+                                </div>
+                            </div>
+
+                            <label>Attach file *</label>
+                            <input type="file" class="form-control" name="file" required="">
                             
                             <textarea class="form-control pb-2 pt-2" cols="30" rows="5"
                                 placeholder="Notes about your order, e.g. special notes for delivery"></textarea>

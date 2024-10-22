@@ -96,7 +96,7 @@
     </div>
 
     <div class="sticky-footer sticky-content fix-bottom">
-        <a href="demo1.html" class="sticky-link">
+        <a href="/" class="sticky-link">
             <i class="d-icon-home"></i>
             <span>Home</span>
         </a>
@@ -146,7 +146,7 @@
 
             <ul class="mobile-menu mmenu-anim">
                 <li>
-                    <a href="demo1.html">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
                     <a href="shop.html">Categories</a>
@@ -455,6 +455,35 @@
     <script src="/assets/vendor/owl-carousel/owl.carousel.min.js"></script>
     @stack('scripts')
     <script src="/assets/js/main.min.js"></script>
+
+    <script>
+  // Object containing sub-categories
+  const subCategories = {
+    hostel: ["Hostel 1", "Hostel 2", "Hostel 3", "Hostel 4"],
+    estancia: ["Tower 1", "Tower 2", "Tower 3", "Tower 4"],
+    abode: ["A Block", "B Block", "C Block", "D Block"]
+  };
+
+  // Function to update the sub-category dropdown
+  function updateSubCategory() {
+    const mainCategory = document.getElementById("main-category").value;
+    const subCategorySelect = document.getElementById("sub-category");
+
+    // Clear the current options in sub-category select
+    subCategorySelect.innerHTML = '';
+
+    // Add the new sub-category options
+    subCategories[mainCategory].forEach(function(subCategory) {
+      const option = document.createElement("option");
+      option.value = subCategory.toLowerCase();
+      option.text = subCategory;
+      subCategorySelect.appendChild(option);
+    });
+  }
+
+  // Initialize the sub-category dropdown when the page loads
+  document.addEventListener("DOMContentLoaded", updateSubCategory);
+</script>
 </body>
 
 </html>

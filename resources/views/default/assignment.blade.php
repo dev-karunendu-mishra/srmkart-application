@@ -3,10 +3,11 @@
 @push('style')
 <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css">
 @endpush
+
     <nav class="breadcrumb-nav">
         <div class="container">
             <ul class="breadcrumb">
-                <li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
+                <li><a href="/"><i class="d-icon-home"></i></a></li>
                 <li class="text-capitalize">{{!empty($pageClass[Route::currentRouteName()])?$pageClass[Route::currentRouteName()]:''}}</li>
             </ul>
         </div>
@@ -40,79 +41,57 @@
                     <label>Email Address *</label>
                     <input type="email" class="form-control" name="email-address" required="">
                     
-                    <!-- <label>Company Name (Optional)</label>
-                    <input type="text" class="form-control" name="company-name" required=""> -->
-                    <label>Hostel *</label>
-                    <select name="country" class="form-control">
-                        <option value="us" selected="">United States (US)</option>
-                        <option value="uk"> United Kingdom</option>
-                        <option value="fr">France</option>
-                        <option value="aus">Austria</option>
+                    <label>Location *</label>
+                    <select id="main-category" onchange="updateSubCategory()" class="form-control">
+                        <option value="hostel" selected="">Hostel</option>
+                        <option value="estancia">Estancia</option>
+                        <option value="abode">Abode</option>
                     </select>
 
-                    <label>Estancia  *</label>
-                    <select name="country" class="form-control">
-                        <option value="us" selected="">United States (US)</option>
-                        <option value="uk"> United Kingdom</option>
-                        <option value="fr">France</option>
-                        <option value="aus">Austria</option>
-                    </select>
-
-                    <label>Abode  *</label>
-                    <select name="country" class="form-control">
-                        <option value="us" selected="">United States (US)</option>
-                        <option value="uk"> United Kingdom</option>
-                        <option value="fr">France</option>
-                        <option value="aus">Austria</option>
+                    <label for="sub-category">Sub location *</label>
+                    <select id="sub-category" class="form-control">
+                    <!-- Options will be dynamically added here -->
                     </select>
                     
                     <label>Flat No. / Room No. *</label>
                     <input type="text" class="form-control" name="email-address" required="">
-                    <!-- <div class="select-box">
-                    </div> -->
-                    <!-- <label>Street Address *</label>
-                    <input type="text" class="form-control" name="address1" required=""
-                        placeholder="House number and street name">
-                    <input type="text" class="form-control" name="address2" required=""
-                        placeholder="Apartment, suite, unit, etc. (optional)">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <label>Town / City *</label>
-                            <input type="text" class="form-control" name="city" required="">
-                        </div>
-                        <div class="col-xs-6">
-                            <label>State *</label>
-                            <input type="text" class="form-control" name="state" required="">
-                        </div>
-                    </div> -->
-                    <!-- <div class="row">
-                        <-- <div class="col-xs-6">
-                            <label>ZIP *</label>
-                            <input type="text" class="form-control" name="zip" required="">
-                        </div> ->
-                        <div class="col-12">
-                            </div>
-                        </div>
-                    
-                    <div class="form-checkbox mb-0">
-                        <input type="checkbox" class="custom-checkbox" id="create-account"
-                            name="create-account">
-                        <label class="form-control-label ls-s" for="create-account">Create an
-                            account?</label>
-                    </div>
-                    <div class="form-checkbox mb-6">
-                        <input type="checkbox" class="custom-checkbox" id="different-address"
-                            name="different-address">
-                        <label class="form-control-label ls-s" for="different-address">Ship to a different
-                            address?</label>
-                    </div> -->
-                    <!-- <h2 class="title title-simple text-uppercase text-left">Additional Information</h2>
-                    <label>Order Notes (Optional)</label> -->
                 </div>
                 <aside class="col-md-6 sticky-sidebar-wrapper">
                     <div class="sticky-sidebar mt-1" data-sticky-options="{'bottom': 50}">
                         <div class="summary pt-5">
                             <h3 class="title title-simple text-left text-uppercase">Additional Information</h3>
+
+                            <div class="pb-5">
+                                <h4 class="summary-subtitle pt-0">Deadline:  (Only for assignment)</h4>
+
+                                <div class="custom-radio">
+                                    <input type="radio" id="deadlineOne" name="deadline"
+                                        class="custom-control-input" checked="">
+                                    <label class="custom-control-label"
+                                        for="deadlineOne">24hrs. - 30hrs.</label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" id="deadlineTwo"
+                                        name="deadline" class="custom-control-input">
+                                    <label class="custom-control-label"
+                                        for="deadlineTwo">1 Week</label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" id="deadlineThree"
+                                        name="deadline" class="custom-control-input">
+                                    <label class="custom-control-label"
+                                        for="deadlineThree">2 Week</label>
+                                </div>
+                                <div class="custom-radio">
+                                    <input type="radio" id="deadlineFour"
+                                        name="deadline" class="custom-control-input">
+                                    <label class="custom-control-label"
+                                        for="deadlineFour">1 Month</label>
+                                </div>
+                            </div>
+
+                            <label>Attach file *</label>
+                            <input type="file" class="form-control" name="file" required="">
                             
                             <textarea class="form-control pb-2 pt-2" cols="30" rows="5"
                                 placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
@@ -123,4 +102,5 @@
             </div>
         </form>
     </div>
+
 @endsection
