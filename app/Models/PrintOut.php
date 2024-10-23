@@ -10,7 +10,7 @@ class PrintOut extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['uuid', 'name', 'mobile', 'email', 'hostel', 'estancia', 'abode', 'flat_no', 'message', 'slot_deadline'];
+    protected $fillable = ['uuid', 'name', 'mobile', 'email', 'hostel', 'estancia', 'abode', 'flat_no', 'message', 'slot_deadline', 'status'];
 
     public function images()
     {

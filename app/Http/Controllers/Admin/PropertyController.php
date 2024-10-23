@@ -23,7 +23,7 @@ class PropertyController extends Controller
 
     private $updateMessage = 'Property updated successfully.';
 
-    private $columns = ['id' => 'ID', 'name' => 'Name', 'images' => 'Image', 'price' => 'Price', 'created_at' => 'Created At'];
+    private $columns = ['id' => 'ID', 'name' => 'Name', 'images' => 'Image', 'price' => 'Price', 'location' => 'Location', 'flat_type' => "Flat's Type", 'status' => 'Status', 'created_at' => 'Created At'];
 
     private $fields = [
         [
@@ -47,6 +47,35 @@ class PropertyController extends Controller
             'label' => "Property's Price",
             'placeholder' => "Property's Price",
         ],
+        'location' => [
+            'id' => 'location',
+            'name' => 'location',
+            'type' => 'select',
+            'label' => "Property's Location",
+            'placeholder' => "Property's Location",
+        ],
+        'flat_type' => [
+            'id' => 'flat_type',
+            'name' => 'flat_type',
+            'type' => 'select',
+            'label' => "Flat's Type",
+            'placeholder' => "Flat's Type",
+            'options' => [],
+        ],
+        'vacancy' => [
+            'id' => 'vacancy',
+            'name' => 'vacancy',
+            'type' => 'text',
+            'label' => 'Vacancy',
+            'placeholder' => 'Vacancy',
+        ],
+        'status' => [
+            'id' => 'status',
+            'name' => 'status',
+            'type' => 'select',
+            'label' => "Property's Status",
+            'placeholder' => "Property's Status",
+        ],
         [
             'id' => 'propertyImage',
             'name' => 'image[]',
@@ -62,6 +91,8 @@ class PropertyController extends Controller
     public function index()
     {
         $records = Property::with(['images'])->get();
+        $this->fields['location']['options'] = (object) [(object) ['id' => 'Estancia', 'name' => 'Estancia'], (object) ['id' => 'Abode', 'name' => 'Abode']];
+        $this->fields['status']['options'] = (object) [(object) ['id' => 'Active', 'name' => 'Active'], (object) ['id' => 'Sold', 'name' => 'Sold']];
 
         return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null]);
 
@@ -86,6 +117,10 @@ class PropertyController extends Controller
             'price' => 'required|numeric',
             'reviews' => 'nullable|numeric',
             'rating' => 'nullable|numeric',
+            'location' => 'required|string',
+            'flat_type' => 'required|string',
+            'status' => 'nullable|string',
+            'vacancy' => 'nullable|numeric',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'seo_title' => 'nullable|string',
             'seo_keywords' => 'nullable|string',
@@ -117,6 +152,9 @@ class PropertyController extends Controller
      */
     public function edit(Property $property)
     {
+        $this->fields['location']['options'] = (object) [(object) ['id' => 'Estancia', 'name' => 'Estancia'], (object) ['id' => 'Abode', 'name' => 'Abode']];
+        $this->fields['status']['options'] = (object) [(object) ['id' => 'Active', 'name' => 'Active'], (object) ['id' => 'Sold', 'name' => 'Sold']];
+
         return view($this->editView, ['columns' => $this->columns, 'fields' => $this->fields, 'model' => $property, 'edit' => true]);
     }
 
@@ -131,6 +169,10 @@ class PropertyController extends Controller
             'price' => 'nullable|numeric',
             'reviews' => 'nullable|numeric',
             'rating' => 'nullable|numeric',
+            'location' => 'nullable|string',
+            'flat_type' => 'nullable|string',
+            'status' => 'nullable|string',
+            'vacancy' => 'nullable|numeric',
             'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'seo_title' => 'nullable|string',
             'seo_keywords' => 'nullable|string',

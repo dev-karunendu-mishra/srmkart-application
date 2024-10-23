@@ -4,25 +4,17 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css">
 @endpush
 
-    <nav class="breadcrumb-nav">
-        <div class="container">
-            <ul class="breadcrumb">
-                <li><a href="/"><i class="d-icon-home"></i></a></li>
-                <li>Print</li>
-            </ul>
-        </div>
-    </nav>
-    <div class="page-header pl-4 pr-4" style="background-image: url(/assets/images/page-header/about-us.jpg)">
-        <h3 class="page-subtitle font-weight-bold">Welcome to SRMKART</h3>
-        <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Print</h1>
-        <p class="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br> nec
-            sagittis sem nibh id elit.</p>
+<nav class="breadcrumb-nav">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/"><i class="d-icon-home"></i></a></li>
+            <li>Print</li>
+        </ul>
     </div>
 </nav>
 <div class="page-header pl-4 pr-4" style="background-image: url(/assets/images/page-header/about-us.jpg)">
-    <h3 class="page-subtitle font-weight-bold">Lorem quis bibendum</h3>
-    <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">
-        {{!empty($pageClass[Route::currentRouteName()])?$pageClass[Route::currentRouteName()]:''}}</h1>
+    <h3 class="page-subtitle font-weight-bold">Welcome to SRMKART</h3>
+    <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Print</h1>
     <p class="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br> nec
         sagittis sem nibh id elit.</p>
 </div>
@@ -157,7 +149,7 @@
 
                         <div id="" class="">
                             <label>File Attachment *</label>
-                            <input name="attachment[]" type="file" class="form-control" />
+                            <input name="attachment[]" type="file" class="form-control" multiple/>
                         </div>
 
                         <textarea name="message" class="form-control pb-2 pt-2" cols="30" rows="5"

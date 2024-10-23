@@ -22,7 +22,7 @@ class PrintOutController extends Controller
 
     private $updateMessage = 'Print Out updated successfully.';
 
-    private $columns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'message' => 'Message', 'images' => 'Attachment', 'created_at' => 'Created At'];
+    private $columns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'location' => 'Location', 'flat_no' => 'Flat / Room No', 'message' => 'Message', 'slot_deadline' => 'Slot / Deadline', 'images' => 'Attachment', 'created_at' => 'Created At'];
 
     private $fields = [
         [

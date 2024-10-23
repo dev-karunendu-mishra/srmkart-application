@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('flat_no')->nullable();
             $table->text('message')->nullable();
             $table->string('slot_deadline')->nullable();
+            $table->enum('status', ['pending', 'printed'])->default('pending')->nullable();
             $table->timestamps();
         });
     }

@@ -10,11 +10,16 @@ class Property extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['uuid', 'name', 'description', 'price', 'rating', 'reviews', 'seo_title', 'seo_keywords', 'seo_description'];
+    protected $fillable = ['uuid', 'name', 'description', 'price', 'rating', 'reviews', 'seo_title', 'seo_keywords', 'seo_description', 'location', 'flat_type', 'status', 'vacancy'];
 
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function enquiries()
+    {
+        return $this->hasMany(PropertyEnquiry::class);
     }
 
     protected static function boot()

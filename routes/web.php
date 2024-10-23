@@ -123,9 +123,7 @@ Route::prefix('/')->group(function () {
 
     Route::get('products/{product}', [WebsiteController::class, 'getProductData']);
 
-    Route::get('cart', function () {
-        return view('default.cart');
-    });
+    Route::get('cart', [CartController::class, 'index'])->name('cart');
 
     Route::get('checkout', function () {
         return view('default.checkout');
@@ -161,7 +159,10 @@ Route::prefix('/')->group(function () {
         'store' => 'furniture-enquiry.store',
     ]);
 
-    Route::get('addToCart', [CartController::class, 'addToCartProduct']);
+    Route::post('addToCart', [CartController::class, 'addToCartProduct']);
+    Route::post('removeFromCart', [CartController::class, 'removeFromCart']);
+    Route::post('clearCart', [CartController::class, 'removeFromCart']);
+    Route::post('updateCart', [CartController::class, 'removeFromCart']);
     Route::get('categories/{category}', [WebsiteController::class, 'getCategoryData']);
     Route::get('{page}', [WebsiteController::class, 'getPage']);
 });

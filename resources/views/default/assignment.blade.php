@@ -151,7 +151,7 @@
 
                         <div id="" class="">
                             <label>File Attachment *</label>
-                            <input name="attachment[]" type="file" class="form-control" />
+                            <input name="attachment[]" type="file" class="form-control" multiple/>
                         </div>
 
                         <textarea name="message" class="form-control pb-2 pt-2" cols="30" rows="5"

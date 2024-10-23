@@ -17,6 +17,12 @@ class PropertyEnquiry extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    public function property()
+    {
+        return $this->belongsTo(Property::class);
+    }
+
+
     protected static function boot()
     {
         parent::boot();

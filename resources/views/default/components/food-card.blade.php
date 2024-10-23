@@ -48,7 +48,7 @@
                 <button title="calculate" class="quantity-plus d-icon-plus"></button>
             </div>
             <a href="#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal"
-                title="Add to cart"><i class="d-icon-bag"></i><span>Add to cart</span></a>
+                title="Add to cart" data-product-uuid="{{$details->uuid}}"><i class="d-icon-bag"></i><span>Add to cart</span></a>
         </div>
     </div>
 </div>

@@ -56,7 +56,7 @@ class AssignmentController extends Controller
                 'regex:/^[\p{L}\s.-]+$/u', // Allows letters, spaces, and some punctuation
             ],
             'slot_deadline' => 'required|string',
-            'attachment.*' => 'file|mimes:pdf',
+            'attachment.*' => 'file|mimes:pdf,png,docx,jpg,jpeg,webp',
         ]);
 
         $validatedData['hostel'] = null;

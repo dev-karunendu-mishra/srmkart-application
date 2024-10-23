@@ -9,6 +9,9 @@
     <meta name="description" content="SRM Kart">
     <meta name="author" content="">
     <meta name="robots" content="noindex, nofollow" />
+    
+    <!-- CSRF Token in a meta tag -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="icon" type="image/png" href="/assets/images/icons/favicon.png">
 
@@ -456,7 +459,7 @@
     @stack('scripts')
     <script src="/assets/js/main.min.js"></script>
 
-    <script>
+    <!-- <script>
   // Object containing sub-categories
   const subCategories = {
     hostel: ["Hostel 1", "Hostel 2", "Hostel 3", "Hostel 4"],
@@ -483,7 +486,7 @@
 
   // Initialize the sub-category dropdown when the page loads
   document.addEventListener("DOMContentLoaded", updateSubCategory);
-</script>
+</script> -->
 </body>
 
 </html>

@@ -5,19 +5,12 @@
 @endpush
 
 <main class="main">
-        <nav class="breadcrumb-nav">
-            <div class="container">
-                <ul class="breadcrumb">
-                    <li><a href="/"><i class="d-icon-home"></i></a></li>
-                    <li>Furnitures</li>
-                </ul>
-            </div>
-        </nav>
-        <div class="page-header pl-4 pr-4" style="background-image: url(/assets/images/page-header/about-us.jpg)">
-            <h3 class="page-subtitle font-weight-bold">Cotegory</h3>
-            <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Furnitures</h1>
-            <p class="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br> nec
-                sagittis sem nibh id elit.</p>
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="/"><i class="d-icon-home"></i></a></li>
+                <li>Furnitures</li>
+            </ul>
         </div>
     </nav>
     <div class="page-header pl-4 pr-4" style="background-image: url(/assets/images/page-header/about-us.jpg)">
@@ -67,7 +60,7 @@
                     <div class="row cols-2 cols-md-3 cols-lg-4 product-wrapper">
                         @forelse($records as $record)
                         <div class="col-xs-6 col-lg-3 mb-4">
-                            <x-product-card :details="$record" path="/furniture"/>
+                            <x-product-card :details="$record" path="/furniture" />
                         </div>
                         @empty
                         <div class="col-xs-6 col-lg-3 mb-4">

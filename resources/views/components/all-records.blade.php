@@ -21,12 +21,19 @@
             @break
             @case('images')
             <td>
-                @if(!empty($record->$key) && count($record->$key)  > 0)
+                {{--@if(!empty($record->$key) && count($record->$key)  > 0)
                 <img src="{{asset($record->$key[0]->path)}}" class="img-thumbnail" alt="{{$record->$key[0]->path}}" height="75" width="75"/>
                 @else
                  <img src="https://via.placeholder.com/75x75" class="img-fluid" alt=""/>
+                @endif--}}
+                @if(!empty($record->$key) && count($record->$key)  > 0)
+                <embed src="{{asset($record->$key->first()->path)}}" width="100" height="100"/>
                 @endif
+                
             </td>
+            @break
+            @case('location')
+            <td>{{!empty($record->hostel) ? "Hostel : ".$record->hostel : (!empty($record->estancia) ? "Estancia : ".$record->estancia : (!empty($record->abode) ? "Abode : ".$record->abode : (!empty($record->$key) ? $record->$key :'NA')))}}</td>
             @break
             @case('file_path')
             <td><img src="{{asset($record->$key)}}" class="img-thumbnail" alt="{{$record->$key}}" height="75" width="75"/></td>

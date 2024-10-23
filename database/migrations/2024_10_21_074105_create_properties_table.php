@@ -23,6 +23,10 @@ return new class extends Migration
             $table->string('seo_keywords')->nullable();
             $table->string('seo_description')->nullable();
             $table->boolean('is_active')->default(true);
+            $table->enum('location', ['Estancia', 'Abode']);
+            $table->string('flat_type')->nullable();
+            $table->enum('status', ['sold', 'active', 'vacancy'])->default('active')->nullable();
+            $table->decimal('vacancy', 10, 2)->nullable();
             $table->timestamps();
         });
     }
