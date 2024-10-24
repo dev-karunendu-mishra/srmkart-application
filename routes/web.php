@@ -32,7 +32,7 @@ Route::prefix('/')->group(function () {
     Route::get('link', function () {
         Artisan::call('storage:link');
         $target = $_SERVER['DOCUMENT_ROOT'].'/uploads';
-        $link = $_SERVER['DOCUMENT_ROOT'].'/public/storage/uploads';
+        $link = $_SERVER['DOCUMENT_ROOT'].'/storage/uploads';
         // Check if the symlink or directory already exists
         // Check if the symlink or directory already exists
         // Function to recursively delete a directory and its contents
@@ -129,6 +129,10 @@ Route::prefix('/')->group(function () {
         return view('default.checkout');
     });
 
+    Route::get('order', function () {
+        return view('default.order');
+    });
+
     Route::resource('assignment', AssignmentController::class)->only([
         'store',
     ])->names([
@@ -162,7 +166,7 @@ Route::prefix('/')->group(function () {
     Route::post('addToCart', [CartController::class, 'addToCartProduct']);
     Route::post('removeFromCart', [CartController::class, 'removeFromCart']);
     Route::post('clearCart', [CartController::class, 'removeFromCart']);
-    Route::post('updateCart', [CartController::class, 'removeFromCart']);
+    Route::post('updateCart', [CartController::class, 'updateQuantity']);
     Route::get('categories/{category}', [WebsiteController::class, 'getCategoryData']);
     Route::get('{page}', [WebsiteController::class, 'getPage']);
 });

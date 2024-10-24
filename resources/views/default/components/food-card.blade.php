@@ -44,11 +44,12 @@
         <div class="product-action">
             <div class="product-quantity">
                 <button title="calculate" class="quantity-minus d-icon-minus"></button>
-                <input title="input" class="quantity form-control" type="number" min="1" max="1000000">
+                <input title="input" class="quantity form-control" type="number" min="1" value="1" max="1000000">
                 <button title="calculate" class="quantity-plus d-icon-plus"></button>
             </div>
-            <a href="#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal"
-                title="Add to cart" data-product-uuid="{{$details->uuid}}"><i class="d-icon-bag"></i><span>Add to cart</span></a>
+            <a href="javascript:void(0)" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal"
+                title="Add to cart" data-product-uuid="{{$details->uuid}}"><i class="d-icon-bag"></i><span>Add to
+                    cart</span></a>
         </div>
     </div>
 </div>

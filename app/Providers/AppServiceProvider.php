@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Category;
 use App\Models\Page;
 use App\Models\Setting;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,6 +27,11 @@ class AppServiceProvider extends ServiceProvider
         $categories = Category::with(['images'])->withCount('products')->get();
         $pages = Page::all();
         $siteData = Setting::first();
+        // $cartItems = Cart::instance('karunendu')->content();
+        // $cartItemsCount = Cart::instance('karunendu')->count();
+        // View::share('cartItemsCount', $cartItemsCount);
+        // View::share('cartItems', $cartItems);
+
         View::share('categories', $categories);
         View::share('pages', $pages);
         View::share('siteData', $siteData);

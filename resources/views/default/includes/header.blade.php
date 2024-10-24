@@ -1,11 +1,11 @@
 <header class="header">
-            <div class="header-top">
-                <div class="container">
-                    <div class="header-left">
-                        <p class="welcome-msg">Welcome to SRM Kart</p>
-                    </div>
-                    <div class="header-right">
-                        <!-- <div class="dropdown">
+    <div class="header-top">
+        <div class="container">
+            <div class="header-left">
+                <p class="welcome-msg">Welcome to SRM Kart</p>
+            </div>
+            <div class="header-right">
+                <!-- <div class="dropdown">
                             <a href="#currency">USD</a>
                             <ul class="dropdown-box">
                                 <li><a href="#USD">USD</a></li>
@@ -25,158 +25,64 @@
                             </ul>
                         </div> -->
 
-                        <!-- <span class="divider"></span> -->
-                        <a href="contact-us.html" class="contact d-lg-show"><i class="d-icon-map"></i>Contact</a>
-                        <a href="#" class="help d-lg-show"><i class="d-icon-info"></i> Need Help</a>
-                        <a href="#signin" class="login-toggle link-to-tab d-md-show"><i class="d-icon-user"></i>Sign
-                            in</a>
-                        <span class="delimiter">/</span>
-                        <a href="#register" class="register-toggle link-to-tab d-md-show ml-0">Register</a>
-                        <div class="dropdown login-dropdown off-canvas">
-                            <div class="canvas-overlay"></div>
+                <!-- <span class="divider"></span> -->
+                <a href="contact-us.html" class="contact d-lg-show"><i class="d-icon-map"></i>Contact</a>
+                <a href="#" class="help d-lg-show"><i class="d-icon-info"></i> Need Help</a>
+                @auth
+                <a href="{{ url('/dashboard') }}" class="link-to-tab d-md-show">
+                    Dashboard
+                </a>
+                @else
+                <a href="#signin" class="login-toggle link-to-tab d-md-show"><i class="d-icon-user"></i>Sign
+                    in</a>
+                <span class="delimiter">/</span>
+                <a href="#register" class="register-toggle link-to-tab d-md-show ml-0">Register</a>
+                @endauth
+                @include('default.includes.auth')
 
-                            <div class="dropdown-box scrollable">
-                                <div class="login-popup">
-                                    <div class="form-box">
-                                        <div class="tab tab-nav-simple tab-nav-boxed form-tab">
-                                            <ul class="nav nav-tabs nav-fill align-items-center border-no justify-content-center mb-5"
-                                                role="tablist">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active border-no lh-1 ls-normal"
-                                                        href="#signin">Login</a>
-                                                </li>
-                                                <li class="delimiter">or</li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link border-no lh-1 ls-normal"
-                                                        href="#register">Register</a>
-                                                </li>
-                                            </ul>
-                                            <div class="tab-content">
-                                                <div class="tab-pane active" id="signin">
-                                                    <form action="#">
-                                                        <div class="form-group mb-3">
-                                                            <input type="text" class="form-control" id="singin-email"
-                                                                name="singin-email"
-                                                                placeholder="Username or Email Address *" required="">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="password" class="form-control"
-                                                                id="singin-password" name="singin-password"
-                                                                placeholder="Password *" required="">
-                                                        </div>
-                                                        <div class="form-footer">
-                                                            <div class="form-checkbox">
-                                                                <input type="checkbox" class="custom-checkbox"
-                                                                    id="signin-remember" name="signin-remember">
-                                                                <label class="form-control-label"
-                                                                    for="signin-remember">Remember
-                                                                    me</label>
-                                                            </div>
-                                                            <a href="#" class="lost-link">Lost your password?</a>
-                                                        </div>
-                                                        <button class="btn btn-dark btn-block btn-rounded"
-                                                            type="submit">Login</button>
-                                                    </form>
-                                                    <div class="form-choice text-center">
-                                                        <label class="ls-m">or Login With</label>
-                                                        <div class="social-links">
-                                                            <a href="#" title="social-link"
-                                                                class="social-link social-google fab fa-google border-no"></a>
-                                                            <a href="#" title="social-link"
-                                                                class="social-link social-facebook fab fa-facebook-f border-no"></a>
-                                                            <a href="#" title="social-link"
-                                                                class="social-link social-twitter fab fa-twitter border-no"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane" id="register">
-                                                    <form action="#">
-                                                        <div class="form-group mb-3">
-                                                            <input type="email" class="form-control" id="register-email"
-                                                                name="register-email" placeholder="Your Email Address *"
-                                                                required="">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="password" class="form-control"
-                                                                id="register-password" name="register-password"
-                                                                placeholder="Password *" required="">
-                                                        </div>
-                                                        <div class="form-footer">
-                                                            <div class="form-checkbox">
-                                                                <input type="checkbox" class="custom-checkbox"
-                                                                    id="register-agree" name="register-agree"
-                                                                    required="">
-                                                                <label class="form-control-label" for="register-agree">I
-                                                                    agree to the
-                                                                    privacy policy</label>
-                                                            </div>
-                                                        </div>
-                                                        <button class="btn btn-dark btn-block btn-rounded"
-                                                            type="submit">Register</button>
-                                                    </form>
-                                                    <div class="form-choice text-center">
-                                                        <label class="ls-m">or Register With</label>
-                                                        <div class="social-links">
-                                                            <a href="#" title="social-link"
-                                                                class="social-link social-google fab fa-google border-no"></a>
-                                                            <a href="#" title="social-link"
-                                                                class="social-link social-facebook fab fa-facebook-f border-no"></a>
-                                                            <a href="#" title="social-link"
-                                                                class="social-link social-twitter fab fa-twitter border-no"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button title="Close (Esc)" type="button" class="mfp-close"><span>×</span></button>
-                                </div>
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
             </div>
+        </div>
+    </div>
 
-            <div class="header-middle sticky-header fix-top sticky-content">
-                <div class="container">
-                    <div class="header-left">
-                        <a href="#" class="mobile-menu-toggle">
-                            <i class="d-icon-bars2"></i>
-                        </a>
-                        <a href="/" class="logo">
-                        @if($siteData)
-                        <img src="{{ asset($siteData->logo) }}"  alt="logo" width="44px" height="44" />
-                        @else
-                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">SRMKART</h1>
-                        @endif
-                        </a>
+    <div class="header-middle sticky-header fix-top sticky-content">
+        <div class="container">
+            <div class="header-left">
+                <a href="#" class="mobile-menu-toggle">
+                    <i class="d-icon-bars2"></i>
+                </a>
+                <a href="/" class="logo">
+                    @if($siteData)
+                    <img src="{{ asset($siteData->logo) }}" alt="logo" width="44px" height="44" />
+                    @else
+                    <h1 class="m-0 display-5 font-weight-semi-bold"><span
+                            class="text-primary font-weight-bold border px-3 mr-1">SRMKART</h1>
+                    @endif
+                </a>
 
-                        <div class="header-search hs-simple">
-                            <form action="#" class="input-wrapper">
-                                <input type="text" class="form-control" name="search" autocomplete="off"
-                                    placeholder="Search..." required="">
-                                <button class="btn btn-search" type="submit" title="submit-button">
-                                    <i class="d-icon-search"></i>
-                                </button>
-                            </form>
-                        </div>
+                <div class="header-search hs-simple">
+                    <form action="#" class="input-wrapper">
+                        <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search..."
+                            required="">
+                        <button class="btn btn-search" type="submit" title="submit-button">
+                            <i class="d-icon-search"></i>
+                        </button>
+                    </form>
+                </div>
 
+            </div>
+            <div class="header-right">
+                <a href="tel:#" class="icon-box icon-box-side">
+                    <div class="icon-box-icon mr-0 mr-lg-2">
+                        <i class="d-icon-phone"></i>
                     </div>
-                    <div class="header-right">
-                        <a href="tel:#" class="icon-box icon-box-side">
-                            <div class="icon-box-icon mr-0 mr-lg-2">
-                                <i class="d-icon-phone"></i>
-                            </div>
-                            <div class="icon-box-content d-lg-show">
-                                <h4 class="icon-box-title">Call Us Now:</h4>
-                                <p>{{$siteData ? $siteData->mobile : "Mobile No"}}</p>
-                            </div>
-                        </a>
+                    <div class="icon-box-content d-lg-show">
+                        <h4 class="icon-box-title">Call Us Now:</h4>
+                        <p>{{$siteData ? $siteData->mobile : "Mobile No"}}</p>
+                    </div>
+                </a>
 
-                        <!-- Wishlist -->
-                        <!-- <span class="divider"></span>
+                <!-- Wishlist -->
+                <!-- <span class="divider"></span>
                         <div class="dropdown wishlist wishlist-dropdown off-canvas">
                             <a href="/wishlist" class="wishlist-toggle">
                                 <i class="d-icon-heart"></i>
@@ -253,17 +159,19 @@
 
                         </div> -->
 
-                        <!-- Cart -->
-                        <span class="divider"></span>
-                        <div class="dropdown cart-dropdown type2 off-canvas mr-0 mr-lg-2">
-                            <a href="/cart" class="cart-toggle label-block link">
-                                <div class="cart-label d-lg-show">
-                                    <span class="cart-name">Shopping Cart:</span>
-                                    <span class="cart-price">₹0.00</span>
-                                </div>
-                                <i class="d-icon-bag"><span class="cart-count">2</span></i>
-                            </a>
-                            <!-- <div class="canvas-overlay"></div>
+                <!-- Cart -->
+                <span class="divider"></span>
+                <div class="dropdown cart-dropdown type2 off-canvas mr-0 mr-lg-2">
+                    <a href="/cart" class="cart-toggle label-block link">
+                        <div class="cart-label d-lg-show">
+                            <span class="cart-name">Shopping Cart:</span>
+                            <span class="cart-price">₹<span
+                                    style="display: inline;">{{Cart::instance('karunendu')->subTotal()}}</span></span>
+                        </div>
+                        <i class="d-icon-bag"><span
+                                class="cart-count">{{Cart::instance('karunendu')->count()}}</span></i>
+                    </a>
+                    <!-- <div class="canvas-overlay"></div>
 
                             <div class="dropdown-box">
                                 <div class="canvas-header">
@@ -324,24 +232,30 @@
                                 </div>
                             </div> -->
 
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div class="header-bottom d-lg-show">
-                <div class="container">
-                    <div class="header-left">
-                        <nav class="main-nav">
-                            <ul class="menu">
-                                <li class="{{Route::currentRouteName()=='home'?'active':''}}"> <a href="/">Home</a> </li>
-                                <li class="{{Route::currentRouteName()=='about'?'active':''}}"> <a href="/about-us">About Us</a> </li>
-                                <li class="{{Route::currentRouteName()=='foods'?'active':''}}"> <a href="/foods">Food</a> </li>
-                                <li class="{{Route::currentRouteName()=='property'?'active':''}}"> <a href="/rent-for-property">Property for rent</a> </li>
-                                <li class="{{Route::currentRouteName()=='furniture'?'active':''}}"> <a href="/furniture">Furniture</a> </li>
-                                <li class="{{Route::currentRouteName()=='bike'?'active':''}}"> <a href="/rent-bike">Rent Bike</a> </li>
-                                <li class="{{Route::currentRouteName()=='printout'?'active':''}}"> <a href="/printout">Printout</a> </li>
-                                <li class="{{Route::currentRouteName()=='assignment'?'active':''}}"> <a href="/assignment">Assignment</a> </li>
-                                <!-- <li>
+        </div>
+    </div>
+    <div class="header-bottom d-lg-show">
+        <div class="container">
+            <div class="header-left">
+                <nav class="main-nav">
+                    <ul class="menu">
+                        <li class="{{Route::currentRouteName()=='home'?'active':''}}"> <a href="/">Home</a> </li>
+                        <li class="{{Route::currentRouteName()=='about'?'active':''}}"> <a href="/about-us">About Us</a>
+                        </li>
+                        <li class="{{Route::currentRouteName()=='foods'?'active':''}}"> <a href="/foods">Food</a> </li>
+                        <li class="{{Route::currentRouteName()=='property'?'active':''}}"> <a
+                                href="/rent-for-property">Property for rent</a> </li>
+                        <li class="{{Route::currentRouteName()=='furniture'?'active':''}}"> <a
+                                href="/furniture">Furniture</a> </li>
+                        <li class="{{Route::currentRouteName()=='bike'?'active':''}}"> <a href="/rent-bike">Rent
+                                Bike</a> </li>
+                        <li class="{{Route::currentRouteName()=='printout'?'active':''}}"> <a
+                                href="/printout">Printout</a> </li>
+                        <li class="{{Route::currentRouteName()=='assignment'?'active':''}}"> <a
+                                href="/assignment">Assignment</a> </li>
+                        <!-- <li>
                                     <a href="shop.html">Categories</a>
                                     <div class="megamenu">
                                         <div class="row">
@@ -630,14 +544,15 @@
                                         </li>
                                     </ul>
                                 </li> -->
-                                <li  class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Contact Us</a> </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="header-right">
+                        <li class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Contact
+                                Us</a> </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- <div class="header-right">
                         <a href="#"><i class="d-icon-card"></i>Special Offers</a>
                         <a href="https://d-themes.com/buynow/riodehtml" class="ml-6">Buy !</a>
-                    </div>
-                </div>
-            </div>
-        </header>
+                    </div> -->
+        </div>
+    </div>
+</header>

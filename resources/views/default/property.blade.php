@@ -42,6 +42,18 @@
                                     <option value="All" selected disabled>All</option>
                                 </select>
                             </div>
+                            <div class="toolbox-item toolbox-sort select-box text-dark">
+                                <label>Vacancy :</label>
+                                <select id="vacancy" name="vacancy" class="form-control">
+                                    <option value="All" selected disabled>All</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="toolbox-right">
                             <!-- <div class="toolbox-item toolbox-show select-box text-dark">
@@ -336,6 +348,7 @@
 <script>
     var loc = "All";
     var flatType = "All";
+    var vacancy = 'All';
     $('#location').change((e) => {
         loc = e.target.value;
         const locations = { "Estancia": "Estancia", "Abode": "Abode" }
@@ -374,6 +387,25 @@
             $('.property-card').parent().addClass('d-none');
             filteredCards = $('.property-card').filter(function () {
                 return $(this).data('location') === loc;
+            });
+            filteredCards.parent().removeClass('d-none');
+        }
+
+    })
+
+    $('#vacancy').change((e) => {
+        vacancy = e.target.value;
+
+        if (vacancy !== "All") {
+            $('.property-card').parent().addClass('d-none');
+            filteredCards = $('.property-card').filter(function () {
+                return $(this).data('location') === loc && $(this).data('flat-type') === flatType && $(this).data('vacancy') === vacancy;
+            });
+            filteredCards.parent().removeClass('d-none');
+        } else {
+            $('.property-card').parent().addClass('d-none');
+            filteredCards = $('.property-card').filter(function () {
+                return $(this).data('location') === loc && $(this).data('flat-type') === flatType;
             });
             filteredCards.parent().removeClass('d-none');
         }

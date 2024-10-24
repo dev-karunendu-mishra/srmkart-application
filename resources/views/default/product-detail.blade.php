@@ -175,10 +175,10 @@
                             <div class="product-form-group">
                                 <div class="input-group mr-2">
                                     <button class="quantity-minus d-icon-minus"></button>
-                                    <input class="quantity form-control" type="number" min="1" max="1000000">
+                                    <input class="quantity form-control" type="number" min="1" value="1" max="1000000">
                                     <button class="quantity-plus d-icon-plus"></button>
                                 </div>
-                                <button class="btn-product btn-cart text-normal ls-normal font-weight-semi-bold"><i
+                                <button class="btn-product btn-cart text-normal ls-normal font-weight-semi-bold" data-product-uuid="{{$detail->uuid}}"><i
                                         class="d-icon-bag"></i>Add
                                     to
                                     Cart</button>
