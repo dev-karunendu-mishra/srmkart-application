@@ -3,15 +3,15 @@
 namespace App\View\Components;
 
 use Closure;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 class AllRecords extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(public $records, public $columns, public $enableActionColumn, public $model)
+    public function __construct(public $records, public $columns, public $enableActionColumn, public $model, public $id = 'example')
     {
         //
     }

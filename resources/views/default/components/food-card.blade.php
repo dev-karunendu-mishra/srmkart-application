@@ -29,8 +29,8 @@
             <a href="/foods/{{$details->uuid}}">{{$details->name}}</a>
         </h3>
         <div class="product-price">
-            <ins class="new-price">${{$details->price}}</ins>@isset($details->old_price)<del
-                class="old-price">{{$details->old_price}}</del>@endisset
+            <ins class="new-price">₹{{$details->price}}</ins>@isset($details->old_price)<del
+                class="old-price">₹{{$details->old_price}}</del>@endisset
         </div>
         <div class="ratings-container">
             @isset($details->rating)<div class="ratings-full">

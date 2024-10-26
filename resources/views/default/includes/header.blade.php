@@ -166,10 +166,10 @@
                         <div class="cart-label d-lg-show">
                             <span class="cart-name">Shopping Cart:</span>
                             <span class="cart-price">₹<span
-                                    style="display: inline;">{{Cart::instance('karunendu')->subTotal()}}</span></span>
+                                    style="display: inline;">{{Cart::subTotal()}}</span></span>
                         </div>
                         <i class="d-icon-bag"><span
-                                class="cart-count">{{Cart::instance('karunendu')->count()}}</span></i>
+                                class="cart-count">{{Cart::count()}}</span></i>
                     </a>
                     <!-- <div class="canvas-overlay"></div>
 
@@ -247,10 +247,9 @@
                         <li class="{{Route::currentRouteName()=='foods'?'active':''}}"> <a href="/foods">Food</a> </li>
                         <li class="{{Route::currentRouteName()=='property'?'active':''}}"> <a
                                 href="/rent-for-property">Property for rent</a> </li>
-                        <li class="{{Route::currentRouteName()=='furniture'?'active':''}}"> <a
-                                href="/furniture">Furniture</a> </li>
-                        <li class="{{Route::currentRouteName()=='bike'?'active':''}}"> <a href="/rent-bike">Rent
-                                Bike</a> </li>
+                        <li class="{{Route::currentRouteName()=='internship'?'active':''}}"> <a
+                                href="/internship">Internship</a> </li>
+                        <li class="{{Route::currentRouteName()=='course'?'active':''}}"> <a href="/course">Courses</a> </li>
                         <li class="{{Route::currentRouteName()=='printout'?'active':''}}"> <a
                                 href="/printout">Printout</a> </li>
                         <li class="{{Route::currentRouteName()=='assignment'?'active':''}}"> <a

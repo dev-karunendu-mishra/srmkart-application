@@ -17,11 +17,14 @@ use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CatalogController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\CustomerEnquiryController;
 use App\Http\Controllers\Admin\EnquiryController;
 use App\Http\Controllers\Admin\FoodController;
 use App\Http\Controllers\Admin\FurnitureController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\IndustryController;
+use App\Http\Controllers\Admin\InternshipController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PrintOutController;
@@ -146,6 +149,26 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
             'destroy' => 'bikes.destroy',
         ]);
 
+        Route::resource('/courses', CourseController::class)->names([
+            'index' => 'courses',
+            'create' => 'courses.create',
+            'store' => 'courses.store',
+            'show' => 'courses.show',
+            'edit' => 'courses.edit',
+            'update' => 'courses.update',
+            'destroy' => 'courses.destroy',
+        ]);
+
+        Route::resource('/internships', InternshipController::class)->names([
+            'index' => 'internships',
+            'create' => 'internships.create',
+            'store' => 'internships.store',
+            'show' => 'internships.show',
+            'edit' => 'internships.edit',
+            'update' => 'internships.update',
+            'destroy' => 'internships.destroy',
+        ]);
+
         Route::resource('/printouts', PrintOutController::class)->names([
             'index' => 'printouts',
             'create' => 'printouts.create',
@@ -216,9 +239,19 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
             'destroy' => 'sliders.destroy',
         ]);
 
-        Route::get('/pages', [PageController::class, 'index'])->name('pages');
-        Route::get('/pages/{id}/edit', [PageController::class, 'edit'])->name('pages.edit');
-        Route::post('/pages', [PageController::class, 'store'])->name('pages.store');
+        Route::resource('/customer-enquiry', CustomerEnquiryController::class)->names([
+            'index' => 'customer-enquiry',
+            'create' => 'customer-enquiry.create',
+            'store' => 'customer-enquiry.store',
+            'show' => 'customer-enquiry.show',
+            'edit' => 'customer-enquiry.edit',
+            'update' => 'customer-enquiry.update',
+            'destroy' => 'customer-enquiry.destroy',
+        ]);
+
+        // Route::get('/pages', [PageController::class, 'index'])->name('pages');
+        // Route::get('/pages/{id}/edit', [PageController::class, 'edit'])->name('pages.edit');
+        // Route::post('/pages', [PageController::class, 'store'])->name('pages.store');
 
         Route::resource('pages', PageController::class)->names([
             'index' => 'pages',

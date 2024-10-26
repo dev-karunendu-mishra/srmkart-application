@@ -14,7 +14,7 @@ class CartController extends Controller
     public function index()
     {
         try {
-            $cartItems = Cart::instance('karunendu')->content();
+            $cartItems = Cart::content();
 
             return view('default.cart', compact('cartItems'));
         } catch (\Throwable $th) {
@@ -31,18 +31,18 @@ class CartController extends Controller
                 $message = 'Product not found';
             } else {
                 $quantity = ! empty($request->quantity) ? $request->quantity : 1;
-                if (Cart::instance('karunendu')->count() > 0) {
+                if (Cart::count() > 0) {
                     $status = true;
                     $message = 'product already added in cart.';
-                    $cartItem = Cart::instance('karunendu')->add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);
+                    $cartItem = Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);
                 } else {
                     $status = true;
                     $message = $product->name.' added in cart.';
-                    $cartItem = Cart::instance('karunendu')->add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);
+                    $cartItem = Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);
                 }
             }
 
-            return response()->json(['status' => $status, 'message' => $message, 'cartItems' => Cart::instance('karunendu')->content(), 'cartItemsCount' => Cart::instance('karunendu')->count(), 'subTotal' => Cart::instance('karunendu')->subTotal()]);
+            return response()->json(['status' => $status, 'message' => $message, 'cartItems' => Cart::content(), 'cartItemsCount' => Cart::count(), 'subTotal' => Cart::subTotal()]);
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }
@@ -51,8 +51,8 @@ class CartController extends Controller
     public function removeFromCart(Request $request)
     {
         try {
-            if (Cart::instance('karunendu')->count() > 0) {
-                Cart::instance('karunendu')->remove($request->rowId);
+            if (Cart::count() > 0) {
+                Cart::remove($request->rowId);
                 $status = true;
                 $message = 'Product removed from cart.';
             } else {
@@ -69,8 +69,8 @@ class CartController extends Controller
     public function updateQuantity(Request $request)
     {
         try {
-            if (Cart::instance('karunendu')->count() > 0) {
-                Cart::instance('karunendu')->update($request->rowId, $request->quantity);
+            if (Cart::count() > 0) {
+                Cart::update($request->rowId, $request->quantity);
                 $status = true;
                 $message = 'Quantity updated successfully';
             } else {
@@ -94,7 +94,7 @@ class CartController extends Controller
                 $status = false;
                 $message = 'Product not found';
             } else {
-                if (Cart::instance('karunendu')->count() > 0) {
+                if (Cart::count() > 0) {
                     $status = true;
                     $message = 'product already added in cart.';
                     $cartItem = Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);

@@ -158,9 +158,8 @@
             </div>
         </section>
 
-        @include('default.includes.home-furnitures-section')
-
-        @include('default.includes.home-bikes-section')
+        @include('default.includes.home-internship-section')
+        @include('default.includes.home-course-section')
     </div>
 </main>
 

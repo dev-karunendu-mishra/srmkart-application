@@ -63,7 +63,7 @@
         </li>
 
 
-        <li class="sidebar-item">
+        <!-- <li class="sidebar-item">
           <a class="sidebar-link" href="{{ route('admin.furniture') }}" aria-expanded="false">
             <span>
               <i class="ti ti-layout-dashboard"></i>
@@ -80,8 +80,25 @@
             </span>
             <span class="hide-menu">Bike</span>
           </a>
+        </li> -->
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.internships') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Internships</span>
+          </a>
         </li>
 
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.courses') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Courses</span>
+          </a>
+        </li>
 
         <li class="sidebar-item">
           <a class="sidebar-link" href="{{ route('admin.printouts') }}" aria-expanded="false">
@@ -98,6 +115,15 @@
               <i class="ti ti-layout-dashboard"></i>
             </span>
             <span class="hide-menu">Assignment</span>
+          </a>
+        </li>
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.customer-enquiry') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Customer Enquiries</span>
           </a>
         </li>
 

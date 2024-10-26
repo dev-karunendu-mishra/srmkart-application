@@ -3,8 +3,11 @@
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\BikeEnquiryController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CourseEnquiryController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\FurnitureEnquiryController;
+use App\Http\Controllers\InternshipEnquiryController;
 use App\Http\Controllers\PrintOutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyEnquiryController;
@@ -22,10 +25,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/placeOrder', [CheckoutController::class, 'checkout'])->name('place-order');
 });
 
 Route::prefix('/')->group(function () {
@@ -81,15 +85,15 @@ Route::prefix('/')->group(function () {
     Route::get('rent-for-property', [WebsiteController::class, 'getPropertyPage'])->name('property');
     Route::get('properties/{propertyId}', [WebsiteController::class, 'getPropertyDetailPage'])->name('property-detail');
 
-    Route::get('rent-bike', [WebsiteController::class, 'getBikePage'])->name('bike');
-    Route::get('bikes/{bikeId}', [WebsiteController::class, 'getBikeDetailPage'])->name('bike-detail');
+    Route::get('course', [WebsiteController::class, 'getCoursePage'])->name('course');
+    Route::get('course/{courseId}', [WebsiteController::class, 'getCourseDetailPage'])->name('course-detail');
 
-    Route::get('furniture', [WebsiteController::class, 'getFurniturePage'])->name('furniture');
-    Route::get('furnitures/{furnitureId}', [WebsiteController::class, 'getFurnitureDetailPage'])->name('furniture-detail');
+    Route::get('internship', [WebsiteController::class, 'getInternshipPage'])->name('internship');
+    Route::get('internship/{internshipId}', [WebsiteController::class, 'getInternshipDetailPage'])->name('internship-detail');
 
     Route::get('properties/{id}/enquiry', [WebsiteController::class, 'placePropertyEnquiry'])->name('property-enquiry');
-    Route::get('furniture/{id}/enquiry', [WebsiteController::class, 'placeFurnitureEnquiry'])->name('furniture-enquiry');
-    Route::get('bikes/{id}/enquiry', [WebsiteController::class, 'placeBikeEnquiry'])->name('bike-enquiry');
+    Route::get('internship/{id}/enquiry', [WebsiteController::class, 'placeInternshipEnquiry'])->name('internship-enquiry');
+    Route::get('course/{id}/enquiry', [WebsiteController::class, 'placeCourseEnquiry'])->name('course-enquiry');
 
     Route::get('printout', function () {
         return view('default.printout');
@@ -124,11 +128,7 @@ Route::prefix('/')->group(function () {
     Route::get('products/{product}', [WebsiteController::class, 'getProductData']);
 
     Route::get('cart', [CartController::class, 'index'])->name('cart');
-
-    Route::get('checkout', function () {
-        return view('default.checkout');
-    });
-
+    Route::get('checkout', [CheckoutController::class, 'index'])->name('checkout');
     Route::get('order', function () {
         return view('default.order');
     });
@@ -163,10 +163,32 @@ Route::prefix('/')->group(function () {
         'store' => 'furniture-enquiry.store',
     ]);
 
+    Route::resource('internship-enquiry', InternshipEnquiryController::class)->only([
+        'store',
+    ])->names([
+        'store' => 'internship-enquiry.store',
+    ]);
+
+    Route::resource('course-enquiry', CourseEnquiryController::class)->only([
+        'store',
+    ])->names([
+        'store' => 'course-enquiry.store',
+    ]);
+
+    Route::get('thankyou', function () {
+        // Retrieve order and product data from session
+        $order = session('order');
+        
+        // Ensure that the session variables are available
+        if (! $order) {
+            return redirect('/'); // Redirect to homepage or another page if data isn't found
+        }
+        return view('default.order', compact('order'));
+    })->name('thankyou');
     Route::post('addToCart', [CartController::class, 'addToCartProduct']);
     Route::post('removeFromCart', [CartController::class, 'removeFromCart']);
     Route::post('clearCart', [CartController::class, 'removeFromCart']);
     Route::post('updateCart', [CartController::class, 'updateQuantity']);
     Route::get('categories/{category}', [WebsiteController::class, 'getCategoryData']);
-    Route::get('{page}', [WebsiteController::class, 'getPage']);
+    // Route::get('{page}', [WebsiteController::class, 'getPage']);
 });

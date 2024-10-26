@@ -82,46 +82,7 @@
 
                 <label>Flat No. / Room No. *</label>
                 <input type="text" class="form-control" name="flat_no" required>
-                <!-- <div class="select-box">
-                    </div> -->
-                <!-- <label>Street Address *</label>
-                    <input type="text" class="form-control" name="address1" required=""
-                        placeholder="House number and street name">
-                    <input type="text" class="form-control" name="address2" required=""
-                        placeholder="Apartment, suite, unit, etc. (optional)">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <label>Town / City *</label>
-                            <input type="text" class="form-control" name="city" required="">
-                        </div>
-                        <div class="col-xs-6">
-                            <label>State *</label>
-                            <input type="text" class="form-control" name="state" required="">
-                        </div>
-                    </div> -->
-                <!-- <div class="row">
-                        <-- <div class="col-xs-6">
-                            <label>ZIP *</label>
-                            <input type="text" class="form-control" name="zip" required="">
-                        </div> ->
-                        <div class="col-12">
-                            </div>
-                        </div>
-                    
-                    <div class="form-checkbox mb-0">
-                        <input type="checkbox" class="custom-checkbox" id="create-account"
-                            name="create-account">
-                        <label class="form-control-label ls-s" for="create-account">Create an
-                            account?</label>
-                    </div>
-                    <div class="form-checkbox mb-6">
-                        <input type="checkbox" class="custom-checkbox" id="different-address"
-                            name="different-address">
-                        <label class="form-control-label ls-s" for="different-address">Ship to a different
-                            address?</label>
-                    </div> -->
-                <!-- <h2 class="title title-simple text-uppercase text-left">Additional Information</h2>
-                    <label>Order Notes (Optional)</label> -->
+               
             </div>
             <aside class="col-md-6 sticky-sidebar-wrapper">
                 <div class="sticky-sidebar mt-1" data-sticky-options="{'bottom': 50}">

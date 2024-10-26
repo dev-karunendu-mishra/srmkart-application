@@ -6,16 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class FoodOrder extends Model
+class OrderPaymentDetail extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['uuid', 'order_id', 'name', 'mobile', 'email', 'hostel', 'estancia', 'abode', 'flat_no', 'message', 'slot_deadline'];
-
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
-    }
+    protected $fillable = ['order_id', 'payment_method', 'amount', 'payment_status', 'transaction_id'];
 
     public function order()
     {

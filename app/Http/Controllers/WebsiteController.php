@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Bike;
 use App\Models\Category;
+use App\Models\Course;
 use App\Models\Enquiry;
 use App\Models\Food;
 use App\Models\Furniture;
+use App\Models\Internship;
 use App\Models\Page;
 use App\Models\Product;
 use App\Models\Property;
@@ -20,10 +22,10 @@ class WebsiteController extends Controller
         $sliders = Slider::all();
         $foods = Food::limit(5)->get();
         $properties = Property::limit(5)->get();
-        $furnitures = Furniture::limit(5)->get();
-        $bikes = Bike::limit(5)->get();
+        $internships = Internship::limit(5)->get();
+        $courses = Course::limit(5)->get();
 
-        return view('default.home', compact('sliders', 'foods', 'properties', 'furnitures', 'bikes'));
+        return view('default.home', compact('sliders', 'foods', 'properties', 'internships', 'courses'));
     }
 
     public function getFoodPage(Request $request)
@@ -108,6 +110,33 @@ class WebsiteController extends Controller
         }
     }
 
+    public function getInternshipPage(Request $request)
+    {
+        try {
+            $records = Internship::all();
+            $pageTemplate = 'default.internship';
+
+            return view($pageTemplate, compact('records'));
+        } catch (\Throwable $th) {
+            print_r($th->getMessage());
+        }
+    }
+
+    public function getInternshipDetailPage(Request $request, $internshipId)
+    {
+        try {
+            $detail = Internship::where('id', $internshipId)->orWhere('uuid', $internshipId)->first();
+            $showAddToCart = false;
+            $serviceUrl = Route('internship');
+            $serviceText = 'Internship';
+            $pageTemplate = 'default.product-detail';
+
+            return view($pageTemplate, compact('detail', 'showAddToCart', 'serviceUrl', 'serviceText'));
+        } catch (\Throwable $th) {
+            print_r($th->getMessage());
+        }
+    }
+
     public function getBikePage(Request $request)
     {
         try {
@@ -127,6 +156,33 @@ class WebsiteController extends Controller
             $showAddToCart = false;
             $serviceUrl = Route('bikes');
             $serviceText = 'Bike';
+            $pageTemplate = 'default.product-detail';
+
+            return view($pageTemplate, compact('detail', 'showAddToCart', 'serviceUrl', 'serviceText'));
+        } catch (\Throwable $th) {
+            print_r($th->getMessage());
+        }
+    }
+
+    public function getCoursePage(Request $request)
+    {
+        try {
+            $records = Course::all();
+            $pageTemplate = 'default.course';
+
+            return view($pageTemplate, compact('records'));
+        } catch (\Throwable $th) {
+            print_r($th->getMessage());
+        }
+    }
+
+    public function getCourseDetailPage(Request $request, $courseId)
+    {
+        try {
+            $detail = Course::where('id', $courseId)->orWhere('uuid', $courseId)->first();
+            $showAddToCart = false;
+            $serviceUrl = Route('courses');
+            $serviceText = 'Course';
             $pageTemplate = 'default.product-detail';
 
             return view($pageTemplate, compact('detail', 'showAddToCart', 'serviceUrl', 'serviceText'));
@@ -209,6 +265,32 @@ class WebsiteController extends Controller
             } catch (\Throwable $th) {
                 print_r($th->getMessage());
             }
+        } catch (\Throwable $th) {
+            print_r($th->getMessage());
+        }
+    }
+
+    public function placeInternshipEnquiry(Request $request, $id)
+    {
+        try {
+            $detail = Internship::where('id', $id)->orWhere('uuid', $id)->first();
+            $formAction = Route('internship-enquiry.store');
+            $enquiryFor = ['service' => 'internship_id', 'value' => $detail->id];
+
+            return view('default.enquiry', compact('detail', 'formAction', 'enquiryFor'));
+        } catch (\Throwable $th) {
+            print_r($th->getMessage());
+        }
+    }
+
+    public function placeCourseEnquiry(Request $request, $id)
+    {
+        try {
+            $detail = Course::where('id', $id)->orWhere('uuid', $id)->first();
+            $formAction = Route('course-enquiry.store');
+            $enquiryFor = ['service' => 'course_id', 'value' => $detail->id];
+
+            return view('default.enquiry', compact('detail', 'formAction', 'enquiryFor'));
         } catch (\Throwable $th) {
             print_r($th->getMessage());
         }

@@ -5,11 +5,7 @@
 @endpush
 <main class="main order">
     <div class="page-content pt-7 pb-10 mb-10">
-        <div class="step-by pr-4 pl-4">
-            <h3 class="title title-simple title-step"><a href="/cart">1. Shopping Cart</a></h3>
-            <h3 class="title title-simple title-step"><a href="/checkout">2. Checkout</a></h3>
-            <h3 class="title title-simple title-step active"><a href="/order">3. Order Complete</a></h3>
-        </div>
+       @include('default.includes.checkout-steps')
         <div class="container mt-8">
             <div class="order-message mr-auto ml-auto">
                 <div class="icon-box d-inline-flex align-items-center">
@@ -37,7 +33,7 @@
             <div class="order-results">
                 <div class="overview-item">
                     <span>Order number:</span>
-                    <strong>4935</strong>
+                    <strong>{{$order->uuid}}</strong>
                 </div>
                 <div class="overview-item">
                     <span>Status:</span>
@@ -45,7 +41,7 @@
                 </div>
                 <div class="overview-item">
                     <span>Date:</span>
-                    <strong>November 20, 2020</strong>
+                    <strong>{{$order->created_at}}</strong>
                 </div>
                 <div class="overview-item">
                     <span>Email:</span>
@@ -54,7 +50,7 @@
                 </div>
                 <div class="overview-item">
                     <span>Total:</span>
-                    <strong>$312.00</strong>
+                    <strong>${{$order->total}}</strong>
                 </div>
                 <div class="overview-item">
                     <span>Payment method:</span>
@@ -73,26 +69,31 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($order->items as $item)
                         <tr>
-                            <td class="product-name">Beige knitted shoes <span> <i class="fas fa-times"></i>
-                                    1</span></td>
-                            <td class="product-price">$84.00</td>
+                            <td class="product-name">{{$item['name']}} <span> <i class="fas fa-times"></i>
+                                    {{$item['quantity']}}</span></td>
+                            <td class="product-price">₹{{$item['price']}}</td>
                         </tr>
-                        <tr>
-                            <td class="product-name">Best dark blue pedestrian <span><i class="fas fa-times"></i>
-                                    1</span></td>
-                            <td class="product-price">$76.00</td>
-                        </tr>
-                        <tr>
-                            <td class="product-name">Women's fashion handing <span><i class="fas fa-times"></i>
-                                    2</span></td>
-                            <td class="product-price">$152.00</td>
-                        </tr>
+                        @endforeach
+                        
                         <tr class="summary-subtotal">
                             <td>
                                 <h4 class="summary-subtitle">Subtotal:</h4>
                             </td>
-                            <td class="summary-subtotal-price">$312.00</td>
+                            <td class="summary-subtotal-price">₹{{$order->subtotal}}</td>
+                        </tr>
+                        <tr class="summary-subtotal">
+                            <td>
+                                <h4 class="summary-subtitle">Tax:</h4>
+                            </td>
+                            <td class="summary-subtotal-price">₹{{$order->tax}}</td>
+                        </tr>
+                        <tr class="summary-subtotal">
+                            <td>
+                                <h4 class="summary-subtitle">Discount:</h4>
+                            </td>
+                            <td class="summary-subtotal-price">₹{{$order->discount}}</td>
                         </tr>
                         <tr class="summary-subtotal">
                             <td>
@@ -111,13 +112,13 @@
                                 <h4 class="summary-subtitle">Total:</h4>
                             </td>
                             <td>
-                                <p class="summary-total-price">$312.00</p>
+                                <p class="summary-total-price">₹{{$order->total}}</p>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <h2 class="title title-simple text-left pt-10 mb-2">Billing Address</h2>
+            <!-- <h2 class="title title-simple text-left pt-10 mb-2">Billing Address</h2>
             <div class="address-info pb-8 mb-6">
                 <p class="address-detail pb-2">
                     John Doe<br>
@@ -128,8 +129,8 @@
                 </p>
                 <p class="email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
                         data-cfemail="9df0fcf4f1ddeff4f2f9f8b3fef2f0">[email&#160;protected]</a></p>
-            </div>
-            <a href="shop.html" class="btn btn-icon-left btn-dark btn-back btn-rounded btn-md mb-4"><i
+            </div> -->
+            <a href="/" class="btn btn-icon-left btn-dark btn-back btn-rounded btn-md mb-4"><i
                     class="d-icon-arrow-left"></i> Back to List</a>
         </div>
     </div>

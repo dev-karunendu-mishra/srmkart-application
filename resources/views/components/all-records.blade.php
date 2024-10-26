@@ -82,6 +82,11 @@
             @case('brand_id')
             <td>{{!empty($record->brand) ? $record->brand->name : 'NA'}}</td>
             @break
+            @case('order_id')
+            <td><button class="btn btn-sm" title="Food Order"
+                            data-bs-toggle="modal" data-bs-target="#foodOrderModal"
+                            data-order="{{json_encode($record->order)}}">{{$record->order->order_id}}</button></td>
+            @break
             @case('created_at')
             <td>{{!empty($record->created_at) ?
                 \Carbon\Carbon::parse($record->$key)->timezone('Asia/Kolkata')->format('d-m-Y') : 'NA'}}</td>
@@ -159,29 +164,7 @@
     </div>
 </div>
 
+<!-- FoodOrder Modal -->
+
+
 <script src="{{url('/template-resources/admin/assets/js/dt-table.js')}}"></script>
-
-@push('scripts')
-<script>
-    const exampleModal = document.getElementById('attachmentDownloadModal')
-    exampleModal.addEventListener('show.bs.modal', event => {
-        // Button that triggered the modal
-        const button = event.relatedTarget
-        // Extract info from data-bs-* attributes
-        const attachments = JSON.parse(button.getAttribute('data-attachments'));
-        let attachmentContent = "";
-        attachments.forEach((attachment) => {
-            attachmentContent += `<div class="d-inline-block border rounded-4 p-1 d-flex flex-column align-items-center">
-                        <div class=""><embed class="rounded-4" src="/${attachment.path}" width="100"
-                                height="100" />
-                        </div>
-                        <div><a href="/${attachment.path}" class="btn btn-success" download><small><span
-                                        class="ti ti-download fs-4"></span><span>Download</span></small></a></div>
-                    </div>`;
-        });
-        const contentArea = exampleModal.querySelector('.modal-body #attachmentData');
-        contentArea.innerHTML = attachmentContent;
-
-    })
-</script>
-@endpush

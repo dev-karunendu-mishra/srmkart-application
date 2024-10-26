@@ -136,6 +136,29 @@
       }
     });
   </script>
+
+  <script>
+    const exampleModal = document.getElementById('attachmentDownloadModal')
+    exampleModal.addEventListener('show.bs.modal', event => {
+        // Button that triggered the modal
+        const button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        const attachments = JSON.parse(button.getAttribute('data-attachments'));
+        let attachmentContent = "";
+        attachments.forEach((attachment) => {
+            attachmentContent += `<div class="d-inline-block border rounded-4 p-1 d-flex flex-column align-items-center">
+                        <div class=""><embed class="rounded-4" src="/${attachment.path}" width="100"
+                                height="100" />
+                        </div>
+                        <div><a href="/${attachment.path}" class="btn btn-success" download><small><span
+                                        class="ti ti-download fs-4"></span><span>Download</span></small></a></div>
+                    </div>`;
+        });
+        const contentArea = exampleModal.querySelector('.modal-body #attachmentData');
+        contentArea.innerHTML = attachmentContent;
+
+    })
+  </script>
   @stack('scripts')
 </body>
 

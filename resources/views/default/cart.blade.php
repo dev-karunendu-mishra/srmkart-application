@@ -3,15 +3,11 @@
 @push('style')
 <link rel="stylesheet" type="text/css" href="/assets/css/style.min.css">
 @endpush
-{{--dd(Cart::instance('karunendu')->count())--}}
+{{--dd(Cart::count())--}}
 
 <main class="main cart">
     <div class="page-content pt-7 pb-10">
-        <div class="step-by pr-4 pl-4">
-            <h3 class="title title-simple title-step active"><a href="/cart">1. Shopping Cart</a></h3>
-            <h3 class="title title-simple title-step"><a href="/checkout">2. Checkout</a></h3>
-            <h3 class="title title-simple title-step"><a href="/order">3. Order Complete</a></h3>
-        </div>
+        @include('default.includes.checkout-steps')
         <div class="container mt-7 mb-2">
             <div class="row">
                 @if(count($cartItems) > 0)
@@ -99,6 +95,22 @@
                                         <p class="summary-subtotal-price">{{Cart::subtotal()}}</p>
                                     </td>
                                 </tr>
+                                <tr class="summary-subtotal">
+                                    <td>
+                                        <h4 class="summary-subtitle">Tax</h4>
+                                    </td>
+                                    <td>
+                                        <p class="summary-subtotal-price">{{Cart::tax()}}</p>
+                                    </td>
+                                </tr>
+                                <tr class="summary-subtotal">
+                                    <td>
+                                        <h4 class="summary-subtitle">Discount</h4>
+                                    </td>
+                                    <td>
+                                        <p class="summary-subtotal-price">{{Cart::discount()}}</p>
+                                    </td>
+                                </tr>
                                 <!-- <tr class="sumnary-shipping shipping-row-last">
                                     <td colspan="2">
                                         <h4 class="summary-subtitle">Calculate Shipping</h4>
@@ -160,7 +172,7 @@
                                         <h4 class="summary-subtitle">Total</h4>
                                     </td>
                                     <td>
-                                        <p class="summary-total-price ls-s">{{Cart::subtotal()}}</p>
+                                        <p class="summary-total-price ls-s">{{Cart::total()}}</p>
                                     </td>
                                 </tr>
                             </table>
