@@ -51,7 +51,7 @@
                                                 <th><span>Product</span></th>
                                                 <th></th>
                                                 <th><span>Price</span></th>
-                                                <th><span>quantity</span></th>
+                                                <th><span>Quantity</span></th>
                                                 <th>Subtotal</th>
                                             </tr>
                                         </thead>
@@ -112,16 +112,44 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+    <script>
+        const orderDetailModal = document.getElementById('foodOrderModal');
+        orderDetailModal.addEventListener('show.bs.modal', event => {
+            // Button that triggered the modal
+            const button = event.relatedTarget
+            // Extract info from data-bs-* attributes
+            const orderItems = JSON.parse(button.getAttribute('data-order'));
+            let orderContent = "";
+            orderItems.items.forEach((item) => {
+                orderContent += `<tr class="cart-item-row">
+                                <td class="product-thumbnail">
+                                    <figure>
+                                        <a href="">
+                                            <img src="/${item.productImage}" width="100" height="100"
+                                                alt="product">
+                                        </a>
+                                    </figure>
+                                </td>
+                                <td class="product-name">
+                                    <div class="product-name-section">
+                                        <a href="">${item.name}</a>
+                                    </div>
+                                </td>
+                                <td class="product-subtotal">
+                                    <span class="amount">${item.price}</span>
+                                </td>
+                                <td class="product-subtotal">
+                                    <span class="amount">${item.quantity}</span>
+                                </td>
+                                <td class="product-price">
+                                    <span class="amount">${item.price * item.quantity}</span>
+                                </td>
+                            </tr>`;
+            });
+            const contentArea = orderDetailModal.querySelector('.modal-body #order-content');
+            contentArea.innerHTML = orderContent;
+        })
+    </script>
+    @endpush
 </x-admin-app-layout>
-
-@push('scripts')
-<script>
-    const orderDetailModal = document.getElementById('foodOrderModal')
-    orderDetailModal.addEventListener('show.bs.modal', event => {
-        console.log("Hello");
-        // Button that triggered the modal
-
-
-    })
-</script>
-@endpush

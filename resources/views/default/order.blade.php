@@ -33,7 +33,7 @@
             <div class="order-results">
                 <div class="overview-item">
                     <span>Order number:</span>
-                    <strong>{{$order->uuid}}</strong>
+                    <strong>{{$order->order_id}}</strong>
                 </div>
                 <div class="overview-item">
                     <span>Status:</span>
@@ -50,7 +50,7 @@
                 </div>
                 <div class="overview-item">
                     <span>Total:</span>
-                    <strong>${{$order->total}}</strong>
+                    <strong>₹{{$order->total}}</strong>
                 </div>
                 <div class="overview-item">
                     <span>Payment method:</span>
