@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('url')->unique();
             $table->string('seo_title')->nullable();
             $table->string('seo_keywords')->nullable();

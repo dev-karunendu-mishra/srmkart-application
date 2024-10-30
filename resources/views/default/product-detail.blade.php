@@ -119,7 +119,9 @@
                             SKU: <span class="product-sku">12345670</span>
                             BRAND: <span class="product-brand">The Northland</span>
                         </div> -->
+                        @if(!empty($detail->price))
                         <div class="product-price">₹{{$detail->price}}</div>
+                        @endif
                         <div class="ratings-container">
                             @isset($detail->rating)
                             <div class="ratings-full">
@@ -131,9 +133,10 @@
                             <a href="#product-tab-reviews" class="link-to-tab rating-reviews">( $detail->reviews )</a>
                             @endisset
                         </div>
-                        <p class="product-short-desc">Sed egestas, ante et vulputate volutpat, eros pede semper
-                            est, vitae luctus metus libero eu augue. Morbi purus liberpuro ate vol faucibus
-                            adipiscing.</p>
+                        <!--<p class="product-short-desc">Sed egestas, ante et vulputate volutpat, eros pede semper-->
+                        <!--    est, vitae luctus metus libero eu augue. Morbi purus liberpuro ate vol faucibus-->
+                        <!--    adipiscing.</p>-->
+                        {!! $detail->description !!}
 
                         <!-- Attributes -->
                         <!-- <div class="product-form product-variations product-color">
@@ -190,7 +193,7 @@
                         <div class="product-form product-qty">
                             <div class="product-form-group">
                                 <div class="">
-                                    <a href="enquiry" class="btn-product btn-cart btn-enquiry"
+                                    <a href="{{$detail->uuid}}/enquiry" class="btn-product btn-cart btn-enquiry"
                                         title="Enquiry Now">Enquiry Now</a>
                                 </div>
                             </div>

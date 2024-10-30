@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>SRM Kart</title>
   <link rel="shortcut icon" type="image/png" href="/template-resources/admin/assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="/template-resources/admin/assets/css/styles.min.css" />
   <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> -->

@@ -43,7 +43,7 @@
                 <label>Name *</label>
                 <input type="text" class="form-control" name="name" required>
 
-                <label>Phone *</label>
+                <label>Mobile *</label>
                 <input type="text" class="form-control" name="mobile" required>
 
                 <label>Email Address *</label>
@@ -52,7 +52,7 @@
                 <!-- <label>Company Name (Optional)</label>
                     <input type="text" class="form-control" name="company-name" required=""> -->
 
-                @if($enquiryFor['service'] != 'internship_id' && $enquiryFor['service'] != 'course_id')
+                @if($enquiryFor['service'] != 'internship_id' && $enquiryFor['service'] != 'course_id' && $enquiryFor['service'] != 'property_id')
                 <label>Location *</label>
                 <select name="location" class="form-control" id="location_dd">
                     <option value="NA" selected disabled>Select Location</option>

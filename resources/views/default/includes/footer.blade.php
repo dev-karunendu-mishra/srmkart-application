@@ -46,17 +46,17 @@
                                 <label>Email:</label>
                                 <a href="/cdn-cgi/l/email-protection#4d202c24210d3f24222928632e2220"><span
                                         class="__cf_email__" data-cfemail="f19c90989db183989e9594df929e9c">[{{$siteData
-                                        ? $siteData->email : "email"}}&#160;protected]</span></a>
+                                        ? $siteData->email : "email"}}]</span></a>
                             </li>
-                            <li>
-                                <label>Address:</label>
-                                <a href="#">{{$siteData ? $siteData->address : "Address"}}</a>
-                            </li>
+                            <!--<li>-->
+                            <!--    <label>Address:</label>-->
+                            <!--    <a href="#">{{$siteData ? $siteData->address : "Address"}}</a>-->
+                            <!--</li>-->
                             <li>
                                 <label>WORKING DAYS / HOURS:</label>
                             </li>
                             <li>
-                                <a href="#">Mon - Sun / 9:00 AM - 8:00 PM</a>
+                                <a href="#">Mon - Sun / 24*7 Hrs.</a>
                             </li>
                         </ul>
                     </div>
@@ -64,45 +64,64 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="widget ml-lg-4">
-                        <h4 class="widget-title">My Account</h4>
+                        <h4 class="widget-title">Quick Link</h4>
                         <ul class="widget-body">
                             <li>
-                                <a href="about-us.html">About Us</a>
+                                <a href="about-us">About Us</a>
                             </li>
-                            <li>
-                                <a href="#">Order History</a>
-                            </li>
-                            <li>
-                                <a href="#">Returns</a>
-                            </li>
-                            <li>
-                                <a href="#">Custom Service</a>
-                            </li>
+                            <!--<li>-->
+                            <!--    <a href="#">Order History</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--    <a href="#">Returns</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--    <a href="#">Custom Service</a>-->
+                            <!--</li>-->
                             <li>
                                 <a href="#">Terms &amp; Condition</a>
                             </li>
+                            <li>
+                                <a href="/help">Help</a>
+                            </li>
+                            
+                             <li>
+                                <a href="/refund-policy">Refund Policy</a>
+                            </li>
                         </ul>
                     </div>
 
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="widget ml-lg-4">
-                        <h4 class="widget-title">Contact Info</h4>
+                        <h4 class="widget-title">Our Services</h4>
                         <ul class="widget-body">
+                            <!--<li>-->
+                            <!--    <a href="#">Sign in</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--    <a href="/cart">View Cart</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--    <a href="/wishlist">My Wishlist</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--    <a href="#">Track My Order</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--    <a href="/help">Help</a>-->
+                            <!--</li>-->
                             <li>
-                                <a href="#">Sign in</a>
+                                <a href="/food">Food</a>
                             </li>
                             <li>
-                                <a href="/cart">View Cart</a>
+                                <a href="/rent-for-property">Prperty For Rent</a>
                             </li>
                             <li>
-                                <a href="/wishlist">My Wishlist</a>
+                                <a href="/printout">PrintOut</a>
                             </li>
                             <li>
-                                <a href="#">Track My Order</a>
-                            </li>
-                            <li>
-                                <a href="#">Help</a>
+                                <a href="/assignment">Assignment</a>
                             </li>
                         </ul>
                     </div>

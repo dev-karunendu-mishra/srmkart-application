@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('parent_id')->nullable()->constrained('services')->onDelete('set null');
             $table->string('name')->unique();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('url')->unique()->nullable();
             $table->string('seo_title')->nullable();
             $table->string('seo_keywords')->nullable();

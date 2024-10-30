@@ -109,10 +109,10 @@
                                     <!-- <h4 class="banner-subtitle text-white">
                                         Up to 20% Off<br><span class="ls-l">Black Friday</span>
                                     </h4> -->
-                                    <h3 class="banner-title text-primary font-weight-bold lh-1 mb-0">Furniture</h3>
+                                    <h3 class="banner-title text-primary font-weight-bold lh-1 mb-0">Properties</h3>
                                 </div>
-                                <a href="/furniture"
-                                    class="btn btn-primary btn-outline btn-rounded font-weight-bold text-white">Furniture<i class="d-icon-arrow-right"></i></a>
+                                <a href="/rent-for-property"
+                                    class="btn btn-primary btn-outline btn-rounded font-weight-bold text-white">Properties<i class="d-icon-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -147,12 +147,12 @@
                 <div class="banner-content appear-animate"
                     data-animation-options="{'name': 'blurIn', 'duration': '1s', 'delay': '.2s'}">
                     <h4 class="banner-subtitle text-white font-weight-bold ls-l">
-                        Extra<span class="d-inline-block label-star bg-dark text-primary ml-4 mr-2">30%
-                            Off</span>Online
+                        Get<span class="d-inline-block label-star bg-dark text-primary ml-4 mr-2">20%
+                            Off</span>on first order
                     </h4>
-                    <h3 class="banner-title font-weight-bold text-white">Summer Season Sale</h3>
-                    <p class="text-white ls-s">Free shipping on orders over ₹99</p>
-                    <a href="shop.html" class="btn btn-primary btn-rounded btn-icon-right">Shop Now<i
+                    <h3 class="banner-title font-weight-bold text-white">On first subscription</h3>
+                    <!--<p class="text-white ls-s">Free shipping on orders over ₹99</p>-->
+                    <a href="#" class="btn btn-primary btn-rounded btn-icon-right">Shop Now<i
                             class="d-icon-arrow-right"></i></a>
                 </div>
             </div>

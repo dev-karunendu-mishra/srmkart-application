@@ -83,7 +83,7 @@ class FurnitureController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'price' => 'required|numeric',
+            'price' => 'nullable|numeric',
             'reviews' => 'nullable|numeric',
             'rating' => 'nullable|numeric',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
