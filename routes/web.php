@@ -95,13 +95,13 @@ Route::prefix('/')->group(function () {
     Route::get('internship/{id}/enquiry', [WebsiteController::class, 'placeInternshipEnquiry'])->name('internship-enquiry');
     Route::get('course/{id}/enquiry', [WebsiteController::class, 'placeCourseEnquiry'])->name('course-enquiry');
 
-    Route::get('printout', function () {
-        return view('default.printout');
-    })->name('printout');
+    // Route::get('printout', function () {
+    //     return view('default.printout');
+    // })->name('printout');
 
-    Route::get('assignment', function () {
-        return view('default.assignment');
-    })->name('assignment');
+    // Route::get('assignment', function () {
+    //     return view('default.assignment');
+    // })->name('assignment');
 
     // Route::get('contact', function () { return view('default.contact'); });
     // ->name('contact.create');
@@ -134,14 +134,18 @@ Route::prefix('/')->group(function () {
     });
 
     Route::resource('assignment', AssignmentController::class)->only([
+        'index',
         'store',
     ])->names([
+        'index' => 'assignment',
         'store' => 'assignment.store',
     ]);
 
     Route::resource('printout', PrintOutController::class)->only([
+        'index',
         'store',
     ])->names([
+        'index' => 'printout',
         'store' => 'printout.store',
     ]);
 
@@ -178,11 +182,12 @@ Route::prefix('/')->group(function () {
     Route::get('thankyou', function () {
         // Retrieve order and product data from session
         $order = session('order');
-        
+
         // Ensure that the session variables are available
         if (! $order) {
             return redirect('/'); // Redirect to homepage or another page if data isn't found
         }
+
         return view('default.order', compact('order'));
     })->name('thankyou');
     Route::post('addToCart', [CartController::class, 'addToCartProduct']);
@@ -190,5 +195,5 @@ Route::prefix('/')->group(function () {
     Route::post('clearCart', [CartController::class, 'removeFromCart']);
     Route::post('updateCart', [CartController::class, 'updateQuantity']);
     Route::get('categories/{category}', [WebsiteController::class, 'getCategoryData']);
-    // Route::get('{page}', [WebsiteController::class, 'getPage']);
+    Route::get('{page}', [WebsiteController::class, 'getPage']);
 });

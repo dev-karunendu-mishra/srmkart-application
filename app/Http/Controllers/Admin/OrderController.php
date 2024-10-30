@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\PropertyEnquiry;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
-class PropertyEnquiryController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,7 +35,7 @@ class PropertyEnquiryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PropertyEnquiry $propertyEnquiry)
+    public function show(Order $order)
     {
         //
     }
@@ -43,7 +43,7 @@ class PropertyEnquiryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PropertyEnquiry $propertyEnquiry)
+    public function edit(Order $order)
     {
         //
     }
@@ -51,14 +51,13 @@ class PropertyEnquiryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PropertyEnquiry $propertyEnquiry)
+    public function update(Request $request, Order $order)
     {
         $validatedData = $request->validate([
-            'id' => 'required|exists:property_enquiries,id',
             'status' => 'required|string',
         ]);
 
-        $propertyEnquiry->update($validatedData);
+        $order->update($validatedData);
 
         return redirect()->back()->with('success', 'Status updated successfully!');
     }
@@ -66,7 +65,7 @@ class PropertyEnquiryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PropertyEnquiry $propertyEnquiry)
+    public function destroy(Order $order)
     {
         //
     }

@@ -398,15 +398,16 @@
 
         if (vacancy !== "All") {
             $('.property-card').parent().addClass('d-none');
+
             filteredCards = $('.property-card').filter(function () {
-                return $(this).data('location') === loc && $(this).data('flat-type') === flatType && $(this).data('vacancy') === vacancy;
+                return parseInt($(this).data('vacancy')) === parseInt(vacancy);
             });
             filteredCards.parent().removeClass('d-none');
         } else {
             $('.property-card').parent().addClass('d-none');
-            filteredCards = $('.property-card').filter(function () {
-                return $(this).data('location') === loc && $(this).data('flat-type') === flatType;
-            });
+            // filteredCards = $('.property-card').filter(function () {
+            //     return $(this).data('location') === loc && $(this).data('flat-type') === flatType;
+            // });
             filteredCards.parent().removeClass('d-none');
         }
 

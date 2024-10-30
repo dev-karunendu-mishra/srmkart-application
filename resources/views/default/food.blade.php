@@ -64,7 +64,7 @@
                             <!-- <div class="product text-center product-with-qty">
                                 <figure class="product-media">
                                     <a href="/foods/{{$food->id}}">
-                                        <img src="{{ asset($food->images[0]->path) }}" alt="Blue Pinafore Denim Dress"
+                                        <img src="{{ asset('/storage/'.$food->images[0]->path) }}" alt="Blue Pinafore Denim Dress"
                                             width="280" height="315" style="background-color: #f2f3f5;">
                                     </a>
                                     @isset($food->is_new)

@@ -70,7 +70,7 @@
             </div>
         </section>
 
-        @include('default.includes.home-services-section')
+        {{--@include('default.includes.home-services-section')--}}
 
         @include('default.includes.home-food-section')
 

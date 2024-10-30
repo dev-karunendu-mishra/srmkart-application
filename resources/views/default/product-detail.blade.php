@@ -36,8 +36,8 @@
 
                             @foreach($detail->images as $image)
                             <figure class="product-image">
-                                <img src="{{asset($image->path)}}" data-zoom-image="{{asset($image->path)}}"
-                                    alt="{{$detail->name}}-{{asset($image->path)}}" width="800" height="900">
+                                <img src="{{asset('/storage/'.$image->path)}}" data-zoom-image="{{asset('/storage/'.$image->path)}}"
+                                    alt="{{$detail->name}}-{{asset('/storage/'.$image->path)}}" width="800" height="900">
                             </figure>
                             @endforeach
                         </div>
@@ -62,7 +62,7 @@
 
                                 @foreach($detail->images as $image)
                                 <div class="product-thumb {{$loop->first ? 'active' : ''}}">
-                                    <img src="{{asset($image->path)}}" alt="product thumbnail" width="109" height="122">
+                                    <img src="{{asset('/storage/'.$image->path)}}" alt="product thumbnail" width="109" height="122">
                                 </div>
                                 @endforeach
                             </div>
@@ -119,7 +119,7 @@
                             SKU: <span class="product-sku">12345670</span>
                             BRAND: <span class="product-brand">The Northland</span>
                         </div> -->
-                        <div class="product-price">${{$detail->price}}</div>
+                        <div class="product-price">₹{{$detail->price}}</div>
                         <div class="ratings-container">
                             @isset($detail->rating)
                             <div class="ratings-full">
@@ -178,13 +178,23 @@
                                     <input class="quantity form-control" type="number" min="1" value="1" max="1000000">
                                     <button class="quantity-plus d-icon-plus"></button>
                                 </div>
-                                <button class="btn-product btn-cart text-normal ls-normal font-weight-semi-bold" data-product-uuid="{{$detail->uuid}}"><i
-                                        class="d-icon-bag"></i>Add
+                                <button class="btn-product btn-cart text-normal ls-normal font-weight-semi-bold"
+                                    data-product-uuid="{{$detail->uuid}}"><i class="d-icon-bag"></i>Add
                                     to
                                     Cart</button>
                             </div>
                         </div>
                         <hr class="product-divider mb-3">
+                        @else
+                        <hr class="product-divider">
+                        <div class="product-form product-qty">
+                            <div class="product-form-group">
+                                <div class="">
+                                    <a href="enquiry" class="btn-product btn-cart btn-enquiry"
+                                        title="Enquiry Now">Enquiry Now</a>
+                                </div>
+                            </div>
+                        </div>
                         @endif
 
                         <!-- WishList/Compare -->

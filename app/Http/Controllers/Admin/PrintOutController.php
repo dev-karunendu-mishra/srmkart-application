@@ -10,11 +10,11 @@ class PrintOutController extends Controller
 {
     private $indexView = 'admin.printouts.all';
 
-    private $storeRoute = 'admin.printouts';
+    private $storeRoute = 'admin.print_outs';
 
-    private $editView = 'admin.printouts.edit';
+    private $editView = 'admin.print_outs.edit';
 
-    private $deleteRoute = 'admin.printouts';
+    private $deleteRoute = 'admin.print_outs';
 
     private $deleteMessage = 'Print Out deleted successfully.';
 
@@ -22,7 +22,9 @@ class PrintOutController extends Controller
 
     private $updateMessage = 'Print Out updated successfully.';
 
-    private $columns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'location' => 'Location', 'flat_no' => 'Flat / Room No', 'message' => 'Message', 'slot_deadline' => 'Slot / Deadline', 'images' => 'Attachment', 'created_at' => 'Created At'];
+    private $columns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'location' => 'Location', 'flat_no' => 'Flat / Room No', 'message' => 'Message', 'slot_deadline' => 'Slot / Deadline', 'attachments' => 'Attachment', 'status' => 'Status', 'created_at' => 'Created At'];
+
+    private $statusOptions = ['pending' => 'Pending', 'printed' => 'Printed'];
 
     private $fields = [
         [
@@ -62,7 +64,7 @@ class PrintOutController extends Controller
     {
         $records = PrintOut::with(['images'])->get();
 
-        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null]);
+        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null, 'statusOptions' => $this->statusOptions, 'updateRoute' => 'admin.print_outs.update']);
 
     }
 
@@ -103,7 +105,12 @@ class PrintOutController extends Controller
      */
     public function update(Request $request, PrintOut $printOut)
     {
-        //
+        $validatedData = $request->validate([
+            'status' => 'required|string',
+        ]);
+        $printOut->update($validatedData);
+
+        return redirect()->back()->with('success', 'Status updated successfully!');
     }
 
     /**

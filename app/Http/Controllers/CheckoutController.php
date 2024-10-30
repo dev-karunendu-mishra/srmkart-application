@@ -12,7 +12,18 @@ class CheckoutController extends Controller
 {
     public function index()
     {
-        return view('default.checkout');
+        $slotOptions = [
+            (object) ['label' => '2-3 PM', 'value' => '2-3 PM'],
+            (object) ['label' => '5-6 PM', 'value' => '5-6 PM'],
+            (object) ['label' => '8-9 PM', 'value' => '8-9 PM'],
+            (object) ['label' => '11-12 PM', 'value' => '11-12 PM'],
+            (object) ['label' => '2-3 AM', 'value' => '2-3 AM'],
+            (object) ['label' => '5-6 AM', 'value' => '5-6 AM'],
+            (object) ['label' => '8-9 AM', 'value' => '8-9 AM'],
+            (object) ['label' => '11-12 AM', 'value' => '11-12 AM'],
+        ];
+
+        return view('default.checkout', compact('slotOptions'));
     }
 
     public function checkout(Request $request)
@@ -33,7 +44,7 @@ class CheckoutController extends Controller
             ],
             'mobile' => [
                 'required',
-                'regex:/^[0-9]\d{9}$/',
+                'regex:/^\+?\d{10,15}$/', // Optional '+' and 10 to 15 digits
             ],
             'email' => 'required|string|email|max:255',
             'location' => 'required|string',

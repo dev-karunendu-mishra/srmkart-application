@@ -22,7 +22,7 @@ class AssignmentController extends Controller
 
     private $updateMessage = 'Assignment updated successfully.';
 
-    private $columns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'location' => 'Location', 'flat_no' => 'Flat / Room No', 'message' => 'Message', 'slot_deadline' => 'Slot / Deadline', 'images' => 'Attachment', 'created_at' => 'Created At'];
+    private $columns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'location' => 'Location', 'flat_no' => 'Flat / Room No', 'message' => 'Message', 'slot_deadline' => 'Slot / Deadline', 'attachments' => 'Attachment', 'status' => 'Status', 'created_at' => 'Created At'];
 
     private $fields = [
         [
@@ -55,6 +55,8 @@ class AssignmentController extends Controller
         ],
     ];
 
+    private $statusOptions = ['pending' => 'Pending', 'completed' => 'Completed'];
+
     /**
      * Display a listing of the resource.
      */
@@ -62,7 +64,7 @@ class AssignmentController extends Controller
     {
         $records = Assignment::with(['images'])->get();
 
-        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null]);
+        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'showDownload' => true, 'records' => $records, 'model' => null, 'statusOptions' => $this->statusOptions, 'updateRoute' => 'admin.assignments.update']);
 
     }
 
@@ -100,7 +102,13 @@ class AssignmentController extends Controller
      */
     public function update(Request $request, Assignment $assignment)
     {
-        //
+        $validatedData = $request->validate([
+            'status' => 'required|string',
+        ]);
+
+        $assignment->update($validatedData);
+
+        return redirect()->back()->with('success', 'Status updated successfully!');
     }
 
     /**

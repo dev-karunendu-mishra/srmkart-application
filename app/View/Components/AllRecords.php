@@ -11,7 +11,7 @@ class AllRecords extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public $records, public $columns, public $enableActionColumn, public $model, public $id = 'example')
+    public function __construct(public $records, public $columns, public $enableActionColumn, public $model, public $canEdit = true, public $canDelete = true, public $showDownload = false, public $id = 'example', public $statusOptions = [], public $updateRoute = 'admin.')
     {
         //
     }

@@ -449,7 +449,7 @@
             </div>
         </div>
     </div> -->
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
     <script src="/assets/vendor/parallax/parallax.min.js"></script>
     <script src="/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>

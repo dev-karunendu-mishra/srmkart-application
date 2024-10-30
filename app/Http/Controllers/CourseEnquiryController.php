@@ -39,7 +39,7 @@ class CourseEnquiryController extends Controller
             ],
             'mobile' => [
                 'required',
-                'regex:/^[0-9]\d{9}$/',
+                'regex:/^\+?\d{10,15}$/', // Optional '+' and 10 to 15 digits
             ],
             'email' => 'required|string|email|max:255',
             'location' => 'required|string',

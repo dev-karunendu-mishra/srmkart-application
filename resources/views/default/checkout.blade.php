@@ -134,13 +134,7 @@
                         <h2 class="title title-simple text-uppercase text-left">Additional Information</h2>
                         <div id="" class="">
                             <label>Slot *</label>
-                            <select name="slot_deadline" class="form-control">
-                                <option value="NA" selected disabled>Select Slot</option>
-                                <option value="2-3">2-3</option>
-                                <option value="5-6">5-6</option>
-                                <option value="8-9">8-9</option>
-                                <option value="11-12">11-12</option>
-                            </select>
+                            <x-slot-deadline defaultOption="Select Slot" :slotOptions="$slotOptions"/>
                         </div>
                         <label>Order Notes (Optional)</label>
                         <textarea name="message" class="form-control pb-2 pt-2 mb-0" cols="30" rows="5"

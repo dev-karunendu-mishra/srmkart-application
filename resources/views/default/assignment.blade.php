@@ -139,14 +139,7 @@
 
                         <div id="" class="">
                             <label>Deadline *</label>
-                            <select name="slot_deadline" class="form-control">
-                                <option value="NA" selected disabled>Select Deadline</option>
-                                <option value="24 Hrs-30 Hrs">24 Hrs-30 Hrs</option>
-                                <option value="1 Week">1 Week</option>
-                                <option value="2 Weeks">2 Weeks</option>
-                                <option value="3 Weeks">3 Weeks</option>
-                                <option value="1 Month">1 Month</option>
-                            </select>
+                            <x-slot-deadline defaultOption="Select Deadline" :slotOptions="$slotOptions"/>
                         </div>
 
                         <div id="" class="">

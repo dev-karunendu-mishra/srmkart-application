@@ -101,7 +101,7 @@
         </li>
 
         <li class="sidebar-item">
-          <a class="sidebar-link" href="{{ route('admin.printouts') }}" aria-expanded="false">
+          <a class="sidebar-link" href="{{ route('admin.print_outs') }}" aria-expanded="false">
             <span>
               <i class="ti ti-layout-dashboard"></i>
             </span>
@@ -118,14 +118,14 @@
           </a>
         </li>
 
-        <li class="sidebar-item">
+        <!-- <li class="sidebar-item">
           <a class="sidebar-link" href="{{ route('admin.customer-enquiry') }}" aria-expanded="false">
             <span>
               <i class="ti ti-layout-dashboard"></i>
             </span>
-            <span class="hide-menu">Customer Enquiries</span>
+            <span class="hide-menu">Enquiries</span>
           </a>
-        </li>
+        </li> -->
 
 
         <!-- <li class="sidebar-item">
@@ -207,15 +207,38 @@
             </span>
             <span class="hide-menu">Testimonials</span>
           </a>
-        </li>
-
-
-        <li class="sidebar-item">
+        </li> 
+        
+         <li class="sidebar-item">
           <a class="sidebar-link" href="{{ route('admin.subscribers') }}" aria-expanded="false">
             <span>
               <i class="ti ti-layout-dashboard"></i>
             </span>
             <span class="hide-menu">Subscribers</span>
+          </a>
+        </li>
+
+        -->
+
+        
+
+        <!-- <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ route('admin.catalogs') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Catalogs</span>
+              </a>
+            </li> -->
+
+
+
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.pages') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Pages</span>
           </a>
         </li>
 
@@ -234,16 +257,7 @@
             </span>
             <span class="hide-menu">Blogs</span>
           </a>
-        </li> -->
-
-        <!-- <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ route('admin.catalogs') }}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-layout-dashboard"></i>
-                </span>
-                <span class="hide-menu">Catalogs</span>
-              </a>
-            </li> -->
+        </li>
 
 
       </ul>

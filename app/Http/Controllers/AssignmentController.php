@@ -12,7 +12,15 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        //
+        $slotOptions = [
+            (object) ['label' => '24 Hrs-30 Hrs', 'value' => '24 Hrs-30 Hrs'],
+            (object) ['label' => '1 Week', 'value' => '1 Week'],
+            (object) ['label' => '2 Weeks', 'value' => '2 Weeks'],
+            (object) ['label' => '3 Weeks', 'value' => '3 Weeks'],
+            (object) ['label' => '1 Month', 'value' => '1 Month'],
+        ];
+
+        return view('default.assignment', compact('slotOptions'));
     }
 
     /**
@@ -38,7 +46,7 @@ class AssignmentController extends Controller
             ],
             'mobile' => [
                 'required',
-                'regex:/^[0-9]\d{9}$/',
+                'regex:/^\+?\d{10,15}$/', // Optional '+' and 10 to 15 digits
             ],
             'email' => 'required|string|email|max:255',
             'location' => 'required|string',

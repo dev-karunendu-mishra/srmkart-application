@@ -21,10 +21,12 @@ use App\Http\Controllers\Admin\CourseController;
 use App\Http\Controllers\Admin\CustomerEnquiryController;
 use App\Http\Controllers\Admin\EnquiryController;
 use App\Http\Controllers\Admin\FoodController;
+use App\Http\Controllers\Admin\FoodOrderController;
 use App\Http\Controllers\Admin\FurnitureController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\IndustryController;
 use App\Http\Controllers\Admin\InternshipController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PrintOutController;
@@ -169,15 +171,16 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
             'destroy' => 'internships.destroy',
         ]);
 
-        Route::resource('/printouts', PrintOutController::class)->names([
-            'index' => 'printouts',
-            'create' => 'printouts.create',
-            'store' => 'printouts.store',
-            'show' => 'printouts.show',
-            'edit' => 'printouts.edit',
-            'update' => 'printouts.update',
-            'destroy' => 'printouts.destroy',
+        Route::resource('/print_outs', PrintOutController::class)->names([
+            'index' => 'print_outs',
+            'create' => 'print_outs.create',
+            'store' => 'print_outs.store',
+            'show' => 'print_outs.show',
+            'edit' => 'print_outs.edit',
+            'update' => 'print_outs.update',
+            'destroy' => 'print_outs.destroy',
         ]);
+        Route::resource('/orders', OrderController::class);
 
         Route::resource('/assignments', AssignmentController::class)->names([
             'index' => 'assignments',

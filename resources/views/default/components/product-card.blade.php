@@ -1,9 +1,9 @@
 @if(!empty($details))
 <div class="product text-center">
     <figure class="product-media">
-        <a href="{{$path}}/{{$details->uuid}}/enquiry">
+        <a href="{{$path}}/{{$details->uuid}}">
             @if(!empty($details->images) && count($details->images) > 0)
-            <img src="{{asset($details->images->first()->path)}}" alt="{{$details->name}}" width="220" height="245"
+            <img src="{{asset('/storage/'.$details->images->first()->path)}}" alt="{{$details->name}}" width="220" height="245"
                 style="background-color: #f2f3f5;">
             @else
             <img src="https://via.placeholder.com/280x315" alt="card image" width="280" height="315"
@@ -17,8 +17,7 @@
             <!-- <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a> -->
         </div>
         <div class="product-action">
-            <a href="{{$path}}/{{$details->uuid}}/enquiry" class="btn-product" title="Enquiry">Enquiry
-                Now</a>
+            <a href="{{$path}}/{{$details->uuid}}/" class="btn-product" title="Details">View Details</a>
         </div>
     </figure>
     <div class="product-details">

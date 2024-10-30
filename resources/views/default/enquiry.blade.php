@@ -51,6 +51,8 @@
 
                 <!-- <label>Company Name (Optional)</label>
                     <input type="text" class="form-control" name="company-name" required=""> -->
+
+                @if($enquiryFor['service'] != 'internship_id' && $enquiryFor['service'] != 'course_id')
                 <label>Location *</label>
                 <select name="location" class="form-control" id="location_dd">
                     <option value="NA" selected disabled>Select Location</option>
@@ -82,30 +84,13 @@
 
                 <label>Flat No. / Room No. *</label>
                 <input type="text" class="form-control" name="flat_no" required>
+                @endif
                
             </div>
             <aside class="col-md-6 sticky-sidebar-wrapper">
                 <div class="sticky-sidebar mt-1" data-sticky-options="{'bottom': 50}">
                     <div class="summary pt-5">
                         <h3 class="title title-simple text-left text-uppercase">Additional Information</h3>
-
-
-                        <!-- <div id="" class="">
-                            <label>Deadline *</label>
-                            <select name="slot_deadline" class="form-control">
-                                <option value="NA" selected disabled>Select Deadline</option>
-                                <option value="24 Hrs-30 Hrs">24 Hrs-30 Hrs</option>
-                                <option value="1 Week">1 Week</option>
-                                <option value="2 Weeks">2 Weeks</option>
-                                <option value="3 Weeks">3 Weeks</option>
-                                <option value="1 Month">1 Month</option>
-                            </select>
-                        </div> -->
-
-                        <!-- <div id="" class="">
-                            <label>File Attachment *</label>
-                            <input name="attachment[]" type="file" class="form-control" />
-                        </div> -->
 
                         <textarea name="message" class="form-control pb-2 pt-2" cols="30" rows="5"
                             placeholder="Message"></textarea>

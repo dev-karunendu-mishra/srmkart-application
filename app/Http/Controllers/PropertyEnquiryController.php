@@ -29,7 +29,7 @@ class PropertyEnquiryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'property_id' => 'required|exists:bikes,id',
+            'property_id' => 'required|exists:properties,id',
             'name' => [
                 'required',
                 'string',
@@ -39,7 +39,7 @@ class PropertyEnquiryController extends Controller
             ],
             'mobile' => [
                 'required',
-                'regex:/^[0-9]\d{9}$/',
+                'regex:/^\+?\d{10,15}$/', // Optional '+' and 10 to 15 digits
             ],
             'email' => 'required|string|email|max:255',
             'location' => 'required|string',

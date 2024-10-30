@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\CourseEnquiry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,6 +25,8 @@ class CourseController extends Controller
     private $updateMessage = 'Course updated successfully.';
 
     private $columns = ['id' => 'ID', 'name' => 'Name', 'images' => 'Image', 'price' => 'Price', 'created_at' => 'Created At'];
+
+    private $courseColumns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile',  'message' => 'Message', 'created_at' => 'Created At'];
 
     private $fields = [
         [
@@ -62,8 +65,9 @@ class CourseController extends Controller
     public function index()
     {
         $records = Course::with(['images'])->get();
+        $courseEnquiries = CourseEnquiry::all();
 
-        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null]);
+        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null, 'courseEnquiries' => $courseEnquiries, 'courseColumns' => $this->courseColumns]);
     }
 
     /**

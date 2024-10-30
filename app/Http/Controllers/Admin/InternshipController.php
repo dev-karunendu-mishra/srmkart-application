@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Internship;
+use App\Models\InternshipEnquiry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,6 +25,8 @@ class InternshipController extends Controller
     private $updateMessage = 'Internship updated successfully.';
 
     private $columns = ['id' => 'ID', 'name' => 'Name', 'images' => 'Image', 'price' => 'Price', 'created_at' => 'Created At'];
+
+    private $internshipColumns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile',  'message' => 'Message', 'created_at' => 'Created At'];
 
     private $fields = [
         [
@@ -62,8 +65,9 @@ class InternshipController extends Controller
     public function index()
     {
         $records = Internship::with(['images'])->get();
+        $internshipEnquiries = InternshipEnquiry::all();
 
-        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null]);
+        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null, 'internshipColumns' => $this->internshipColumns, 'internshipEnquiries' => $internshipEnquiries]);
     }
 
     /**

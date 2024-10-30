@@ -82,7 +82,7 @@ class SliderController extends Controller
             'title' => 'required',
             'sub_title' => 'required',
             'shop_link' => 'nullable',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         // Handle file upload
@@ -123,7 +123,7 @@ class SliderController extends Controller
             'title' => 'required',
             'sub_title' => 'required',
             'shop_link' => 'nullable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
         // Handle file upload

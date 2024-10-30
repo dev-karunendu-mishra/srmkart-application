@@ -17,7 +17,7 @@
 
     <!-- component -->
 <!--  Row 1 -->
-        <div class="row">
+        {{--<div class="row">
           <div class="col-lg-8 d-flex align-items-strech">
             <div class="card w-100">
               <div class="card-body">
@@ -360,5 +360,5 @@
             </div>
           </div>
         </div>
-     <script src="/template-resources/admin/assets/js/dashboard.js"></script>
+     <script src="/template-resources/admin/assets/js/dashboard.js"></script>--}}
 </x-admin-app-layout>

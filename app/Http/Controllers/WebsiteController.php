@@ -181,7 +181,7 @@ class WebsiteController extends Controller
         try {
             $detail = Course::where('id', $courseId)->orWhere('uuid', $courseId)->first();
             $showAddToCart = false;
-            $serviceUrl = Route('courses');
+            $serviceUrl = Route('course');
             $serviceText = 'Course';
             $pageTemplate = 'default.product-detail';
 
@@ -195,8 +195,11 @@ class WebsiteController extends Controller
     {
         try {
             $pageData = Page::where('url', $page)->first();
-            $template = 'template-one';
+            $template = 'default';
             $pageTemplate = $template.'.page';
+            if (! $pageData) {
+                $pageTemplate = 'default.error';
+            }
 
             return view($pageTemplate, ['page' => $page, 'pageData' => $pageData]);
         } catch (\Throwable $th) {

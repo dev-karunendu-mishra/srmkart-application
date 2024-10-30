@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Food;
+use App\Models\FoodOrder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -24,6 +25,8 @@ class FoodController extends Controller
     private $updateMessage = 'Food updated successfully.';
 
     private $columns = ['id' => 'ID', 'name' => 'Name', 'images' => 'Image', 'price' => 'Price', 'created_at' => 'Created At'];
+
+    private $foodOrderColumns = ['id' => 'ID', 'order_id' => 'Order ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'location' => 'Location', 'flat_no' => 'Flat / Room No', 'message' => 'Message', 'order_amount'=>'Order Amount','order_status' => 'Order Status', 'created_at' => 'Created At'];
 
     private $fields = [
         [
@@ -56,14 +59,17 @@ class FoodController extends Controller
         ],
     ];
 
+    private $statusOptions = ['pending' => 'Pending', 'completed' => 'Completed', 'failed' => 'Failed'];
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $records = Food::with(['images'])->get();
+        $foodOrders = FoodOrder::with(['order'])->get();
 
-        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null]);
+        return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null, 'foodOrders' => $foodOrders, 'foodOrderColumns' => $this->foodOrderColumns, 'statusOptions' => $this->statusOptions, 'updateRoute' => 'admin.orders.update']);
     }
 
     /**

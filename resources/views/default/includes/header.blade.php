@@ -52,7 +52,7 @@
                 </a>
                 <a href="/" class="logo">
                     @if($siteData)
-                    <img src="{{ asset($siteData->logo) }}" alt="logo" width="44px" height="44" />
+                    <img src="{{ asset('/storage/'.$siteData->logo) }}" alt="logo" width="44px" height="44" />
                     @else
                     <h1 class="m-0 display-5 font-weight-semi-bold"><span
                             class="text-primary font-weight-bold border px-3 mr-1">SRMKART</h1>
@@ -247,13 +247,14 @@
                         <li class="{{Route::currentRouteName()=='foods'?'active':''}}"> <a href="/foods">Food</a> </li>
                         <li class="{{Route::currentRouteName()=='property'?'active':''}}"> <a
                                 href="/rent-for-property">Property for rent</a> </li>
-                        <li class="{{Route::currentRouteName()=='internship'?'active':''}}"> <a
-                                href="/internship">Internship</a> </li>
-                        <li class="{{Route::currentRouteName()=='course'?'active':''}}"> <a href="/course">Courses</a> </li>
+                        
                         <li class="{{Route::currentRouteName()=='printout'?'active':''}}"> <a
                                 href="/printout">Printout</a> </li>
                         <li class="{{Route::currentRouteName()=='assignment'?'active':''}}"> <a
                                 href="/assignment">Assignment</a> </li>
+                                <li class="{{Route::currentRouteName()=='internship'?'active':''}}"> <a
+                                href="/internship">Internship</a> </li>
+                        <li class="{{Route::currentRouteName()=='course'?'active':''}}"> <a href="/course">Courses</a> </li>
                         <!-- <li>
                                     <a href="shop.html">Categories</a>
                                     <div class="megamenu">

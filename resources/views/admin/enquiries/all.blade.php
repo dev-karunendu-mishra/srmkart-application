@@ -1,10 +1,5 @@
 <x-admin-app-layout>
-    @if (session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success {{ session('success') }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    @endif
+    @include('admin.success-error-message')
 
     <!-- <nav aria-label="breadcrumb" class="mb-3">
         <ol class="breadcrumb">
