@@ -1,7 +1,7 @@
 @if(!empty($images) && count($images) > 0)
 <div class="product-view-box text-center">
     <!-- Main Image -->
-    <img id="mainProductImage" src="{{asset('/storage/'.$images[0]->path)}}" class="main-image mb-3" alt="Product Image">
+    <img id="mainProductImage" src="{{asset($images[0]->path)}}" class="main-image mb-3" alt="Product Image">
 
     <!-- Thumbnails Slider with Arrows -->
     <div class="thumbnails-container">
@@ -12,8 +12,8 @@
         <div class="thumbnails-wrapper">
             @foreach($images as $image)
             <div class="thumbnail-item">
-                <img src="{{asset('/storage/'.$image->path)}}" class="img-fluid" onclick="changeImage(this)"
-                    alt="{{asset('/storage/'.$image->path)}}">
+                <img src="{{asset($image->path)}}" class="img-fluid" onclick="changeImage(this)"
+                    alt="{{asset($image->path)}}">
 
                 <!-- Delete Button -->
                 <form action="{{ route('admin.images.destroy', $image->id) }}" method="POST"

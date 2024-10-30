@@ -3,7 +3,7 @@
     <figure class="product-media">
         <a href="/foods/{{$details->uuid}}">
             @if(!empty($details->images) && count($details->images) > 0)
-            <img src="{{ asset('/storage/'.$details->images->first()->path) }}" alt="{{$details->name}}" width="280" height="315"
+            <img src="{{ asset($details->images->first()->path) }}" alt="{{$details->name}}" width="280" height="315"
                 style="background-color: #f2f3f5;">
             @else
             <img src="https://via.placeholder.com/280x315" alt="card image" width="280" height="315"

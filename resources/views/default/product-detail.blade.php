@@ -36,8 +36,8 @@
 
                             @foreach($detail->images as $image)
                             <figure class="product-image">
-                                <img src="{{asset('/storage/'.$image->path)}}" data-zoom-image="{{asset('/storage/'.$image->path)}}"
-                                    alt="{{$detail->name}}-{{asset('/storage/'.$image->path)}}" width="800" height="900">
+                                <img src="{{asset($image->path)}}" data-zoom-image="{{asset($image->path)}}"
+                                    alt="{{$detail->name}}-{{asset($image->path)}}" width="800" height="900">
                             </figure>
                             @endforeach
                         </div>
@@ -62,7 +62,7 @@
 
                                 @foreach($detail->images as $image)
                                 <div class="product-thumb {{$loop->first ? 'active' : ''}}">
-                                    <img src="{{asset('/storage/'.$image->path)}}" alt="product thumbnail" width="109" height="122">
+                                    <img src="{{asset($image->path)}}" alt="product thumbnail" width="109" height="122">
                                 </div>
                                 @endforeach
                             </div>

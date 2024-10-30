@@ -12,7 +12,7 @@
     @forelse($sliders as $slider)
     <div class="banner banner-fixed intro-slide1" style="background-color: #46b2e8;">
         <figure>
-            <img src="{{ asset('/storage/'.$slider->image) }}" alt="intro-banner" width="1903" height="630"
+            <img src="{{ asset($slider->image) }}" alt="intro-banner" width="1903" height="630"
                 style="background-color: #34ace5;">
         </figure>
         <div class="container">

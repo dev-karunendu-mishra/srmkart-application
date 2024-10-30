@@ -22,13 +22,13 @@
             @case('images')
             <td>
                 {{--@if(!empty($record->$key) && count($record->$key) > 0)
-                <img src="{{asset('/storage/'.$record->$key[0]->path)}}" class="img-thumbnail" alt="{{$record->$key[0]->path}}"
+                <img src="{{asset($record->$key[0]->path)}}" class="img-thumbnail" alt="{{$record->$key[0]->path}}"
                     height="75" width="75" />
                 @else
                 <img src="https://via.placeholder.com/75x75" class="img-fluid" alt="" />
                 @endif--}}
                 @if(!empty($record->$key) && count($record->$key) > 0)
-                <embed src="{{asset('/storage/'.$record->$key->first()->path)}}" width="100" height="100" />
+                <embed src="{{asset($record->$key->first()->path)}}" width="100" height="100" />
                 @endif
 
             </td>
@@ -74,11 +74,11 @@
                 $record->$key :'NA')))}}</td>
             @break
             @case('file_path')
-            <td><img src="{{asset('/storage/'.$record->$key)}}" class="img-thumbnail" alt="{{$record->$key}}" height="75"
+            <td><img src="{{asset($record->$key)}}" class="img-thumbnail" alt="{{$record->$key}}" height="75"
                     width="75" /></td>
             @break
             @case('profile')
-            <td><img src="{{asset('/storage/'.$record->$key)}}" class="img-thumbnail" alt="{{$record->$key}}" height="75"
+            <td><img src="{{asset($record->$key)}}" class="img-thumbnail" alt="{{$record->$key}}" height="75"
                     width="75" /></td>
             @break
             @case('parent')
@@ -188,10 +188,10 @@
                 <div id="attachmentData" class="d-flex gap-2">
                     {{--@foreach($records->first()->images as $attachment)
                     <div class="d-inline-block border rounded-4 p-1 d-flex flex-column align-items-center">
-                        <div class=""><embed class="rounded-4" src="{{asset('/storage/'.$attachment->path)}}" width="100"
+                        <div class=""><embed class="rounded-4" src="{{asset($attachment->path)}}" width="100"
                                 height="100" />
                         </div>
-                        <div><a href="{{asset('/storage/'.$attachment->path)}}" class="btn btn-success" download><small><span
+                        <div><a href="{{asset($attachment->path)}}" class="btn btn-success" download><small><span
                                         class="ti ti-download fs-4"></span><span>Download</span></small></a></div>
                     </div>
                     @endforeach--}}
