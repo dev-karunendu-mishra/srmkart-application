@@ -20786,3 +20786,7 @@ aside .owl-nav-top .owl-nav i:before {
     width: 100%;
     display: block;
 }
+
+.product-label.label-danger {
+    background-color: #b10001 !important;
+}

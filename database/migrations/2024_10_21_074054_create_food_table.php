@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('seo_title')->nullable();
             $table->string('seo_keywords')->nullable();
             $table->string('seo_description')->nullable();
+            $table->enum('category', ['all', 'veg', 'non-veg'])->default('all')->nullable();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

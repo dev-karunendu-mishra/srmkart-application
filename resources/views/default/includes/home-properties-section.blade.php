@@ -25,7 +25,7 @@
                     }
                 }">
         @forelse($properties as $property)
-        <x-product-card :details="$property" path="/properties"/>
+        <x-product-card :details="$property" path="/properties" view="default.components.property-card"/>
         @empty
         <div class="product text-center">
             <figure class="product-media">

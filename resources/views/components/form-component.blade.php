@@ -46,7 +46,7 @@
                 class="form-select @error($field['name']) is-invalid @enderror" aria-label="{{$field['name']}}">
                 <option value="{{null}}" disabled selected>{{$field['placeholder']}}</option>
                 @foreach($field['options'] as $option)
-                @if(!empty($model) && $model->id === $option->id)
+                @if(!empty($model) && ($model->id === $option->id) || ($value == $option->id))
                 <option selected value="{{$option->id}}">{{$option->name}}</option>
                 @else
                 <option value="{{$option->id}}">{{$option->name}}</option>

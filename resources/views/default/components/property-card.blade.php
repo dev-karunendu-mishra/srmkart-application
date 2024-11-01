@@ -13,7 +13,8 @@
 
         </a>
         <div class="product-label-group">
-            <label class="product-label label-new">{{$details->status}}</label>
+            <label class="product-label {{$details->status == 'sold' ? 'label-danger' : 'label-new'}}">{{$details->status}}</label>
+            <label class="product-label label-new" title="Vacancy {{number_format($details->vacancy, 0)}}">{{ number_format($details->vacancy, 0)}}</label>
         </div>
         <div class="product-action-vertical">
             <!-- <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
@@ -21,8 +22,7 @@
             <!-- <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a> -->
         </div>
         <div class="product-action">
-            <a href="{{$path}}/{{$details->uuid}}/enquiry" class="btn-product" title="Enquiry">Enquiry
-                Now</a>
+            <a href="{{$path}}/{{$details->uuid}}" class="btn-product" title="Enquiry">View Details</a>
         </div>
     </figure>
     <div class="product-details">
@@ -41,10 +41,12 @@
             @endisset
             @isset($details->reviews)<a href="#" class="rating-reviews">( {{$details->reviews}} )</a>@endisset
         </div>
+        @if($details->status != 'sold')
         <div class="product-action">
             <a href="{{$path}}/{{$details->uuid}}/enquiry" class="btn-product btn-cart btn-enquiry"
                 title="Enquiry Now">Enquiry Now</a>
         </div>
+        @endif
     </div>
 </div>
 @else

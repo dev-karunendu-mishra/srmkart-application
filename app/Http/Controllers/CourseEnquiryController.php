@@ -42,29 +42,29 @@ class CourseEnquiryController extends Controller
                 'regex:/^\+?\d{10,15}$/', // Optional '+' and 10 to 15 digits
             ],
             'email' => 'required|string|email|max:255',
-            'location' => 'required|string',
-            'hostel' => 'nullable|string',
-            'estancia' => 'nullable|string',
-            'abode' => 'nullable|string',
-            'flat_no' => [
-                'required',
-                'string',
-                //'regex:/^[\p{L}\s.-]+$/u', // Allows letters, spaces, and some punctuation
-            ],
+            // 'location' => 'required|string',
+            // 'hostel' => 'nullable|string',
+            // 'estancia' => 'nullable|string',
+            // 'abode' => 'nullable|string',
+            // 'flat_no' => [
+            //     'required',
+            //     'string',
+            //     //'regex:/^[\p{L}\s.-]+$/u', // Allows letters, spaces, and some punctuation
+            // ],
             'message' => [
                 'required',
                 'string',
                 'regex:/^[\p{L}\s.-]+$/u', // Allows letters, spaces, and some punctuation
             ],
-            'slot_deadline' => 'nullable|string',
-            'attachment.*' => 'nullable|file|mimes:pdf',
+            // 'slot_deadline' => 'nullable|string',
+            // 'attachment.*' => 'nullable|file|mimes:pdf',
         ]);
 
-        $validatedData['hostel'] = null;
-        $validatedData['estancia'] = null;
-        $validatedData['abode'] = null;
+        // $validatedData['hostel'] = null;
+        // $validatedData['estancia'] = null;
+        // $validatedData['abode'] = null;
 
-        $validatedData[$validatedData['location']] = $request[$validatedData['location']];
+        // $validatedData[$validatedData['location']] = $request[$validatedData['location']];
 
         $assignment = CourseEnquiry::create($validatedData);
         // Handle file uploads if provided

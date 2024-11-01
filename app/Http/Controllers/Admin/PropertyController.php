@@ -26,7 +26,7 @@ class PropertyController extends Controller
 
     private $columns = ['id' => 'ID', 'name' => 'Name', 'images' => 'Image', 'price' => 'Price', 'location' => 'Location', 'flat_type' => "Flat's Type", 'vacancy' => 'Vacancy', 'status' => 'Status', 'created_at' => 'Created At'];
 
-    private $propertyEnquiryColumns = ['id' => 'ID', 'name' => 'Name', 'location' => 'Location', 'status' => 'Status', 'created_at' => 'Created At'];
+    private $propertyEnquiryColumns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile',  'message' => 'Message', 'created_at' => 'Created At'];
 
     private $statusOptions = ['active' => 'Active', 'sold' => 'Sold'];
 
@@ -98,7 +98,7 @@ class PropertyController extends Controller
         $records = Property::with(['images'])->get();
         $propertyEnquiries = PropertyEnquiry::all();
         $this->fields['location']['options'] = (object) [(object) ['id' => 'Estancia', 'name' => 'Estancia'], (object) ['id' => 'Abode', 'name' => 'Abode']];
-        $this->fields['status']['options'] = (object) [(object) ['id' => 'Active', 'name' => 'Active'], (object) ['id' => 'Sold', 'name' => 'Sold']];
+        $this->fields['status']['options'] = (object) [(object) ['id' => 'active', 'name' => 'Active'], (object) ['id' => 'sold', 'name' => 'Sold']];
 
         return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null, 'propertyEnquiries' => $propertyEnquiries, 'propertyEnquiryColumns' => $this->propertyEnquiryColumns, 'statusOptions' => $this->statusOptions]);
 
@@ -159,7 +159,7 @@ class PropertyController extends Controller
     public function edit(Property $property)
     {
         $this->fields['location']['options'] = (object) [(object) ['id' => 'Estancia', 'name' => 'Estancia'], (object) ['id' => 'Abode', 'name' => 'Abode']];
-        $this->fields['status']['options'] = (object) [(object) ['id' => 'Active', 'name' => 'Active'], (object) ['id' => 'Sold', 'name' => 'Sold']];
+        $this->fields['status']['options'] = (object) [(object) ['id' => 'active', 'name' => 'Active'], (object) ['id' => 'sold', 'name' => 'Sold']];
 
         return view($this->editView, ['columns' => $this->columns, 'fields' => $this->fields, 'model' => $property, 'edit' => true]);
     }

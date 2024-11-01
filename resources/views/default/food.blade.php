@@ -27,19 +27,15 @@
                         <div class="toolbox-left">
                             <!-- <a href="#"
                                 class="toolbox-item left-sidebar-toggle btn btn-outline btn-primary btn-rounded btn-icon-right">Filter<i
-                                    class="d-icon-arrow-right"></i></a>
+                                    class="d-icon-arrow-right"></i></a>-->
                             <div class="toolbox-item toolbox-sort select-box text-dark">
-                                <label>Sort By :</label>
-                                <select name="orderby" class="form-control">
-                                    <option value="default">Default</option>
-                                    <option value="popularity" selected="selected">Most Popular</option>
-                                    <option value="rating">Average rating</option>
-                                    <option value="date">Latest</option>
-                                    <option value="price-low">Sort forward price low</option>
-                                    <option value="price-high">Sort forward price high</option>
-                                    <option value="">Clear custom sort</option>
+                                <label>Category :</label>
+                                <select id="food_category" name="food_category" class="form-control">
+                                    <option value="All">All</option>
+                                    <option value="veg">Veg</option>
+                                    <option value="non-veg">Non Veg</option>
                                 </select>
-                            </div> -->
+                            </div>
                         </div>
                         <div class="toolbox-right">
                             <!-- PageSize -->
@@ -61,58 +57,6 @@
                     <div class="row cols-2 cols-md-3 cols-lg-4 product-wrapper">
                         @forelse($foods as $food)
                         <div class="col-xs-6 col-lg-3 mb-4">
-                            <!-- <div class="product text-center product-with-qty">
-                                <figure class="product-media">
-                                    <a href="/foods/{{$food->id}}">
-                                        <img src="{{ asset($food->images[0]->path) }}" alt="Blue Pinafore Denim Dress"
-                                            width="280" height="315" style="background-color: #f2f3f5;">
-                                    </a>
-                                    @isset($food->is_new)
-                                    <div class="product-label-group">
-                                        <label class="product-label label-new">new</label>
-                                    </div>
-                                    @endisset
-                                    <div class="product-action-vertical">
-                                        <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"
-                                            data-target="#addCartModal" title="Add to cart"><i
-                                                class="d-icon-bag"></i></a>
-                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-                                                class="d-icon-heart"></i></a>
-                                    </div>
-                                    <div class="product-action">
-                                        <a href="#" class="btn-product btn-quickview" title="Quick View">Quick View</a>
-                                    </div>
-                                </figure>
-                                <div class="product-details">
-                                    <h3 class="product-name">
-                                        <a href="/foods/{{$food->id}}">{{$food->name}}</a>
-                                    </h3>
-                                    <div class="product-price">
-                                        <ins class="new-price">${{$food->price}}</ins>@isset($food->old_price)<del
-                                            class="old-price">{{$food->old_price}}</del>@endisset
-                                    </div>
-                                    <div class="ratings-container">
-                                        @isset($food->rating)<div class="ratings-full">
-                                            <span class="ratings" style="width: 100%"></span>
-                                            <span class="tooltiptext tooltip-top"></span>
-                                        </div>@endisset
-                                        @isset($food->review)<a href="" class="rating-reviews">( {{$food->review}}
-                                            )</a>@endisset
-
-                                    </div>
-                                    <div class="product-action">
-                                        <div class="product-quantity">
-                                            <button title="calculate" class="quantity-minus d-icon-minus"></button>
-                                            <input title="input" class="quantity form-control" type="number" min="1"
-                                                max="1000000">
-                                            <button title="calculate" class="quantity-plus d-icon-plus"></button>
-                                        </div>
-                                        <a href="#" class="btn-product btn-cart" data-toggle="modal"
-                                            data-target="#addCartModal" title="Add to cart"><i
-                                                class="d-icon-bag"></i><span>Add to cart</span></a>
-                                    </div>
-                                </div>
-                            </div> -->
                             <x-food-card :details="$food" path="/foods"/>
                         </div>
                         @empty
@@ -433,3 +377,20 @@
 </main>
 
 @endsection
+@push('scripts')
+<script>
+    $('#food_category').change((e) => {
+        const foodCategory = e.target.value;
+        if (foodCategory !== "All") {
+            $('.food-card').parent().addClass('d-none');
+            filteredCards = $('.food-card').filter(function () {
+                return $(this).data('category') === foodCategory;
+            });
+            filteredCards.parent().removeClass('d-none');
+        } else {
+            $('.food-card').parent().removeClass('d-none');
+        }
+
+    })
+</script>
+@endpush

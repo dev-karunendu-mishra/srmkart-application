@@ -189,6 +189,7 @@
                         </div>
                         <hr class="product-divider mb-3">
                         @else
+                        @if($detail->status != 'sold')
                         <hr class="product-divider">
                         <div class="product-form product-qty">
                             <div class="product-form-group">
@@ -198,6 +199,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                         @endif
 
                         <!-- WishList/Compare -->

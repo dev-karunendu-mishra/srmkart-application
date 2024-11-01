@@ -74,7 +74,8 @@
                     <div class="row cols-2 cols-md-3 cols-lg-4 product-wrapper">
                         @forelse($records as $record)
                         <div class="col-xs-6 col-lg-3 mb-4">
-                            <x-product-card :details="$record" path="/properties" />
+                        <x-product-card :details="$record" path="/properties"
+                        view="default.components.property-card" />
                         </div>
                         @empty
                         <div class="col-xs-6 col-lg-3 mb-4">

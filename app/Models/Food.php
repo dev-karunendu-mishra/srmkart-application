@@ -10,7 +10,7 @@ class Food extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['uuid', 'name', 'description', 'price', 'rating', 'review', 'seo_title', 'seo_keywords', 'seo_description'];
+    protected $fillable = ['uuid', 'name', 'description', 'price', 'rating', 'review', 'food_category', 'seo_title', 'seo_keywords', 'seo_description'];
 
     public function images()
     {

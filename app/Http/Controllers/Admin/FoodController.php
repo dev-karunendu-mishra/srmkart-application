@@ -50,6 +50,13 @@ class FoodController extends Controller
             'label' => "Food's Price",
             'placeholder' => "Food's Price",
         ],
+        'food_category'=>[
+            'id' => 'food_category',
+            'name' => 'food_category',
+            'type' => 'select',
+            'label' => "Food's Category",
+            'placeholder' => "Food's Category",
+        ],
         [
             'id' => 'foodImage',
             'name' => 'image[]',
@@ -68,6 +75,8 @@ class FoodController extends Controller
     {
         $records = Food::with(['images'])->get();
         $foodOrders = FoodOrder::with(['order'])->get();
+
+        $this->fields['food_category']['options'] = [(object)['id'=>'veg', 'name'=>"Veg"],(object)['id'=>'non-veg', 'name'=>"Non Veg"]];
 
         return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null, 'foodOrders' => $foodOrders, 'foodOrderColumns' => $this->foodOrderColumns, 'statusOptions' => $this->statusOptions, 'updateRoute' => 'admin.orders.update']);
     }
@@ -91,10 +100,12 @@ class FoodController extends Controller
             'price' => 'required|numeric',
             'review' => 'nullable|numeric',
             'rating' => 'nullable|numeric',
+            'food_category'=>'required|string',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'seo_title' => 'nullable|string',
             'seo_keywords' => 'nullable|string',
             'seo_description' => 'nullable|string',
+            
         ]);
 
         $food = Food::create($validatedData);
@@ -122,6 +133,7 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
+        $this->fields['food_category']['options'] = [(object)['id'=>'veg', 'name'=>"Veg"],(object)['id'=>'non-veg', 'name'=>"Non Veg"]];
         return view($this->editView, ['columns' => $this->columns, 'fields' => $this->fields, 'model' => $food, 'edit' => true]);
     }
 
@@ -136,12 +148,12 @@ class FoodController extends Controller
             'price' => 'nullable|numeric',
             'review' => 'nullable|numeric',
             'rating' => 'nullable|numeric',
+            'food_category'=>'required|string',
             'image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'seo_title' => 'nullable|string',
             'seo_keywords' => 'nullable|string',
             'seo_description' => 'nullable|string',
         ]);
-
         // Update product fields
         $food->update($validatedData);
 

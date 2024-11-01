@@ -1,5 +1,5 @@
 @if(!empty($details))
-<div class="product text-center product-with-qty">
+<div class="product food-card text-center product-with-qty" data-category="{{$details->food_category}}">
     <figure class="product-media">
         <a href="/foods/{{$details->uuid}}">
             @if(!empty($details->images) && count($details->images) > 0)
@@ -54,7 +54,7 @@
     </div>
 </div>
 @else
-<div class="product text-center product-with-qty">
+<div class="food-card product text-center product-with-qty">
     <figure class="product-media">
         <a href="product.html">
             <img src="/assets/images/demos/demo-food3/product/1-280x220.jpg" alt="Blue Pinafore Denim Dress" width="280"
