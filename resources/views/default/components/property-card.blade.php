@@ -2,7 +2,7 @@
 <div class="product text-center property-card" data-location="{{$details->location}}"
     data-flat-type="{{$details->flat_type}}" data-vacancy="{{$details->vacancy}}">
     <figure class="product-media">
-        <a href="{{$path}}/{{$details->uuid}}/enquiry">
+        <a href="{{$path}}/{{$details->uuid}}">
             @if(!empty($details->images) && count($details->images) > 0)
             <img src="{{asset($details->images->first()->path)}}" alt="{{$details->name}}" width="220" height="245"
                 style="background-color: #f2f3f5;">
@@ -30,7 +30,7 @@
             <a>{{$details->location}} - {{$details->flat_type}}</a>
         </div>
         <h3 class=" product-name">
-            <a href="{{$path}}/{{$details->uuid}}/enquiry">{{$details->name}}</a>
+            <a href="{{$path}}/{{$details->uuid}}">{{$details->name}}</a>
         </h3>
         <div class="ratings-container">
             @isset($details->rating)
