@@ -26,8 +26,9 @@
                         </div> -->
 
                 <!-- <span class="divider"></span> -->
-                <a href="contact-us.html" class="contact d-lg-show"><i class="d-icon-map"></i>Contact</a>
-                <a href="#" class="help d-lg-show"><i class="d-icon-info"></i> Need Help</a>
+                <a href="contact-us.html" class="contact d-lg-show"><i class="d-icon-food"></i>Join as delivery boy</a>
+                <a href="#" class="help d-lg-show"><i class="d-icon-info"></i> Assignment Writer</a>
+                <!-- <a href="#" class="help d-lg-show"><i class="d-icon-info"></i> Need Help</a> -->
                 @auth
                 <a href="{{ url('/dashboard') }}" class="link-to-tab d-md-show">
                     Dashboard
@@ -255,6 +256,7 @@
                                 <li class="{{Route::currentRouteName()=='internship'?'active':''}}"> <a
                                 href="/internship">Internship</a> </li>
                         <li class="{{Route::currentRouteName()=='course'?'active':''}}"> <a href="/course">Courses</a> </li>
+                        <li class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Contact Us</a> </li>
                         <!-- <li>
                                     <a href="shop.html">Categories</a>
                                     <div class="megamenu">
@@ -544,8 +546,7 @@
                                         </li>
                                     </ul>
                                 </li> -->
-                        <li class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Contact
-                                Us</a> </li>
+                        
                     </ul>
                 </nav>
             </div>

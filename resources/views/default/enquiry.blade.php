@@ -86,17 +86,18 @@
                 <input type="text" class="form-control" name="flat_no" required>
                 @endif
                
+                <textarea name="message" class="form-control pb-2 pt-2" cols="30" rows="5"
+                    placeholder="Message"></textarea>
+                <button type="submit" class="btn btn-dark btn-rounded btn-order">Submit</button>
             </div>
             <aside class="col-md-6 sticky-sidebar-wrapper">
-                <div class="sticky-sidebar mt-1" data-sticky-options="{'bottom': 50}">
+                <img src="/assets/images/enquiry.png" alt="">
+                <!-- <div class="sticky-sidebar mt-1" data-sticky-options="{'bottom': 50}">
                     <div class="summary pt-5">
                         <h3 class="title title-simple text-left text-uppercase">Additional Information</h3>
 
-                        <textarea name="message" class="form-control pb-2 pt-2" cols="30" rows="5"
-                            placeholder="Message"></textarea>
-                        <button type="submit" class="btn btn-dark btn-rounded btn-order">Submit</button>
                     </div>
-                </div>
+                </div> -->
             </aside>
         </div>
     </form>

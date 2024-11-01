@@ -5,9 +5,9 @@
                 <div class="col-lg-3">
                     <a href="/" class="logo-footer">
                         @if($siteData)
-                        <img src="{{ asset($siteData->logo) }}" alt="logo" width="43" height="43" />
+                        <img src="{{ asset($siteData->logo) }}" alt="logo" class="bg-white" width="43" height="43" />
                         @else
-                        <img src="/assets/images/logo.jpg" alt="logo-footer" width="43" height="43">
+                        <img src="/assets/images/logo.jpg" alt="logo-footer" class="bg-white" width="43" height="43">
                         @endif
                     </a>
 

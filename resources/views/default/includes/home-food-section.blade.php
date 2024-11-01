@@ -1,5 +1,5 @@
 <!-- Food Section -->
-<section class="product-wrapper container appear-animate mt-6 mt-md-10 pt-4 pb-8" data-animation-options="{
+<section class="food-product-wrapper product-wrapper container appear-animate mt-6 mt-md-10 pt-4 pb-8" data-animation-options="{
                 'delay': '.3s'
             }">
     <h2 class="title title-center mb-5">Best Food</h2>

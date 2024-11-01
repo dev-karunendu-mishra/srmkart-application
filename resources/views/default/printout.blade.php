@@ -148,7 +148,7 @@
 
                         <textarea name="message" class="form-control pb-2 pt-2" cols="30" rows="5"
                             placeholder="Message"></textarea>
-                        <button type="submit" class="btn btn-dark btn-rounded btn-order">Submit</button>
+                        <button type="submit" class="btn btn-primary btn-rounded btn-order">Submit</button>
                     </div>
                 </div>
             </aside>

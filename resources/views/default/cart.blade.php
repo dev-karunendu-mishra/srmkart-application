@@ -68,10 +68,10 @@
                         </tbody>
                     </table>
                     <div class="cart-actions mb-6 pt-4">
-                        <a href="/" class="btn btn-dark btn-md btn-rounded btn-icon-left mr-4 mb-4"><i
+                        <a href="/" class="btn btn-primary btn-md btn-rounded btn-icon-left mr-4 mb-4"><i
                                 class="d-icon-arrow-left"></i>Continue Shopping</a>
                         <button type="submit"
-                            class="btn btn-outline btn-dark btn-md btn-rounded {{empty($cartItems) || count($cartItems) == 0 ? 'btn-disabled' : ''}}">Clear
+                            class="btn btn-outline btn-primary btn-md btn-rounded {{empty($cartItems) || count($cartItems) == 0 ? 'btn-disabled' : ''}}">Clear
                             Cart</button>
                     </div>
                     <!-- <div class="cart-coupon-box mb-8">
@@ -176,7 +176,7 @@
                                     </td>
                                 </tr>
                             </table>
-                            <a href="checkout" class="btn btn-dark btn-rounded btn-checkout">Proceed to
+                            <a href="checkout" class="btn btn-primary btn-rounded btn-checkout">Proceed to
                                 checkout</a>
                         </div>
                     </div>
@@ -185,7 +185,7 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="alert-danger text-center text-white">
                         <div>Cart is empty.</div>
-                        <div><a href="/" class="btn btn-dark btn-md btn-rounded btn-icon-left mr-4 mb-4"><i
+                        <div><a href="/" class="btn btn-primary btn-md btn-rounded btn-icon-left mr-4 mb-4"><i
                                     class="d-icon-arrow-left"></i>Continue Shopping</a></div>
                     </div>
                 </div>

@@ -264,7 +264,7 @@
                                     </label>
                                 </div>
                                 <input type="hidden" name="payment_method" value="cod" />
-                                <button type="submit" class="btn btn-dark btn-rounded btn-order">Place
+                                <button type="submit" class="btn btn-primary btn-rounded btn-order">Place
                                     Order</button>
                             </div>
                         </div>
