@@ -153,6 +153,12 @@
         }
         
         @media (max-width: 768px) {
+            .header-middle .header-left .logo {
+                margin-inline: auto;
+            }
+            .header-middle .header-left .logo img {
+                width: 65px;
+            }
             .product-wrapper .owl-carousel .owl-item img,
             .product-wrapper .food-card figure img,
             .product-wrapper .property-card  figure img {

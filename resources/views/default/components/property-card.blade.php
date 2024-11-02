@@ -43,7 +43,7 @@
         </div>
         @if($details->status != 'sold')
         <div class="product-action">
-            <a href="{{$path}}/{{$details->uuid}}/enquiry" class="btn-product btn-cart btn-enquiry"
+            <a href="{{$path}}/{{$details->uuid}}/enquiry" class="btn btn-primary btn-outline btn-rounded font-weight-bold btn-enquiry"
                 title="Enquiry Now">Enquiry Now</a>
         </div>
         @endif
@@ -80,7 +80,7 @@
             <a href="#" class="rating-reviews">( 15 reviews )</a>
         </div>
         <div class="product-action">
-            <a href="#" class="btn-product btn-cart" title="Enquiry Now">Enquiry Now</a>
+            <a href="#" class="btn btn-primary btn-outline btn-rounded font-weight-bold" title="Enquiry Now">Enquiry Now</a>
         </div>
     </div>
 </div>
