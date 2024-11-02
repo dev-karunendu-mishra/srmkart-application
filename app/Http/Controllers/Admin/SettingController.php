@@ -52,6 +52,7 @@ class SettingController extends Controller
             'mobile' => 'nullable',
             'email' => 'nullable',
             'logo' => 'nullable|mimes:png,jpg,jpeg,gif,svg',
+            'page_header' => 'nullable|mimes:png,jpg,jpeg,gif,svg',
         ]);
         // Handle file upload
         $logo = null;
@@ -67,8 +68,15 @@ class SettingController extends Controller
             $fileName = time().'_'.$file->getClientOriginalName();
             $icon = $file->storeAs('uploads/logo', $fileName, 'uploads'); // 'uploads' is the storage folder
         }
+        
+        $pageHeader = null;
+        if ($request->hasFile('page_header')) {
+            $file = $request->file('page_header');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $pageHeader = $file->storeAs('uploads/page_header', $fileName, 'uploads'); // 'uploads' is the storage folder
+        }
 
-        Setting::create(['title' => $request->title, 'description' => $request->description, 'domain' => $request->domain, 'address' => $request->address, 'mobile' => $request->mobile, 'email' => $request->email, 'logo' => $logo, 'icon' => $icon, 'facebook' => $request->facebook, 'twitter' => $request->twitter, 'linkedin' => $request->linkedin, 'instagram' => $request->instagram, 'youtube' => $request->youtube]);
+        Setting::create(['title' => $request->title, 'description' => $request->description, 'domain' => $request->domain, 'address' => $request->address, 'mobile' => $request->mobile, 'email' => $request->email, 'logo' => $logo, 'icon' => $icon, 'page_header'=>$pageHeader, 'facebook' => $request->facebook, 'twitter' => $request->twitter, 'linkedin' => $request->linkedin, 'instagram' => $request->instagram, 'youtube' => $request->youtube]);
 
         return redirect()->route($this->storeRoute)->with('success', $this->createMessage);
     }
@@ -118,6 +126,13 @@ class SettingController extends Controller
             $icon = $file->storeAs('uploads/logo', $fileName, 'uploads'); // 'uploads' is the storage folder
         }
 
+        $pageHeader = null;
+        if ($request->hasFile('page_header')) {
+            $file = $request->file('page_header');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $pageHeader = $file->storeAs('uploads/page_header', $fileName, 'uploads'); // 'uploads' is the storage folder
+        }
+
         $newSetting = [
             'title' => $request->title,
             'description' => $request->description,
@@ -138,6 +153,10 @@ class SettingController extends Controller
 
         if ($icon) {
             $newSetting['icon'] = $icon;
+        }
+
+        if ($pageHeader) {
+            $newSetting['page_header'] = $pageHeader;
         }
 
         $setting->update($newSetting);

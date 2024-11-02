@@ -109,6 +109,19 @@
         <div class="row mb-3">
             <div class="col">
                 <div>
+                    <label for="page_header" class="form-label text-capitalize">Page Header</label>
+                    <input name="page_header" class="form-control @error('page_header') is-invalid @enderror" type="file"
+                        id="page_header" />
+                    @error('page_header')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col">
+                <div>
                     <label for="facebook" class="form-label text-capitalize">Facebook</label>
                     <input name="facebook" type="text"
                         value="{{old('facebook', !empty($settings) ? $settings->facebook : '')}}"
