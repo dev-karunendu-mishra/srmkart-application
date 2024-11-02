@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('youtube')->nullable();
             $table->string('logo')->nullable();
             $table->string('icon')->nullable();
+            $table->string('page_header')->nullable();
             $table->timestamps();
         });
     }
