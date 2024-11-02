@@ -13,7 +13,11 @@
     <!-- CSRF Token in a meta tag -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" type="image/png" href="/assets/images/icons/favicon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/assets/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/assets/images/favicon/site.webmanifest" />
 
     <link rel="preload" href="/assets/fonts/srm.ttf?5gap68" as="font" type="font/woff2" crossorigin="anonymous">
     <link rel="preload" href="/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2" as="font" type="font/woff2"
@@ -120,6 +124,9 @@
         .banner-fixed, .banner-fixed figure, .banner-fixed figure img {
             height: 100%;
         }
+        .banner-fixed figure {
+            filter: brightness(0.5);
+        }
         .product-navigation .breadcrumb {
             font-size: 1.85rem;
             font-weight: 600;
@@ -200,7 +207,8 @@
         </div>
     </div>
 
-    <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="d-icon-arrow-up"></i></a>
+    <a href="#" role="button" class="scroll-top show"><i class="fab fa-whatsapp text-white"></i></a>
+    <!-- <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="d-icon-arrow-up"></i></a> -->
 
     <div class="mobile-menu-wrapper">
         <div class="mobile-menu-overlay">
@@ -240,7 +248,7 @@
                         <li class="{{Route::currentRouteName()=='internship'?'active':''}}"> <a
                         href="/internship">Internship</a> </li>
                 <li class="{{Route::currentRouteName()=='course'?'active':''}}"> <a href="/course">Courses</a> </li>
-                <li class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Contact Us</a> </li>
+                <li class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Custom/Essentials</a> </li>
 
             </ul>
 

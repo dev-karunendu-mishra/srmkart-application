@@ -226,6 +226,17 @@
                                                     ₹{{Cart::total()}}</p>
                                             </td>
                                         </tr>
+                                        <tr class="summary-total">
+                                            <td class="w-100" style="padding-block: 8px;">
+                                                <img src="/assets/images/qr.jpg" alt="QR LOGO" width="150px" height="150px">
+                                            </td>
+                                        </tr>
+                                        <tr class="summary-total">
+                                            <td class="w-100" style="text-align: left;padding-block: 8px;">
+                                                <label>File Attachment *</label>
+                                                <input name="attachment[]" type="file" class="" />
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                                 <!-- <div class="payment accordion radio-type">

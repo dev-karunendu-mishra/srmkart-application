@@ -43,26 +43,122 @@
                         </div>
                         <div class="col-lg-9 col-md-8 col-sm-6 d-flex align-items-center mb-4">
                             <div class="w-100">
-                                <form class="pl-lg-2" action="#">
+                                
+                                <form class="form" method="POST" action="{{ route('printout.store') }}" enctype="multipart/form-data">
+                                    @csrf
                                     <h4 class="ls-m font-weight-bold">Let’s Connect</h4>
-                                    <p>Your email address will not be published. Required fields are
-                                        marked *</p>
-                                    <div class="row mb-2">
-                                        <div class="col-12 mb-4">
-                                            <textarea class="form-control" required=""
-                                                placeholder="Comment*"></textarea>
+                                    <p>Your email address will not be published. Required fields are marked *</p>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-6 mb-lg-0 pr-lg-4">
+                                            <h3 class="title title-simple text-left text-uppercase">Basic Details</h3>
+                                            <!-- <div class="row">
+                                                <div class="col-xs-6">
+                                                    <label>First Name *</label>
+                                                    <input type="text" class="form-control" name="first-name" required="">
+                                                </div>
+                                            </div> -->
+
+                                            <label>Name *</label>
+                                            <input type="text" class="form-control" name="name" required>
+
+                                            <label>Phone *</label>
+                                            <input type="text" class="form-control" name="mobile" required>
+
+                                            <label>Email Address *</label>
+                                            <input type="email" class="form-control" name="email" required>
+
+                                            <!-- <label>Company Name (Optional)</label>
+                                                <input type="text" class="form-control" name="company-name" required=""> -->
+                                            <label>Location *</label>
+                                            <select name="location" class="form-control" id="location_dd">
+                                                <option value="NA" selected disabled>Select Location</option>
+                                                <option value="hostel">Hostel</option>
+                                                <option value="estancia">Estancia</option>
+                                                <option value="abode">Abode</option>
+                                            </select>
+
+                                            <div id="location_hostel" class="location-options d-none">
+                                                <label>Hostel *</label>
+                                                <select name="hostel" class="form-control">
+                                                    <option value="NA" selected disabled>Select Hostel</option>
+                                                </select>
+                                            </div>
+
+                                            <div id="location_estancia" class="location-options d-none">
+                                                <label>Estancia *</label>
+                                                <select name="estancia" class="form-control">
+                                                    <option value="NA" selected disabled>Select Estancia</option>
+                                                </select>
+                                            </div>
+
+                                            <div id="location_abode" class="location-options d-none">
+                                                <label>Abode *</label>
+                                                <select name="abode" class="form-control">
+                                                    <option value="NA" selected disabled>Select Abode</option>
+                                                </select>
+                                            </div>
+
+                                            <label>Flat No. / Room No. *</label>
+                                            <input type="text" class="form-control" name="flat_no" required>
+                                            <!-- <div class="select-box">
+                                                </div> -->
+                                            <!-- <label>Street Address *</label>
+                                                <input type="text" class="form-control" name="address1" required=""
+                                                    placeholder="House number and street name">
+                                                <input type="text" class="form-control" name="address2" required=""
+                                                    placeholder="Apartment, suite, unit, etc. (optional)">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <label>Town / City *</label>
+                                                        <input type="text" class="form-control" name="city" required="">
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <label>State *</label>
+                                                        <input type="text" class="form-control" name="state" required="">
+                                                    </div>
+                                                </div> -->
+                                            <!-- <div class="row">
+                                                    <-- <div class="col-xs-6">
+                                                        <label>ZIP *</label>
+                                                        <input type="text" class="form-control" name="zip" required="">
+                                                    </div> ->
+                                                    <div class="col-12">
+                                                        </div>
+                                                    </div>
+                                                
+                                                <div class="form-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-checkbox" id="create-account"
+                                                        name="create-account">
+                                                    <label class="form-control-label ls-s" for="create-account">Create an
+                                                        account?</label>
+                                                </div>
+                                                <div class="form-checkbox mb-6">
+                                                    <input type="checkbox" class="custom-checkbox" id="different-address"
+                                                        name="different-address">
+                                                    <label class="form-control-label ls-s" for="different-address">Ship to a different
+                                                        address?</label>
+                                                </div> -->
+                                            <!-- <h2 class="title title-simple text-uppercase text-left">Additional Information</h2>
+                                                <label>Order Notes (Optional)</label> -->
                                         </div>
-                                        <div class="col-md-6 mb-4">
-                                            <input class="form-control" type="text" placeholder="Name *"
-                                                required="">
-                                        </div>
-                                        <div class="col-md-6 mb-4">
-                                            <input class="form-control" type="email" placeholder="Email *"
-                                                required="">
-                                        </div>
+                                        <aside class="col-md-6 sticky-sidebar-wrapper">
+                                            <div class="sticky-sidebar mt-1" data-sticky-options="{'bottom': 50}">
+                                                <div class="summary pt-5">
+                                                    <!-- <h3 class="title title-simple text-left text-uppercase">Additional Information</h3> -->
+
+
+                                                    <div id="" class="">
+                                                        <label>Slot *</label>
+                                                        <x-slot-deadline defaultOption="Select Slot" :slotOptions="$slotOptions"/>
+                                                    </div>
+
+                                                    <textarea name="message" class="form-control pb-2 pt-2" cols="30" rows="5"
+                                                        placeholder="Message"></textarea>
+                                                    <button type="submit" class="btn btn-primary btn-rounded btn-order">Submit</button>
+                                                </div>
+                                            </div>
+                                        </aside>
                                     </div>
-                                    <button class="btn btn-dark btn-rounded">Post Comment<i
-                                            class="d-icon-arrow-right"></i></button>
                                 </form>
                             </div>
                         </div>

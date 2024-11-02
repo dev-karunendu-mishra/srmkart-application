@@ -26,8 +26,8 @@
                         </div> -->
 
                 <!-- <span class="divider"></span> -->
-                <a href="contact-us.html" class="contact d-lg-show"><i class="d-icon-food"></i>Join as delivery boy</a>
-                <a href="#" class="help d-lg-show"><i class="d-icon-info"></i> Assignment Writer</a>
+                <a href="contact-us.html" class="contact text-primary d-lg-show"><i class="d-icon-food"></i>Join as delivery boy</a>
+                <a href="#" class="help text-primary d-lg-show"><i class="d-icon-info"></i> Assignment Writer</a>
                 <!-- <a href="#" class="help d-lg-show"><i class="d-icon-info"></i> Need Help</a> -->
                 @auth
                 <a href="{{ url('/dashboard') }}" class="link-to-tab d-md-show">
@@ -53,7 +53,7 @@
                 </a>
                 <a href="/" class="logo">
                     @if($siteData)
-                    <img src="{{ asset($siteData->logo) }}" alt="logo" width="44px" height="44" />
+                    <img src="{{ asset($siteData->logo) }}" alt="logo" width="100px" height="100px" />
                     @else
                     <h1 class="m-0 display-5 font-weight-semi-bold"><span
                             class="text-primary font-weight-bold border px-3 mr-1">SRMKART</h1>
@@ -256,7 +256,7 @@
                                 <li class="{{Route::currentRouteName()=='internship'?'active':''}}"> <a
                                 href="/internship">Internship</a> </li>
                         <li class="{{Route::currentRouteName()=='course'?'active':''}}"> <a href="/course">Courses</a> </li>
-                        <li class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Contact Us</a> </li>
+                        <li class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Custom/Essentials</a> </li>
                         <!-- <li>
                                     <a href="shop.html">Categories</a>
                                     <div class="megamenu">
