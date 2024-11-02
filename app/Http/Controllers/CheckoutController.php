@@ -62,7 +62,11 @@ class CheckoutController extends Controller
                 'regex:/^[\p{L}\s.-]+$/u', // Allows letters, spaces, and some punctuation
             ],
             'slot_deadline' => 'nullable|string',
-            'attachment.*' => 'nullable|file|mimes:pdf',
+            'attachment' => 'required|file|mimes:pdf,png,docx,jpg,jpeg,webp',
+        ],[
+            'attachment.required' => 'Payment screenshot is mandatory.',
+            'attachment.file' => 'The screenshot must be a valid file.',
+            'attachment.mimes' => 'The screenshot must be a file of type: pdf, png, docx, jpg, jpeg, webp.',
         ]);
 
         // Prepare order items
@@ -79,6 +83,12 @@ class CheckoutController extends Controller
         }
 
         // Create a new order
+        $paymentScreenshots = null;
+        if ($request->hasFile('attachment')) {
+            $file = $request->file('attachment');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $paymentScreenshots = $file->storeAs('uploads/payment_screenshots', $fileName, 'uploads'); // 'uploads' is the storage folder
+        }
         $order = Order::create([
             'user_id' => auth()->id(),
             'subtotal' => Cart::subtotal(),
@@ -86,7 +96,8 @@ class CheckoutController extends Controller
             'discount' => Cart::discount(),
             'total' => Cart::total(),
             'payment_status' => 'pending',
-            'items' => $items, // Store items as JSON
+            'items' => $items, // Store items as JSON,
+            'payment_screenshot' => $paymentScreenshots
         ]);
 
         // Billing details

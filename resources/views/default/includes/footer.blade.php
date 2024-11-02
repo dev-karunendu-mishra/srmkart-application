@@ -43,6 +43,16 @@
                                 <a href="tel:#">Toll Free {{$siteData ? $siteData->mobile : "Mobile No"}}</a>
                             </li>
                             <li>
+                                <label>Phone:</label>
+                                <a href="tel:#">
+                                    7665433060
+                                </a>
+                            </li>
+                            <li>
+                                <label>Phone:</label>
+                                <a href="tel:#">7665433060</a>
+                            </li>
+                            <li>
                                 <label>Email:</label>
                                 <a href="/cdn-cgi/l/email-protection#4d202c24210d3f24222928632e2220"><span
                                         class="__cf_email__" data-cfemail="f19c90989db183989e9594df929e9c">[{{$siteData
@@ -67,7 +77,7 @@
                         <h4 class="widget-title">Quick Link</h4>
                         <ul class="widget-body">
                             <li>
-                                <a href="about-us">About Us</a>
+                                <a href="/about-us">About Us</a>
                             </li>
                             <!--<li>-->
                             <!--    <a href="#">Order History</a>-->
@@ -79,7 +89,7 @@
                             <!--    <a href="#">Custom Service</a>-->
                             <!--</li>-->
                             <li>
-                                <a href="#">Terms &amp; Condition</a>
+                                <a href="/terms-and-conditions">Terms &amp; Condition</a>
                             </li>
                             <li>
                                 <a href="/help">Help</a>

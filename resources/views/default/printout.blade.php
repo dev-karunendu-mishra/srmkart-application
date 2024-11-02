@@ -13,10 +13,9 @@
     </div>
 </nav>
 <div class="page-header pl-4 pr-4" style="background-image: url(/assets/images/page-header/about-us.jpg)">
-    <h3 class="page-subtitle font-weight-bold">Welcome to SRMKART</h3>
-    <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Print</h1>
-    <p class="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br> nec
-        sagittis sem nibh id elit.</p>
+    <h2 class="page-title font-weight-bold">Need it on paper? We’ve got you covered!</h2>
+    <h3 class="page-subtitle font-weight-bold lh-1 text-white text-capitalize">Available Mon - Sun / 24*7 Hrs.</h3>
+    <p class="page-desc text-white mb-0 container">Got your content ready but need it on paper? Just share your files with us, and we’ll handle the rest! From clean, professional prints to campus delivery, SRMKart makes it easy to turn your digital documents into high-quality printouts. Convenient, fast, and right at your doorstep!</p>
 </div>
 
 <div class="container mt-7 mb-7">

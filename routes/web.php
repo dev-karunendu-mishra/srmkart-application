@@ -12,6 +12,9 @@ use App\Http\Controllers\PrintOutController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertyEnquiryController;
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\AssignmentWriterController;
+use App\Http\Controllers\DeliveryAgentController;
+use App\Http\Controllers\EssentialsController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
@@ -177,6 +180,18 @@ Route::prefix('/')->group(function () {
         'store',
     ])->names([
         'store' => 'course-enquiry.store',
+    ]);
+
+    Route::resource('assignment_writer', AssignmentWriterController::class)->only([
+        'index','store',
+    ]);
+
+    Route::resource('delivery_agent', DeliveryAgentController::class)->only([
+        'index','store',
+    ]);
+    
+    Route::resource('essentials', EssentialsController::class)->only([
+        'index','store',
     ]);
 
     Route::get('thankyou', function () {

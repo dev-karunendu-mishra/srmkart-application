@@ -10,7 +10,7 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['order_id', 'user_id', 'subtotal', 'discount', 'tax', 'total', 'payment_status', 'items', 'status', 'delivery_status'];
+    protected $fillable = ['order_id', 'user_id', 'subtotal', 'discount', 'tax', 'total', 'payment_status', 'items', 'status', 'delivery_status','payment_screenshot'];
 
     protected $casts = [
         'items' => 'array', // Automatically cast the JSON to an array

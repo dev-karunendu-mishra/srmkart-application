@@ -62,7 +62,7 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        $records = Assignment::with(['images'])->get();
+        $records = Assignment::with(['images'])->orderBy('created_at', 'desc')->get();
 
         return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'showDownload' => true, 'records' => $records, 'model' => null, 'statusOptions' => $this->statusOptions, 'updateRoute' => 'admin.assignments.update']);
 

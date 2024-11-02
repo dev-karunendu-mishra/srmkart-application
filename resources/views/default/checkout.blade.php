@@ -90,13 +90,13 @@
                     <div class="col-lg-7 mb-6 mb-lg-0 pr-lg-4">
                         <h3 class="title title-simple text-left text-uppercase">Billing Details</h3>
                         <label>Name *</label>
-                        <input type="text" class="form-control" name="name" required />
+                        <input type="text" class="form-control" name="name" value="{{old('name')}}" required />
 
                         <label>Phone *</label>
-                        <input type="text" class="form-control" name="mobile" required />
+                        <input type="text" class="form-control" name="mobile" value="{{old('mobile')}}" required />
 
                         <label>Email Address *</label>
-                        <input type="email" class="form-control" name="email" required />
+                        <input type="email" class="form-control" name="email" value="{{old('email')}}" required />
 
                         <!-- <label>Company Name (Optional)</label>
                     <input type="text" class="form-control" name="company-name" required=""> -->
@@ -130,7 +130,7 @@
                         </div>
 
                         <label>Flat No. / Room No. *</label>
-                        <input type="text" class="form-control" name="flat_no" required>
+                        <input type="text" class="form-control" name="flat_no" value="{{old('flat_no')}}" required>
                         <h2 class="title title-simple text-uppercase text-left">Additional Information</h2>
                         <div id="" class="">
                             <label>Slot *</label>
@@ -138,7 +138,7 @@
                         </div>
                         <label>Order Notes (Optional)</label>
                         <textarea name="message" class="form-control pb-2 pt-2 mb-0" cols="30" rows="5"
-                            placeholder="Notes about your order, e.g. special notes for delivery"></textarea>
+                            placeholder="Notes about your order, e.g. special notes for delivery" value="{{old('message')}}"></textarea>
                     </div>
 
 
@@ -186,37 +186,7 @@
                                                 ₹{{Cart::discount()}}
                                             </td>
                                         </tr>
-                                        <!-- <tr class="sumnary-shipping shipping-row-last">
-                                            <td colspan="2">
-                                                <h4 class="summary-subtitle">Calculate Shipping</h4>
-                                                <ul>
-                                                    <li>
-                                                        <div class="custom-radio">
-                                                            <input type="radio" id="flat_rate" name="shipping"
-                                                                class="custom-control-input" checked="">
-                                                            <label class="custom-control-label" for="flat_rate">Flat
-                                                                rate</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-radio">
-                                                            <input type="radio" id="free-shipping" name="shipping"
-                                                                class="custom-control-input">
-                                                            <label class="custom-control-label" for="free-shipping">Free
-                                                                shipping</label>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="custom-radio">
-                                                            <input type="radio" id="local_pickup" name="shipping"
-                                                                class="custom-control-input">
-                                                            <label class="custom-control-label" for="local_pickup">Local
-                                                                pickup</label>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr> -->
+                                       
                                         <tr class="summary-total">
                                             <td class="pb-0">
                                                 <h4 class="summary-subtitle">Total</h4>
@@ -234,7 +204,7 @@
                                         <tr class="summary-total">
                                             <td class="w-100" style="text-align: left;padding-block: 8px;">
                                                 <label>File Attachment *</label>
-                                                <input name="attachment[]" type="file" class="" />
+                                                <input name="attachment" type="file" class="" />
                                             </td>
                                         </tr>
                                     </tbody>
@@ -270,7 +240,7 @@
                                     <input type="checkbox" class="custom-checkbox" id="terms-condition"
                                         name="terms-condition">
                                     <label class="form-control-label" for="terms-condition">
-                                        I have read and agree to the website <a href="#">terms and conditions
+                                        I have read and agree to the website <a href="/terms-and-conditions">terms and conditions
                                         </a>*
                                     </label>
                                 </div>

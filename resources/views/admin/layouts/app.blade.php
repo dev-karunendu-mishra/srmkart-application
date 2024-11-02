@@ -43,6 +43,34 @@
               class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a
               href="https://themewagon.com">ThemeWagon</a></p>
         </div> -->
+        <!-- Modal -->
+<div class="modal fade" id="attachmentDownloadModal" tabindex="-1" aria-labelledby="attachmentDownloadModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Attachments</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="attachmentData" class="d-flex gap-2">
+                    {{--@foreach($records->first()->images as $attachment)
+                    <div class="d-inline-block border rounded-4 p-1 d-flex flex-column align-items-center">
+                        <div class=""><embed class="rounded-4" src="{{asset($attachment->path)}}" width="100"
+                                height="100" />
+                        </div>
+                        <div><a href="{{asset($attachment->path)}}" class="btn btn-success" download><small><span
+                                        class="ti ti-download fs-4"></span><span>Download</span></small></a></div>
+                    </div>
+                    @endforeach--}}
+                </div>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FoodOrder Modal -->
       </div>
     </div>
   </div>

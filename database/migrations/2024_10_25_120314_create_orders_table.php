@@ -24,6 +24,7 @@ return new class extends Migration
             $table->json('items'); // Store order items as JSON
             $table->enum('status', ['pending', 'completed', 'failed'])->default('pending');
             $table->enum('delivery_status', ['pending', 'completed', 'failed'])->default('pending');
+            $table->string('payment_screenshot')->nullable();
             $table->timestamps();
         });
     }

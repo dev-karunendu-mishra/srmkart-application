@@ -6,7 +6,7 @@
 
 <div class="page-header pl-4 pr-4" style="background-image: url(/assets/images/page-header/about-us.jpg)">
     <h3 class="page-subtitle font-weight-bold">Lorem quis bibendum</h3>
-    <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Enquiry</h1>
+    <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Join as assignment writer</h1>
     <p class="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br> nec
         sagittis sem nibh id elit.</p>
 </div>
@@ -27,7 +27,7 @@
     </div>
     @endif
 
-    <form class="form" method="POST" action="{{ route('printout.store') }}" enctype="multipart/form-data">
+    <form class="form" method="POST" action="{{ route('assignment_writer.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <div class="col-md-6 mb-6 mb-lg-0 pr-lg-4">
@@ -50,7 +50,7 @@
 
                 <!-- <label>Company Name (Optional)</label>
                     <input type="text" class="form-control" name="company-name" required=""> -->
-                <label>Location *</label>
+                <!-- <label>Location *</label>
                 <select name="location" class="form-control" id="location_dd">
                     <option value="NA" selected disabled>Select Location</option>
                     <option value="hostel">Hostel</option>
@@ -80,7 +80,7 @@
                 </div>
 
                 <label>Flat No. / Room No. *</label>
-                <input type="text" class="form-control" name="flat_no" required>
+                <input type="text" class="form-control" name="flat_no" required> -->
                 
             </div>
             <aside class="col-md-6 sticky-sidebar-wrapper">
