@@ -732,7 +732,7 @@ button:focus {
     z-index: 999;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
     line-height: 60px;
-    background-color: #fff;
+    background-color: #72c26e;
 }
 .scroll-top:hover {
     color: #222;
@@ -6980,7 +6980,7 @@ textarea {
     width: 18px;
     height: 18px;
     line-height: 17px;
-    border: 1px solid #ebebeb;
+    border: 2px solid #ec1c58;
     border-radius: 2px;
 }
 @media (-ms-high-contrast: active), (-ms-high-contrast: none) {
@@ -6990,8 +6990,8 @@ textarea {
 }
 .custom-checkbox:checked + label:before {
     content: "";
-    border-color: #222;
-    background: #222;
+    border-color: #ec1c58;
+    background: #ec1c58;
     color: #fff;
     font-size: 9px;
     font-weight: 600;

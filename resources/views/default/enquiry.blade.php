@@ -94,7 +94,7 @@
                 <img src="/assets/images/enquiry.png" alt="">
                 <!-- <div class="sticky-sidebar mt-1" data-sticky-options="{'bottom': 50}">
                     <div class="summary pt-5">
-                        <h3 class="title title-simple text-left text-uppercase">Additional Information</h3>
+                        <!-- <h3 class="title title-simple text-left text-uppercase">Additional Information</h3> -->
 
                     </div>
                 </div> -->

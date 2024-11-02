@@ -128,17 +128,46 @@
 
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <div class="widget widget-instagram">
-                        <h4 class="widget-title">Instagram</h4>
-                        <figure class="widget-body row">
+                    <div class="widget ml-lg-4">
+                        <h4 class="widget-title">Internship</h4>
+                        <ul class="widget-body">
+                            <!--<li>-->
+                            <!--    <a href="#">Sign in</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--    <a href="/cart">View Cart</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--    <a href="/wishlist">My Wishlist</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--    <a href="#">Track My Order</a>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                            <!--    <a href="/help">Help</a>-->
+                            <!--</li>-->
+                            <li>
+                                <a href="/internship/cc7a5d8b-e40c-44c5-bf6c-27142663d463/enquiry">Adobe Photoshop</a>
+                            </li>
+                            <li>
+                                <a href="/internship/42c3eb28-33de-44f6-ba90-bf2e42cd29c3/enquiry">AutoCad</a>
+                            </li>
+                            <li>
+                            <a href="/internship/782c987c-c2a0-49ca-95fb-9b38918bf222/enquiry">Affiliate Marketing</a>
+                            </li>
+                            <!-- <li>
+                                <a href="/assignment">Assignment</a>
+                            </li> -->
+                        </ul>
+                        <!-- <figure class="widget-body row">
                             <div class="col-3">
-                                <img src="/assets/images/instagram/01.jpg" alt="instagram 1" width="64" height="64">
+                                
                             </div>
                             <div class="col-3">
-                                <img src="/assets/images/instagram/02.jpg" alt="instagram 2" width="64" height="64">
+                                
                             </div>
                             <div class="col-3">
-                                <img src="/assets/images/instagram/03.jpg" alt="instagram 3" width="64" height="64">
+                                
                             </div>
                             <div class="col-3">
                                 <img src="/assets/images/instagram/04.jpg" alt="instagram 4" width="64" height="64">
@@ -155,7 +184,7 @@
                             <div class="col-3">
                                 <img src="/assets/images/instagram/08.jpg" alt="instagram 8" width="64" height="64">
                             </div>
-                        </figure>
+                        </figure> -->
                     </div>
 
                 </div>
@@ -171,11 +200,11 @@
             <div class="footer-center">
                 <p class="copyright">SRM Kart &copy; 2024. All Rights Reserved</p>
             </div>
-            <div class="footer-right">
+            <div class="footer-right" style="padding-right: 74px;">
                 <div class="social-links">
-                    <a href="#" title="social-link" class="social-link social-facebook fab fa-facebook-f"></a>
-                    <a href="#" title="social-link" class="social-link social-twitter fab fa-twitter"></a>
-                    <a href="#" title="social-link" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                    <a href="#" title="social-link" class="social-link social-facebook fab fa-instagram"></a>
+                    <!-- <a href="#" title="social-link" class="social-link social-twitter fab fa-twitter"></a>
+                    <a href="#" title="social-link" class="social-link social-linkedin fab fa-linkedin-in"></a> -->
                 </div>
             </div>
         </div>
