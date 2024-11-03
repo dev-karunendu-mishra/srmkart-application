@@ -72,7 +72,9 @@ class CheckoutController extends Controller
             $location = 'abode';
         }
 
-
+        if(Cart::count() == 0) {
+            return redirect(route('home'));
+        }
         return view('default.checkout', compact('slotOptions', 'location', 'hostels', 'estanciaOptions', 'abodeOptions', 'lastOrder', 'lastFoodOrder'));
     }
 

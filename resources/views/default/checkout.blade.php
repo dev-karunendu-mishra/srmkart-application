@@ -200,7 +200,7 @@
                                                 <h4 class="summary-subtitle">Delivery Charge</h4>
                                             </td>
                                             <td class="summary-subtotal-price pb-0 pt-0">
-                                                ₹{{Cart::total() <= 100 ? 20 : 0 }}
+                                                ₹{{Cart::count() > 0 && Cart::total() <= 100 ? 20 : 0 }}
                                             </td>
                                         </tr>
                                        
@@ -210,7 +210,7 @@
                                             </td>
                                             <td class=" pt-0 pb-0">
                                                 <p class="summary-total-price ls-s text-primary">
-                                                    ₹{{Cart::total() <= 100 ? (Cart::total() + 20) : Cart::total() }}</p>
+                                                    ₹{{Cart::count() > 0 && Cart::total() <= 100 ? (Cart::total() + 20) : Cart::total() }}</p>
                                             </td>
                                         </tr>
                                         <tr class="summary-total">
