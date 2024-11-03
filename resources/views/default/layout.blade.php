@@ -127,7 +127,7 @@
         .banner-fixed, .banner-fixed figure, .banner-fixed figure img {
             height: 100%;
         }
-        .banner-fixed figure {
+        .feature-banner .banner-fixed figure {
             filter: brightness(0.5);
         }
         .product-navigation .breadcrumb {
@@ -256,7 +256,13 @@
                         href="/assignment">Assignment</a> </li>
                         <li class="{{Route::currentRouteName()=='internship'?'active':''}}"> <a
                         href="/internship">Internship</a> </li>
-                <li class="{{Route::currentRouteName()=='course'?'active':''}}"> <a href="/course">Courses</a> </li>
+                <li class="{{Route::currentRouteName()=='course'? 'active':''}}"> <a href="/course">Courses</a> </li>
+                <li class="{{Route::currentRouteName()=='delivery_agent'? 'active':''}}"> 
+                    <a href="{{route('delivery_agent.index')}}">Join as delivery boy</a>
+                </li>   
+                <li class="{{Route::currentRouteName()=='assignment_writer'? 'active':''}}"> 
+                    <a href="{{route('assignment_writer.index')}}"> Assignment Writer</a> 
+                </li>
                 <li class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Custom/Essentials</a> </li>
 
             </ul>

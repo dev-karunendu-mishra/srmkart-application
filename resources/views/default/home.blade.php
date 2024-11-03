@@ -147,7 +147,7 @@
             </div>
         </section>
 
-        <section class="banner-group mt-4">
+        <section class="feature-banner banner-group mt-4">
             <div class="container">
                 <h2 class="title d-none">Banner Group</h2>
                 <div class="row justify-content-center">
