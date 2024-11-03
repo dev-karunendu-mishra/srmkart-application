@@ -118,8 +118,22 @@
             <td>{{!empty($record->brand) ? $record->brand->name : 'NA'}}</td>
             @break
             @case('order_id')
+            @if(!empty($record->order))
             <td><button class="btn btn-sm" title="Food Order" data-bs-toggle="modal" data-bs-target="#foodOrderModal"
                     data-order="{{json_encode($record->order)}}">{{$record->order->order_id}}</button></td>
+            @else
+            <td><button class="btn btn-sm" title="Food Order" data-bs-toggle="modal" data-bs-target="#foodOrderModal"
+            data-order="{{json_encode($record)}}">{{$record->order_id}}</button></td>
+            @endif
+            @break
+            @case('property_id')
+            <td>{{$record->property->name}} <a href="/properties/{{$record->property->uuid}}">View</a></td>
+            @break
+            @case('internship_id')
+            <td>{{$record->internship->name}} <a href="/internship/{{$record->internship->uuid}}">View</a></td>
+            @break
+            @case('course_id')
+            <td>{{$record->course->name}} <a href="/course/{{$record->course->uuid}}">View</a></td>
             @break
             @case('created_at')
             <td>{{!empty($record->created_at) ?
@@ -175,34 +189,7 @@
     </tfoot>--}}
 </table>
 
-<!-- Modal -->
-<div class="modal fade" id="attachmentDownloadModal" tabindex="-1" aria-labelledby="attachmentDownloadModal"
-    aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Attachments</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div id="attachmentData" class="d-flex gap-2">
-                    {{--@foreach($records->first()->images as $attachment)
-                    <div class="d-inline-block border rounded-4 p-1 d-flex flex-column align-items-center">
-                        <div class=""><embed class="rounded-4" src="{{asset($attachment->path)}}" width="100"
-                                height="100" />
-                        </div>
-                        <div><a href="{{asset($attachment->path)}}" class="btn btn-success" download><small><span
-                                        class="ti ti-download fs-4"></span><span>Download</span></small></a></div>
-                    </div>
-                    @endforeach--}}
-                </div>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- FoodOrder Modal -->
 
 
 <script src="{{url('/template-resources/admin/assets/js/dt-table.js')}}"></script>

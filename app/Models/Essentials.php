@@ -6,20 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
-class InternshipEnquiry extends Model
+class Essentials extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['uuid', 'internship_id', 'name', 'mobile', 'email', 'hostel', 'estancia', 'abode', 'flat_no', 'message', 'slot_deadline'];
+    protected $fillable = ['uuid', 'name', 'mobile', 'email', 'hostel', 'estancia', 'abode', 'flat_no', 'message', 'slot_deadline', 'status'];
 
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
-    }
-
-    public function internship()
-    {
-        return $this->belongsTo(Internship::class);
     }
 
     protected static function boot()

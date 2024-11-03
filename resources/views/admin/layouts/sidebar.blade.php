@@ -118,14 +118,14 @@
           </a>
         </li>
 
-        <!-- <li class="sidebar-item">
+        <li class="sidebar-item">
           <a class="sidebar-link" href="{{ route('admin.customer-enquiry') }}" aria-expanded="false">
             <span>
               <i class="ti ti-layout-dashboard"></i>
             </span>
             <span class="hide-menu">Enquiries</span>
           </a>
-        </li> -->
+        </li>
 
 
         <!-- <li class="sidebar-item">

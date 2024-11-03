@@ -25,10 +25,10 @@
   <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-    @include('admin.layouts.sidebar')
+    @include('dashboard.layouts.sidebar')
     <!--  Main wrapper -->
     <div class="body-wrapper">
-      @include('admin.layouts.header')
+      @include('dashboard.layouts.header')
       <div class="container-fluid">
         <main>
           {{ $slot }}

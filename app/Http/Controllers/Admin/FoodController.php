@@ -74,7 +74,7 @@ class FoodController extends Controller
     public function index()
     {
         $records = Food::with(['images'])->get();
-        $foodOrders = FoodOrder::with(['order'])->get();
+        $foodOrders = FoodOrder::with(['order'])->orderBy('created_at', 'desc')->get();
 
         $this->fields['food_category']['options'] = [(object)['id'=>'veg', 'name'=>"Veg"],(object)['id'=>'non-veg', 'name'=>"Non Veg"]];
 

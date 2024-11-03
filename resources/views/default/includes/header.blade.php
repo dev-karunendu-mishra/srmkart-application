@@ -26,20 +26,24 @@
                         </div> -->
 
                 <!-- <span class="divider"></span> -->
-                <a href="contact-us.html" class="contact text-primary d-lg-show"><i class="d-icon-food"></i>Join as delivery boy</a>
-                <a href="#" class="help text-primary d-lg-show"><i class="d-icon-info"></i> Assignment Writer</a>
+                <a href="{{route('delivery_agent.index')}}" class="contact text-primary d-lg-show"><i class="d-icon-food"></i>Join as delivery boy</a>
+                <a href="{{route('assignment_writer.index')}}" class="help text-primary d-lg-show"><i class="d-icon-info"></i> Assignment Writer</a>
                 <!-- <a href="#" class="help d-lg-show"><i class="d-icon-info"></i> Need Help</a> -->
                 @auth
                 <a href="{{ url('/dashboard') }}" class="link-to-tab d-md-show">
                     Dashboard
                 </a>
                 @else
+                @if(Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register')
                 <a href="#signin" class="login-toggle link-to-tab d-md-show"><i class="d-icon-user"></i>Sign
                     in</a>
                 <span class="delimiter">/</span>
                 <a href="#register" class="register-toggle link-to-tab d-md-show ml-0">Register</a>
+                @endif
                 @endauth
+                @if(Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register')
                 @include('default.includes.auth')
+                @endif
 
             </div>
         </div>

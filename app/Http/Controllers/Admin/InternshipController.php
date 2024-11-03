@@ -65,7 +65,7 @@ class InternshipController extends Controller
     public function index()
     {
         $records = Internship::with(['images'])->get();
-        $internshipEnquiries = InternshipEnquiry::all();
+        $internshipEnquiries = InternshipEnquiry::orderBy('created_at', 'desc')->get();
 
         return view($this->indexView, ['columns' => $this->columns, 'fields' => $this->fields, 'edit' => false, 'records' => $records, 'model' => null, 'internshipColumns' => $this->internshipColumns, 'internshipEnquiries' => $internshipEnquiries]);
     }

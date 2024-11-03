@@ -18,12 +18,14 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null'); // Foreign key to users table
             $table->decimal('subtotal', 10, 2);
             $table->decimal('discount', 10, 2);
+            $table->decimal('delivery_charge', 10, 2);
             $table->decimal('tax', 10, 2);
             $table->decimal('total', 10, 2);
             $table->enum('payment_status', ['pending', 'completed', 'failed'])->default('pending'); // Payment status
             $table->json('items'); // Store order items as JSON
             $table->enum('status', ['pending', 'completed', 'failed'])->default('pending');
             $table->enum('delivery_status', ['pending', 'completed', 'failed'])->default('pending');
+            $table->string('payment_screenshot')->nullable();
             $table->timestamps();
         });
     }

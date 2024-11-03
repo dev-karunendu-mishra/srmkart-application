@@ -12,11 +12,11 @@
             </ul>
         </div>
     </nav>
-    <div class="page-header pl-4 pr-4" style="background-image: url(/assets/images/page-header/about-us.jpg)">
-        <h3 class="page-subtitle font-weight-bold">Cotegory</h3>
+    <div class="page-header pl-4 pr-4" style="background-image: url({{!empty($siteData->page_header) ? $siteData->page_header : '/assets/images/page-header/about-us.jpg' }})">
+        <h3 class="page-subtitle font-weight-bold">"Find Your Ideal Campus Stay!"</h3>
         <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Properties</h1>
-        <p class="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br> nec
-            sagittis sem nibh id elit.</p>
+        <p class="page-desc text-white mb-0">Looking for a place to call home near SRM? We’ve done the legwork for you! Our curated list of student-friendly accommodations offers everything from cozy rooms to spacious apartments, all within easy reach of campus. </p>
+        <p class="page-desc text-white mb-0"> With SRMKart, finding the perfect spot to stay is simple, reliable, and tailored to student needs. Explore, choose, and settle in with ease!</p>
     </div>
 
     <div class="page-content mb-10 pb-6">

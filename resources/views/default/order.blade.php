@@ -99,14 +99,14 @@
                             <td>
                                 <h4 class="summary-subtitle">Shipping:</h4>
                             </td>
-                            <td class="summary-subtotal-price">Free shipping</td>
+                            <td class="summary-subtotal-price">₹{{$order->delivery_charge}}</td>
                         </tr>
-                        <tr class="summary-subtotal">
+                        <!-- <tr class="summary-subtotal">
                             <td>
                                 <h4 class="summary-subtitle">Payment method:</h4>
                             </td>
                             <td class="summary-subtotal-price">Cash on delivery</td>
-                        </tr>
+                        </tr> -->
                         <tr class="summary-subtotal">
                             <td>
                                 <h4 class="summary-subtitle">Total:</h4>

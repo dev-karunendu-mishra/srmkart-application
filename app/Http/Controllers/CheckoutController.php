@@ -23,7 +23,57 @@ class CheckoutController extends Controller
             (object) ['label' => '11-12 AM', 'value' => '11-12 AM'],
         ];
 
-        return view('default.checkout', compact('slotOptions'));
+        $boysHostel = [
+            "Paari",
+            "Kaari",
+            "Oori",
+            "Adhiyaman",
+            "Nelson Mandela",
+            "Manoranjitham",
+            "Mullai",
+            "Thamarai",
+            "Malligai",
+            "Sannasi A",
+            "Sannasi C",
+            "Began",
+            "Pierre Fauchard"
+        ];
+    
+        $girlsHostel = [
+            "M Block",
+            "Senbagam Block",
+            "ESQ A Block",
+            "ESQ B Block",
+            "Kalpana Chawla Hostel",
+            "Meenakshi Hostel"
+        ];
+    
+        // Combine the hostels
+        $hostels = array_merge($boysHostel, $girlsHostel);
+
+        $estanciaOptions = collect(range(1, 5))->map(function ($i) {
+            return "Tower $i";
+        });
+    
+        $abodeOptions = collect(range(65, 90))->filter(function ($i) {
+            return !in_array($i, [73, 79, 85, 88]); // Skip certain blocks
+        })->map(function ($i) {
+            return "Block " . chr($i);
+        });
+
+        $lastOrder = Order::where('user_id', auth()->id())->orderBy('created_at', 'desc')->first();
+        $lastFoodOrder = !empty($lastOrder->foodOrder) ? $lastOrder->foodOrder : null;
+        $location = null;
+        if(!empty($lastFoodOrder->hostel)) {
+            $location = 'hostel';
+        } else  if(!empty($lastFoodOrder->estancia)) {
+            $location = 'estancia';
+        } else  if(!empty($lastFoodOrder->abode)) {
+            $location = 'abode';
+        }
+
+
+        return view('default.checkout', compact('slotOptions', 'location', 'hostels', 'estanciaOptions', 'abodeOptions', 'lastOrder', 'lastFoodOrder'));
     }
 
     public function checkout(Request $request)
@@ -62,7 +112,11 @@ class CheckoutController extends Controller
                 'regex:/^[\p{L}\s.-]+$/u', // Allows letters, spaces, and some punctuation
             ],
             'slot_deadline' => 'nullable|string',
-            'attachment.*' => 'nullable|file|mimes:pdf',
+            'attachment' => 'required|file|mimes:pdf,png,docx,jpg,jpeg,webp',
+        ],[
+            'attachment.required' => 'Payment screenshot is mandatory.',
+            'attachment.file' => 'The screenshot must be a valid file.',
+            'attachment.mimes' => 'The screenshot must be a file of type: pdf, png, docx, jpg, jpeg, webp.',
         ]);
 
         // Prepare order items
@@ -79,14 +133,22 @@ class CheckoutController extends Controller
         }
 
         // Create a new order
+        $paymentScreenshots = null;
+        if ($request->hasFile('attachment')) {
+            $file = $request->file('attachment');
+            $fileName = time().'_'.$file->getClientOriginalName();
+            $paymentScreenshots = $file->storeAs('uploads/payment_screenshots', $fileName, 'uploads'); // 'uploads' is the storage folder
+        }
         $order = Order::create([
             'user_id' => auth()->id(),
             'subtotal' => Cart::subtotal(),
             'tax' => Cart::tax(),
             'discount' => Cart::discount(),
-            'total' => Cart::total(),
+            'delivery_charge' => Cart::total() <= 100 ? 20 : 0 ,
+            'total' => Cart::total() <= 100 ? (Cart::total() + 20) : Cart::total() ,
             'payment_status' => 'pending',
-            'items' => $items, // Store items as JSON
+            'items' => $items, // Store items as JSON,
+            'payment_screenshot' => $paymentScreenshots
         ]);
 
         // Billing details

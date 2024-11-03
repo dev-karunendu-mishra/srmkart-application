@@ -14,10 +14,9 @@
         </div>
     </nav>
     <div class="page-header pl-4 pr-4" style="background-image: url(/assets/images/page-header/about-us.jpg)">
-        <h3 class="page-subtitle font-weight-bold">Cotegory</h3>
-        <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Courses</h1>
-        <p class="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br> nec
-            sagittis sem nibh id elit.</p>
+      <h3 class="page-subtitle font-weight-bold">We’re Here for Your Growth Too!</h3>
+        <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Professional Courses Offered by Us</h1>
+        <p class="page-desc text-white mb-0">At SRMKart, we’re committed to not only providing the services that make your college life easier but also to supporting your personal and professional development. <br> That’s why we’re excited to offer internship and course opportunities designed to help you build skills, gain experience, and prepare for a successful future.</p>
     </div>
     <div class="page-content mb-10 pb-6">
         <div class="container">

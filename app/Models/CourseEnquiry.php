@@ -17,6 +17,11 @@ class CourseEnquiry extends Model
         return $this->morphMany(Image::class, 'imageable');
     }
 
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
     protected static function boot()
     {
         parent::boot();

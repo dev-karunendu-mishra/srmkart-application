@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\CourseEnquiry;
-use App\Models\FoodOrder;
-use App\Models\InternshipEnquiry;
+use App\Models\DeliveryAgent;
+use App\Models\AssignmentWriter;
+use App\Models\Essentials;
 use Illuminate\Http\Request;
 
 class CustomerEnquiryController extends Controller
 {
-    private $internshipColumns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'location' => 'Location', 'flat_no' => 'Flat / Room No', 'message' => 'Message', 'slot_deadline' => 'Slot / Deadline', 'images' => 'Attachment', 'created_at' => 'Created At'];
+    private $deliveryAgentEnquiriesColumns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile','message' => 'Message', 'attachments' => 'Attachment','created_at' => 'Created At'];
 
-    private $courseColumns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'location' => 'Location', 'flat_no' => 'Flat / Room No', 'message' => 'Message', 'slot_deadline' => 'Slot / Deadline', 'images' => 'Attachment', 'created_at' => 'Created At'];
+    private $assignmentWriterEnquiriesColumns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'message' => 'Message','attachments' => 'Attachment', 'created_at' => 'Created At'];
 
-    private $foodOrderColumns = ['id' => 'ID', 'order_id' => 'Order ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'location' => 'Location', 'flat_no' => 'Flat / Room No', 'message' => 'Message',   'created_at' => 'Created At'];
+    private $essentialEnquiriesColumns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile', 'location' => 'Location', 'flat_no' => 'Flat / Room No', 'message' => 'Message',   'created_at' => 'Created At'];
 
     // 'subTotal' => 'SubTotal', 'tax' => 'Tax', 'discount' => 'Discount', 'total' => 'Total',
     /**
@@ -22,11 +22,15 @@ class CustomerEnquiryController extends Controller
      */
     public function index()
     {
-        $internshipEnquiries = InternshipEnquiry::all();
-        $courseEnquiries = CourseEnquiry::all();
-        $foodOrders = FoodOrder::with(['order'])->get();
+        $deliveryAgentEnquiries = DeliveryAgent::orderBy('created_at', 'desc')->get();
+        $assignmentWriterEnquiries = AssignmentWriter::orderBy('created_at', 'desc')->get();
+        $essentialEnquiries = Essentials::orderBy('created_at', 'desc')->get();
+        $deliveryAgentEnquiriesColumns = $this->deliveryAgentEnquiriesColumns;
+        $assignmentWriterEnquiriesColumns = $this->assignmentWriterEnquiriesColumns;
+        $essentialEnquiriesColumns = $this->essentialEnquiriesColumns;
 
-        return view('admin.customer-enquiry.all', ['internshipEnquiries' => $internshipEnquiries, 'courseEnquiries' => $courseEnquiries, 'foodOrders' => $foodOrders, 'internshipColumns' => $this->internshipColumns, 'courseColumns' => $this->courseColumns, 'foodOrderColumns' => $this->foodOrderColumns]);
+
+        return view('admin.customer-enquiry.all', compact('deliveryAgentEnquiries', 'assignmentWriterEnquiries', 'essentialEnquiries','deliveryAgentEnquiriesColumns', 'assignmentWriterEnquiriesColumns','essentialEnquiriesColumns'));
     }
 
     /**

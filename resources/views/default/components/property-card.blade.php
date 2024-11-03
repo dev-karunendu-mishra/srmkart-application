@@ -14,7 +14,7 @@
         </a>
         <div class="product-label-group">
             <label class="product-label {{$details->status == 'sold' ? 'label-danger' : 'label-new'}}">{{$details->status}}</label>
-            <label class="product-label label-new" title="Vacancy {{number_format($details->vacancy, 0)}}">{{ number_format($details->vacancy, 0)}}</label>
+            <label class="product-label label-new" title="Vacancy {{number_format($details->vacancy, 0)}}">Vacancy - {{ number_format($details->vacancy, 0)}}</label>
         </div>
         <div class="product-action-vertical">
             <!-- <a href="#" class="btn-product-icon btn-cart" data-toggle="modal"

@@ -1,4 +1,31 @@
 $(document).ready(() => {
+    const boysHostel = [
+        "Paari",
+        "Kaari",
+        "Oori",
+        "Adhiyaman",
+        "Nelson Mandela",
+        "Manoranjitham",
+        "Mullai",
+        "Thamarai",
+        "Malligai",
+        "Sannasi A",
+        "Sannasi C",
+        "Began",
+        "Pierre Fauchard"
+    ];
+    
+    const girlsHostel = [
+        "M Block",
+        "Senbagam Block",
+        "ESQ A Block",
+        "ESQ B Block",
+        "Kalpana Chawla Hostel",
+        "Meenakshi Hostel"
+    ];
+
+    const hostels = [...boysHostel, ...girlsHostel];
+
     $('#location_dd').change((e) => {
         const location = e.target.value;
         const locations = { "hostel": "location_hostel", "estancia": "location_estancia", "abode": "location_abode" }
@@ -10,9 +37,9 @@ $(document).ready(() => {
     })
 
     let hostelOptions = "<option value='NA' selected disabled>Select Hostel</option>";
-    for (let i = 1; i <= 10; i++) {
-        hostelOptions += `<option value='Hostel ${i}'>Hostel ${i}</option>`;
-    }
+    hostels.forEach ((hostel) => {
+        hostelOptions += `<option value='${hostel}'>${hostel}</option>`;
+    })
     $("#location_hostel select").html(hostelOptions);
 
     let estanciaOptions = "<option value='NA' selected disabled>Select Estancia</option>";

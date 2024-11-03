@@ -12,11 +12,10 @@
             </ul>
         </div>
     </nav>
-    <div class="page-header pl-4 pr-4" style="background-image: url(/assets/images/page-header/about-us.jpg)">
+    <div class="page-header pl-4 pr-4" style="background-image: url({{!empty($siteData->page_header) ? $siteData->page_header : '/assets/images/page-header/about-us.jpg' }})">
         <h3 class="page-subtitle font-weight-bold">Category</h3>
         <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Food collection</h1>
-        <p class="page-desc text-white mb-0">Lorem quis bibendum auctor, nisi elit consequat ipsum,<br> nec
-            sagittis sem nibh id elit.</p>
+        <p class="page-desc text-white mb-0 container">Craving some tasty? We’ve got you covered! Order from a range of local food spots offering everything from hearty meals to late-night snacks. Got a sudden chai craving or need a pick-me-up coffee? SRMKart has options to keep you fueled all day long!</p>
 
     </div>
     <div class="page-content mb-10 pb-6">

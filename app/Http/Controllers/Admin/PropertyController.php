@@ -26,7 +26,7 @@ class PropertyController extends Controller
 
     private $columns = ['id' => 'ID', 'name' => 'Name', 'images' => 'Image', 'price' => 'Price', 'location' => 'Location', 'flat_type' => "Flat's Type", 'vacancy' => 'Vacancy', 'status' => 'Status', 'created_at' => 'Created At'];
 
-    private $propertyEnquiryColumns = ['id' => 'ID', 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile',  'message' => 'Message', 'created_at' => 'Created At'];
+    private $propertyEnquiryColumns = ['id' => 'ID', 'property_id'=>"Property", 'name' => 'Name', 'email' => 'Email', 'mobile' => 'Mobile',  'message' => 'Message', 'created_at' => 'Created At'];
 
     private $statusOptions = ['active' => 'Active', 'sold' => 'Sold'];
 
@@ -96,7 +96,7 @@ class PropertyController extends Controller
     public function index()
     {
         $records = Property::with(['images'])->get();
-        $propertyEnquiries = PropertyEnquiry::all();
+        $propertyEnquiries = PropertyEnquiry::orderBy('created_at', 'desc')->get();
         $this->fields['location']['options'] = (object) [(object) ['id' => 'Estancia', 'name' => 'Estancia'], (object) ['id' => 'Abode', 'name' => 'Abode']];
         $this->fields['status']['options'] = (object) [(object) ['id' => 'active', 'name' => 'Active'], (object) ['id' => 'sold', 'name' => 'Sold']];
 
