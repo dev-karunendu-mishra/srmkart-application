@@ -43,7 +43,7 @@
         </div>
         @if($details->status != 'sold')
         <div class="product-action">
-            <a href="{{$path}}/{{$details->uuid}}/enquiry" class="btn btn-primary btn-outline btn-rounded font-weight-bold btn-enquiry"
+            <a href="{{$path}}/{{$details->uuid}}/enquiry" class="btn btn-primary btn-outline btn-sm btn-rounded font-weight-bold btn-enquiry"
                 title="Enquiry Now">Enquiry Now</a>
         </div>
         @endif

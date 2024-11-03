@@ -37,7 +37,7 @@
                     @isset($details->reviews)<a href="#" class="rating-reviews">( {{$details->reviews}} )</a>@endisset
                 </div>
                 <div class="product-action">
-                    <a href="{{$path}}/{{$details->uuid}}/enquiry" class="btn-product btn-cart btn-enquiry" title="Enquiry Now">Enquiry Now</a>
+                    <a href="{{$path}}/{{$details->uuid}}/enquiry" class="btn btn-primary btn-outline btn-sm btn-rounded font-weight-bold btn-enquiry" title="Enquiry Now">Enquiry Now</a>
                 </div>
         </div>
     </div>
