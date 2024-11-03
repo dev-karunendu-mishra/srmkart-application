@@ -212,7 +212,7 @@
             </div>
             <div class="footer-right" style="padding-right: 74px;">
                 <div class="social-links">
-                    <a href="#" title="social-link" class="social-link social-facebook fab fa-instagram"></a>
+                    <a href="{{!empty($siteData->instagram) ? $siteData->instagram : '#'}}" title="social-link" class="social-link social-facebook fab fa-instagram"></a>
                     <!-- <a href="#" title="social-link" class="social-link social-twitter fab fa-twitter"></a>
                     <a href="#" title="social-link" class="social-link social-linkedin fab fa-linkedin-in"></a> -->
                 </div>

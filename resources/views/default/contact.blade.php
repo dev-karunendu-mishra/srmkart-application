@@ -10,21 +10,21 @@
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="/"><i class="d-icon-home"></i></a></li>
-                <li>Contact Us</li>
+                <li>Custom/Essentials</li>
             </ul>
         </div>
     </nav>
-    <div class="page-header" style="background-image: url(/assets/images/page-header/contact-us.jpg)">
-        <h1 class="page-title font-weight-bold text-capitalize ls-l">Contact Us</h1>
+    <div class="page-header" style="background-image: url({{!empty($siteData->page_header) ? $siteData->page_header : '/assets/images/page-header/about-us.jpg' }})">
+        <h1 class="page-title font-weight-bold text-capitalize ls-l">Custom/Essentials</h1>
     </div>
     <div class="page-content mt-10 pt-7">
         <section class="contact-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6 ls-m mb-4">
+                    {{--<div class="col-lg-3 col-md-4 col-sm-6 ls-m mb-4">
                         <div class="grey-section d-flex align-items-center h-100">
                             <div>
-                                <h4 class="mb-2 text-capitalize">Headquarters</h4>
+                                <!--<h4 class="mb-2 text-capitalize">Headquarters</h4>-->
                                 <p>{{$siteData ? $siteData->address : "Address"}}</p>
                                 <h4 class="mb-2 text-capitalize">Phone Number</h4>
                                 <p>
@@ -40,8 +40,8 @@
                                 </p>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-9 col-md-8 col-sm-6 d-flex align-items-center mb-4">
+                    </div>--}}
+                    <div class="col-lg-12 col-md-12 col-sm-12 d-flex align-items-center mb-4">
                         <div class="w-100">
                             @if (session('success'))
                             <div class="alert alert-success text-white mb-3">
@@ -60,7 +60,7 @@
                             <form class="form" method="POST" action="{{ route('essentials.store') }}"
                                 enctype="multipart/form-data">
                                 @csrf
-                                <h4 class="ls-m font-weight-bold">Let’s Connect</h4>
+                                <h4 class="ls-m font-weight-bold">Let’s Order you Custom/Essentials</h4>
                                 <p>Your email address will not be published. Required fields are marked *</p>
                                 <div class="row">
                                     <div class="col-md-6 mb-6 mb-lg-0 pr-lg-4">
@@ -157,7 +157,7 @@
                                     </div>
                                     <aside class="col-md-6 sticky-sidebar-wrapper">
                                         <div class="sticky-sidebar mt-1" data-sticky-options="{'bottom': 50}">
-                                            <div class="summary pt-5">
+                                            <div class="pt-5">
                                                 <!-- <h3 class="title title-simple text-left text-uppercase">Additional Information</h3> -->
 
 
@@ -182,80 +182,80 @@
             </div>
         </section>
 
-        <section class="store-section mt-6 pt-10 pb-8">
-            <div class="container">
-                <h2 class="title title-center mb-7 text-normal">Our store</h2>
-                <div class="row cols-sm-2 cols-lg-4">
-                    <div class="store">
-                        <figure class="banner-radius">
-                            <img src="/assets/images/subpages/store-1.jpg" alt="store" width="280" height="280">
-                            <h4 class="overlay-visible">New York</h4>
-                            <div class="overlay overlay-transparent">
-                                <a class="mt-8" href="mail:#"><span class="__cf_email__"
-                                        data-cfemail="d8b5b9b1b498b6bdafa1b7aab3aab1b7bcbdabacb7aabdf6bbb7b5">[email&#160;protected]</span></a>
-                                <a href="tel:#">Phone: (123) 456-7890</a>
-                                <div class="social-links mt-1">
-                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                                    <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="store">
-                        <figure class="banner-radius">
-                            <img src="/assets/images/subpages/store-2.jpg" alt="store" width="280" height="280">
-                            <h4 class="overlay-visible">London</h4>
-                            <div class="overlay overlay-transparent">
-                                <a class="mt-8" href="mail:#"><span class="__cf_email__"
-                                        data-cfemail="3954585055795556575d56574b50565d5c4a4d564b5c175a5654">[email&#160;protected]</span></a>
-                                <a href="tel:#">Phone: (123) 456-7890</a>
-                                <div class="social-links mt-1">
-                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                                    <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="store">
-                        <figure class="banner-radius">
-                            <img src="/assets/images/subpages/store-3.jpg" alt="store" width="280" height="280">
-                            <h4 class="overlay-visible">Oslo</h4>
-                            <div class="overlay overlay-transparent">
-                                <a class="mt-8" href="mail:#"><span class="__cf_email__"
-                                        data-cfemail="ff929e9693bf908c93908d96909b9a8c8b908d9ad19c9092">[email&#160;protected]</span></a>
-                                <a href="tel:#">Phone: (123) 456-7890</a>
-                                <div class="social-links mt-1">
-                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                                    <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                    <div class="store">
-                        <figure class="banner-radius">
-                            <img src="/assets/images/subpages/store-4.jpg" alt="store" width="280" height="280">
-                            <h4 class="overlay-visible">Stockholm</h4>
-                            <div class="overlay overlay-transparent">
-                                <a class="mt-8" href="mail:#"><span class="__cf_email__"
-                                        data-cfemail="abc6cac2c7ebd8dfc4c8c0c3c4c7c6d9c2c4cfced8dfc4d9ce85c8c4c6">[email&#160;protected]</span></a>
-                                <a href="tel:#">Phone: (123) 456-7890</a>
-                                <div class="social-links mt-1">
-                                    <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                                    <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                                    <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
-                                </div>
-                            </div>
-                        </figure>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!--<section class="store-section mt-6 pt-10 pb-8">-->
+        <!--    <div class="container">-->
+        <!--        <h2 class="title title-center mb-7 text-normal">Our store</h2>-->
+        <!--        <div class="row cols-sm-2 cols-lg-4">-->
+        <!--            <div class="store">-->
+        <!--                <figure class="banner-radius">-->
+        <!--                    <img src="/assets/images/subpages/store-1.jpg" alt="store" width="280" height="280">-->
+        <!--                    <h4 class="overlay-visible">New York</h4>-->
+        <!--                    <div class="overlay overlay-transparent">-->
+        <!--                        <a class="mt-8" href="mail:#"><span class="__cf_email__"-->
+        <!--                                data-cfemail="d8b5b9b1b498b6bdafa1b7aab3aab1b7bcbdabacb7aabdf6bbb7b5">[email&#160;protected]</span></a>-->
+        <!--                        <a href="tel:#">Phone: (123) 456-7890</a>-->
+        <!--                        <div class="social-links mt-1">-->
+        <!--                            <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>-->
+        <!--                            <a href="#" class="social-link social-twitter fab fa-twitter"></a>-->
+        <!--                            <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </figure>-->
+        <!--            </div>-->
+        <!--            <div class="store">-->
+        <!--                <figure class="banner-radius">-->
+        <!--                    <img src="/assets/images/subpages/store-2.jpg" alt="store" width="280" height="280">-->
+        <!--                    <h4 class="overlay-visible">London</h4>-->
+        <!--                    <div class="overlay overlay-transparent">-->
+        <!--                        <a class="mt-8" href="mail:#"><span class="__cf_email__"-->
+        <!--                                data-cfemail="3954585055795556575d56574b50565d5c4a4d564b5c175a5654">[email&#160;protected]</span></a>-->
+        <!--                        <a href="tel:#">Phone: (123) 456-7890</a>-->
+        <!--                        <div class="social-links mt-1">-->
+        <!--                            <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>-->
+        <!--                            <a href="#" class="social-link social-twitter fab fa-twitter"></a>-->
+        <!--                            <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </figure>-->
+        <!--            </div>-->
+        <!--            <div class="store">-->
+        <!--                <figure class="banner-radius">-->
+        <!--                    <img src="/assets/images/subpages/store-3.jpg" alt="store" width="280" height="280">-->
+        <!--                    <h4 class="overlay-visible">Oslo</h4>-->
+        <!--                    <div class="overlay overlay-transparent">-->
+        <!--                        <a class="mt-8" href="mail:#"><span class="__cf_email__"-->
+        <!--                                data-cfemail="ff929e9693bf908c93908d96909b9a8c8b908d9ad19c9092">[email&#160;protected]</span></a>-->
+        <!--                        <a href="tel:#">Phone: (123) 456-7890</a>-->
+        <!--                        <div class="social-links mt-1">-->
+        <!--                            <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>-->
+        <!--                            <a href="#" class="social-link social-twitter fab fa-twitter"></a>-->
+        <!--                            <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </figure>-->
+        <!--            </div>-->
+        <!--            <div class="store">-->
+        <!--                <figure class="banner-radius">-->
+        <!--                    <img src="/assets/images/subpages/store-4.jpg" alt="store" width="280" height="280">-->
+        <!--                    <h4 class="overlay-visible">Stockholm</h4>-->
+        <!--                    <div class="overlay overlay-transparent">-->
+        <!--                        <a class="mt-8" href="mail:#"><span class="__cf_email__"-->
+        <!--                                data-cfemail="abc6cac2c7ebd8dfc4c8c0c3c4c7c6d9c2c4cfced8dfc4d9ce85c8c4c6">[email&#160;protected]</span></a>-->
+        <!--                        <a href="tel:#">Phone: (123) 456-7890</a>-->
+        <!--                        <div class="social-links mt-1">-->
+        <!--                            <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>-->
+        <!--                            <a href="#" class="social-link social-twitter fab fa-twitter"></a>-->
+        <!--                            <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </figure>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</section>-->
 
 
-        <div class="grey-section google-map" id="googlemaps" style="height: 386px"></div>
+        <!--<div class="grey-section google-map" id="googlemaps" style="height: 386px"></div>-->
 
     </div>
 </main>

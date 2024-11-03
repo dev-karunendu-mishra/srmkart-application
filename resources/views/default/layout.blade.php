@@ -261,7 +261,7 @@
         </div>
     </div>
 
-    <div class="newsletter-popup newsletter-pop1 mfp-hide" id="newsletter-popup"
+    {{--<div class="newsletter-popup newsletter-pop1 mfp-hide" id="newsletter-popup"
         style="background-image: url(/assets/images/newsletter-popup.jpg)">
         <div class="newsletter-content">
             <h4 class="text-uppercase text-dark">Up to <span class="text-primary">20% Off</span></h4>
@@ -280,7 +280,7 @@
                 <label for="hide-newsletter-popup">Don't show this popup again</label>
             </div>
         </div>
-    </div>
+    </div>--}}
 
     <!-- <div class="sticky-icons-wrapper">
         <div class="sticky-icon-links">

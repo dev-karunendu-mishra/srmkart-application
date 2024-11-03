@@ -118,8 +118,13 @@
             <td>{{!empty($record->brand) ? $record->brand->name : 'NA'}}</td>
             @break
             @case('order_id')
+            @if(!empty($record->order))
             <td><button class="btn btn-sm" title="Food Order" data-bs-toggle="modal" data-bs-target="#foodOrderModal"
                     data-order="{{json_encode($record->order)}}">{{$record->order->order_id}}</button></td>
+            @else
+            <td><button class="btn btn-sm" title="Food Order" data-bs-toggle="modal" data-bs-target="#foodOrderModal"
+            data-order="{{json_encode($record)}}">{{$record->order_id}}</button></td>
+            @endif
             @break
             @case('property_id')
             <td>{{$record->property->name}} <a href="/properties/{{$record->property->uuid}}">View</a></td>

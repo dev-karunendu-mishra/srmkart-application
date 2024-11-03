@@ -15,6 +15,7 @@ use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\AssignmentWriterController;
 use App\Http\Controllers\DeliveryAgentController;
 use App\Http\Controllers\EssentialsController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__.'/auth.php';
@@ -24,9 +25,7 @@ require __DIR__.'/admin-auth.php';
 //     return view('welcome');
 // });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -78,9 +77,9 @@ Route::prefix('/')->group(function () {
     });
     Route::get('', [WebsiteController::class, 'index'])->name('home');
 
-    Route::get('about-us', function () {
-        return view('default.about');
-    })->name('about');
+    // Route::get('about-us', function () {
+    //     return view('default.about');
+    // })->name('about');
 
     Route::get('foods', [WebsiteController::class, 'getFoodPage'])->name('foods');
     Route::get('foods/{foodId}', [WebsiteController::class, 'getFoodDetailPage'])->name('food-detail');

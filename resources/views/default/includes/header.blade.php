@@ -34,12 +34,16 @@
                     Dashboard
                 </a>
                 @else
+                @if(Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register')
                 <a href="#signin" class="login-toggle link-to-tab d-md-show"><i class="d-icon-user"></i>Sign
                     in</a>
                 <span class="delimiter">/</span>
                 <a href="#register" class="register-toggle link-to-tab d-md-show ml-0">Register</a>
+                @endif
                 @endauth
+                @if(Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register')
                 @include('default.includes.auth')
+                @endif
 
             </div>
         </div>

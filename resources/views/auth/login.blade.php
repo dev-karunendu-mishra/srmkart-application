@@ -1,47 +1,212 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('default.layout')
+@push('style')
+<link rel="stylesheet" type="text/css" href="/assets/css/style.min.css">
+@endpush
+@section('main')
+<div class="login-popup mx-auto">
+    <div class="form-box">
+        <div class="tab tab-nav-simple tab-nav-boxed form-tab">
+            <ul
+                class="nav nav-tabs nav-fill align-items-center border-no justify-content-center mb-5"
+                role="tablist"
+            >
+                <li class="nav-item">
+                    <a
+                        class="nav-link active border-no lh-1 ls-normal"
+                        href="#signin"
+                        >Login</a
+                    >
+                </li>
+                <li class="delimiter">or</li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link border-no lh-1 ls-normal"
+                        href="#register"
+                        >Register</a
+                    >
+                </li>
+            </ul>
+            <x-auth-session-status class="mb-4" :status="session('status')" />
+            <div class="tab-content">
+                <!-- Login Tab -->
+                <div class="tab-pane active" id="signin">
+                    <form method="post" action="{{ route('login') }}">
+                        @csrf
+                        <div class="form-group mb-3">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="singin-email"
+                                name="email"
+                                placeholder="Username or Email Address *"
+                                required
+                                autofocus
+                            />
+                            <x-input-error-new
+                                :messages="$errors->get('email')"
+                                class="mt-2"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="singin-password"
+                                name="password"
+                                placeholder="Password *"
+                                required=""
+                            />
+                            <x-input-error-new
+                                :messages="$errors->get('password')"
+                                class="mt-2"
+                            />
+                        </div>
+                        <div class="form-footer">
+                            <div class="form-checkbox">
+                                <input
+                                    type="checkbox"
+                                    class="custom-checkbox"
+                                    id="signin-remember"
+                                    name="remember"
+                                />
+                                <label
+                                    class="form-control-label"
+                                    for="signin-remember"
+                                    >Remember me</label
+                                >
+                            </div>
+                            @if (Route::has('password.request'))
+                            <a
+                                href="{{ route('password.request') }}"
+                                class="lost-link"
+                                >Lost your password?</a
+                            >
+                            @endif
+                        </div>
+                        <button
+                            class="btn btn-dark btn-block btn-rounded"
+                            type="submit"
+                        >
+                            Login
+                        </button>
+                    </form>
+                    <!-- <div class="form-choice text-center">
+                                <label class="ls-m">or Login With</label>
+                                <div class="social-links">
+                                    <a href="#" title="social-link"
+                                        class="social-link social-google fab fa-google border-no"></a>
+                                    <a href="#" title="social-link"
+                                        class="social-link social-facebook fab fa-facebook-f border-no"></a>
+                                    <a href="#" title="social-link"
+                                        class="social-link social-twitter fab fa-twitter border-no"></a>
+                                </div>
+                            </div> -->
+                </div>
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+                <!-- Register Tab -->
+                <div class="tab-pane" id="register">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <div class="form-group mb-3">
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="register-email"
+                                name="name"
+                                placeholder="Name*"
+                                required
+                                autofocus
+                            />
+                            <x-input-error-new
+                                :messages="$errors->get('name')"
+                                class="mt-2"
+                            />
+                        </div>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        <div class="form-group mb-3">
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="register-email"
+                                name="email"
+                                placeholder="Your Email Address *"
+                                required=""
+                            />
+                            <x-input-error-new
+                                :messages="$errors->get('email')"
+                                class="mt-2"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="register-password"
+                                name="password"
+                                placeholder="Password *"
+                                required
+                            />
+                            <x-input-error-new
+                                :messages="$errors->get('password')"
+                                class="mt-2"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="register-confirm-password"
+                                name="password_confirmation"
+                                placeholder="Confirm Password *"
+                                required
+                            />
+                            <x-input-error-new
+                                :messages="$errors->get('password_confirmation')"
+                                class="mt-2"
+                            />
+                        </div>
+
+                        <div class="form-footer">
+                            <div class="form-checkbox">
+                                <input
+                                    type="checkbox"
+                                    class="custom-checkbox"
+                                    id="register-agree"
+                                    name="register-agree"
+                                    required=""
+                                />
+                                <label
+                                    class="form-control-label"
+                                    for="register-agree"
+                                    >I agree to the privacy policy</label
+                                >
+                            </div>
+                        </div>
+
+                        <button
+                            class="btn btn-dark btn-block btn-rounded"
+                            type="submit"
+                        >
+                            Register
+                        </button>
+                    </form>
+                    <!-- <div class="form-choice text-center">
+                                <label class="ls-m">or Register With</label>
+                                <div class="social-links">
+                                    <a href="#" title="social-link"
+                                        class="social-link social-google fab fa-google border-no"></a>
+                                    <a href="#" title="social-link"
+                                        class="social-link social-facebook fab fa-facebook-f border-no"></a>
+                                    <a href="#" title="social-link"
+                                        class="social-link social-twitter fab fa-twitter border-no"></a>
+                                </div>
+                            </div> -->
+                </div>
+            </div>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+    <button title="Close (Esc)" type="button" class="mfp-close">
+        <span>×</span>
+    </button>
+</div>
+@endsection

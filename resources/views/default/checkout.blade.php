@@ -14,9 +14,9 @@
                 <div class="alert alert-light alert-primary alert-icon mb-4 card-header">
                     <i class="fas fa-exclamation-circle"></i>
                     <span class="text-body">Returning customer?</span>
-                    <a href="#alert-body1" class="text-primary collapse">Click here to login</a>
+                    <a href="#alert-body1" class="text-primary login-toggle link-to-tab d-md-show expand">Click here to login/register</a>
                 </div>
-                <div class="alert-body collapsed" id="alert-body1">
+                {{--<div class="alert-body collapsed" id="alert-body1">
                     <p>If you have shopped with us before, please enter your details below.
                         If you are a new customer, please proceed to the Billing section.</p>
                     <form class="mb-4 mb-md-0" method="post" action="{{ route('login') }}">
@@ -56,7 +56,7 @@
                         </div> -->
                         </div>
                     </form>
-                </div>
+                </div>--}}
             </div>
             @endauth
             <!-- <div class="card accordion">
@@ -90,47 +90,56 @@
                     <div class="col-lg-7 mb-6 mb-lg-0 pr-lg-4">
                         <h3 class="title title-simple text-left text-uppercase">Billing Details</h3>
                         <label>Name *</label>
-                        <input type="text" class="form-control" name="name" value="{{old('name')}}" required />
+                        <input type="text" class="form-control" name="name" value="{{!empty(old('name')) ? old('name') : (!empty($lastFoodOrder) ? $lastFoodOrder->name : '')}}" required />
 
                         <label>Phone *</label>
-                        <input type="text" class="form-control" name="mobile" value="{{old('mobile')}}" required />
+                        <input type="text" class="form-control" name="mobile" value="{{!empty(old('mobile')) ? old('mobile') : (!empty($lastFoodOrder) ? $lastFoodOrder->mobile : '')}}" required />
 
                         <label>Email Address *</label>
-                        <input type="email" class="form-control" name="email" value="{{old('email')}}" required />
+                        <input type="email" class="form-control" name="email" value="{{!empty(old('email')) ? old('email') : (!empty($lastFoodOrder) ? $lastFoodOrder->email : '')}}" required />
 
                         <!-- <label>Company Name (Optional)</label>
                     <input type="text" class="form-control" name="company-name" required=""> -->
                         <label>Location *</label>
                         <select name="location" class="form-control" id="location_dd">
                             <option value="NA" selected disabled>Select Location</option>
-                            <option value="hostel">Hostel</option>
-                            <option value="estancia">Estancia</option>
-                            <option value="abode">Abode</option>
+                            <option value="hostel" {{$location == 'hostel' ? 'selected' : ''}}>Hostel</option>
+                            <option value="estancia" {{$location == 'estancia' ? 'selected' : ''}}>Estancia</option>
+                            <option value="abode" {{$location == 'abode' ? 'selected' : ''}}>Abode</option>
                         </select>
 
-                        <div id="location_hostel" class="location-options d-none">
+                        <div id="location_hostel" class="location-options {{$location == 'hostel' ? '' : 'd-none'}}">
                             <label>Hostel *</label>
                             <select name="hostel" class="form-control">
                                 <option value="NA" selected disabled>Select Hostel</option>
+                                @foreach($hostels as $hostel)
+                                    <option value="{{$hostel}}" {{!empty($lastFoodOrder) && $hostel == $lastFoodOrder->hostel ? 'selected' : ''}}>{{$hostel}}</option>
+                                @endforeach
                             </select>
                         </div>
 
-                        <div id="location_estancia" class="location-options d-none">
+                        <div id="location_estancia" class="location-options {{$location == 'estancia' ? '' : 'd-none'}}">
                             <label>Estancia *</label>
                             <select name="estancia" class="form-control">
                                 <option value="NA" selected disabled>Select Estancia</option>
+                                @foreach($estanciaOptions as $estancia)
+                                    <option value="{{$estancia}}" {{!empty($lastFoodOrder) && $estancia == $lastFoodOrder->estancia ? 'selected' : ''}}>{{$estancia}}</option>
+                                @endforeach
                             </select>
                         </div>
 
-                        <div id="location_abode" class="location-options d-none">
+                        <div id="location_abode" class="location-options {{$location == 'abode' ? '' : 'd-none'}}">
                             <label>Abode *</label>
                             <select name="abode" class="form-control">
                                 <option value="NA" selected disabled>Select Abode</option>
+                                @foreach($abodeOptions as $abode)
+                                    <option value="{{$abode}}" {{!empty($lastFoodOrder) && $abode == $lastFoodOrder->abode ? 'selected' : ''}}>{{$abode}}</option>
+                                @endforeach
                             </select>
                         </div>
 
                         <label>Flat No. / Room No. *</label>
-                        <input type="text" class="form-control" name="flat_no" value="{{old('flat_no')}}" required>
+                        <input type="text" class="form-control" name="flat_no" value="{{!empty(old('flat_no')) ? old('flat_no') : (!empty($lastFoodOrder) ? $lastFoodOrder->flat_no : '')}}" required>
                         <h2 class="title title-simple text-uppercase text-left">Additional Information</h2>
                         <div id="" class="">
                             <label>Slot *</label>
@@ -186,6 +195,14 @@
                                                 ₹{{Cart::discount()}}
                                             </td>
                                         </tr>
+                                        <tr class="summary-subtotal">
+                                            <td>
+                                                <h4 class="summary-subtitle">Delivery Charge</h4>
+                                            </td>
+                                            <td class="summary-subtotal-price pb-0 pt-0">
+                                                ₹{{Cart::total() <= 100 ? 20 : 0 }}
+                                            </td>
+                                        </tr>
                                        
                                         <tr class="summary-total">
                                             <td class="pb-0">
@@ -193,7 +210,7 @@
                                             </td>
                                             <td class=" pt-0 pb-0">
                                                 <p class="summary-total-price ls-s text-primary">
-                                                    ₹{{Cart::total()}}</p>
+                                                    ₹{{Cart::total() <= 100 ? (Cart::total() + 20) : Cart::total() }}</p>
                                             </td>
                                         </tr>
                                         <tr class="summary-total">
@@ -203,7 +220,7 @@
                                         </tr>
                                         <tr class="summary-total">
                                             <td class="w-100" style="text-align: left;padding-block: 8px;">
-                                                <label>File Attachment *</label>
+                                                <label>Make Payment and Attach screenshot here *</label>
                                                 <input name="attachment" type="file" class="" />
                                             </td>
                                         </tr>
@@ -258,5 +275,17 @@
 
 @endsection
 @push('scripts')
-<script src="/assets/js/enquiry_form.js"></script>
+<script>
+   $(document).ready(() => {
+    $('#location_dd').change((e) => {
+        const location = e.target.value;
+        const locations = { "hostel": "location_hostel", "estancia": "location_estancia", "abode": "location_abode" }
+        const selectedLocation = locations[location];
+        if (selectedLocation) {
+            $('.location-options').addClass('d-none');
+            $(`#${selectedLocation}`).removeClass('d-none');
+        }
+    })
+})
+</script>
 @endpush
