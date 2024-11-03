@@ -717,11 +717,11 @@ button:focus {
 .scroll-top {
     position: fixed;
     text-align: center;
-    bottom: 30px;
+    bottom: 15px;
     left: auto;
-    right: 30px;
-    width: 60px;
-    height: 60px;
+    right: 15px;
+    width: 42px;
+    height: 42px;
     font-size: 27px;
     opacity: 0;
     visibility: hidden;
@@ -731,7 +731,7 @@ button:focus {
     border-radius: 3px;
     z-index: 999;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-    line-height: 60px;
+    line-height: 42px;
     background-color: #72c26e;
 }
 .scroll-top:hover {
@@ -741,13 +741,20 @@ button:focus {
     font-weight: 900;
     line-height: inherit;
 }
-@media (min-width: 768px) {
+@media (min-width: 320px) {
     .scroll-top.show {
         visibility: visible;
         opacity: 1;
         transform: translateY(0);
     }
 }
+/* @media (min-width: 768px) {
+    .scroll-top.show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
 @keyframes fixedTop {
     0% {
         transform: translateY(-100%);
@@ -12178,8 +12185,8 @@ aside + div .product-single .product-details {
     white-space: nowrap;
 }
 .header-middle {
-    padding-top: 2.7rem;
-    padding-bottom: 2.7rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
     color: #222;
     background: #fff;
     font-size: 1.2rem;
@@ -12259,7 +12266,7 @@ aside + div .product-single .product-details {
     display: block;
 }
 .header-bottom {
-    padding-bottom: 1.5rem;
+    padding-bottom: .5rem;
     color: #222;
     background: #fff;
     font-size: 1.4rem;

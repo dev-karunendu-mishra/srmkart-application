@@ -47,6 +47,9 @@
     </script>
 
     <style>
+        .header-bottom .header-left {
+            justify-content: center;
+        }
         .btn-primary {
             background-color: #ec1c58;
             border-color: #ec1c58;

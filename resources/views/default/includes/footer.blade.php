@@ -193,16 +193,18 @@
 
         <div class="footer-bottom">
             <div class="footer-left">
-                <figure class="payment">
+                <!-- <figure class="payment">
                     <img src="/assets/images/payment.png" alt="payment" width="159" height="29">
-                </figure>
+                </figure> -->
             </div>
             <div class="footer-center">
                 <p class="copyright">SRM Kart &copy; 2024. All Rights Reserved</p>
             </div>
             <div class="footer-right" style="padding-right: 74px;">
                 <div class="social-links">
-                    <a href="#" title="social-link" class="social-link social-facebook fab fa-instagram"></a>
+                    <a href="#" title="social-link">
+                        <img src="/assets/images/instagram.png" alt="" width="32px" height="32px">
+                    </a>
                     <!-- <a href="#" title="social-link" class="social-link social-twitter fab fa-twitter"></a>
                     <a href="#" title="social-link" class="social-link social-linkedin fab fa-linkedin-in"></a> -->
                 </div>

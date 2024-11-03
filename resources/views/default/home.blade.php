@@ -78,7 +78,7 @@
         data-animation-options="{ 'delay': '.6s' }">
             <h2 class="title title-center">How We Work</h2>
             <div class="row">
-                <div class="col-6 col-sm-4 col-lg-3">
+                <div class="col-6 col-sm-4">
                     <div class="icon-box icon-inversed text-center  mt-6 mt-md-10">
                         <span class="icon-box-icon">
                             <i class="d-icon-service"></i>
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-4 col-lg-3">
+                <div class="col-6 col-sm-4">
                     <div class="icon-box icon-inversed text-center mt-6 mt-md-10">
                         <span class="icon-box-icon">
                             <i class="d-icon-layer"></i>
@@ -100,7 +100,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-4 col-lg-3">
+                <div class="col-6 col-sm-4">
                     <div class="icon-box icon-inversed text-center mt-6 mt-md-10">
                         <span class="icon-box-icon">
                             <i class="d-icon-truck"></i>
@@ -111,7 +111,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-4 col-lg-3">
+                <div class="col-6 col-sm-4">
                     <div class="icon-box icon-inversed text-center mt-6 mt-md-10">
                         <span class="icon-box-icon">
                             <i class="d-icon-abacus"></i>
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-4 col-lg-3">
+                <div class="col-6 col-sm-4">
                     <div class="icon-box icon-inversed text-center mt-6 mt-md-10">
                         <span class="icon-box-icon">
                             <i class="d-icon-wireless"></i>
@@ -133,7 +133,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-sm-4 col-lg-3">
+                <div class="col-6 col-sm-4">
                     <div class="icon-box icon-inversed text-center mt-6 mt-md-10">
                         <span class="icon-box-icon">
                             <i class="d-icon-babycare"></i>
