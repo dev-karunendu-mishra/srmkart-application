@@ -1119,7 +1119,7 @@ button:focus {
     color: #000 !important;
 }
 .text-primary {
-    color: #4c62ad !important;
+    color: #ec1c58 !important;
 }
 .text-secondary {
     color: #d26e4b !important;
@@ -1164,7 +1164,7 @@ button:focus {
     background-color: #000 !important;
 }
 .bg-primary {
-    background-color: #4c62ad !important;
+    background-color: #ec1c58 !important;
 }
 .bg-secondary {
     background-color: #d26e4b !important;
@@ -12266,7 +12266,7 @@ aside + div .product-single .product-details {
     display: block;
 }
 .header-bottom {
-    padding-bottom: .5rem;
+    /* padding-bottom: .5rem; */
     color: #222;
     background: #fff;
     font-size: 1.4rem;
@@ -13480,7 +13480,7 @@ aside + div .product-single .product-details {
 }
 .menu > li > a {
     position: relative;
-    padding: 1.3rem 0;
+    padding: 0 0 1.7rem;
     font-weight: 700;
     letter-spacing: inherit;
     line-height: 1;
@@ -16321,6 +16321,7 @@ aside + div .product-single .product-details {
         padding-left: 0;
     }
     .toolbox .toolbox-sort .form-control {
+        min-width: 8rem;
         max-width: 12.5rem;
         padding-left: 1rem;
     }

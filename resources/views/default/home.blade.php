@@ -27,7 +27,7 @@
                                     },
                                     '768': {
                                         'items': 3,
-                                        'loop': false
+                                        'autoplay': false,
                                     }
                                 }
                             }">
