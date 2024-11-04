@@ -32,13 +32,21 @@ class CartController extends Controller
             } else {
                 $quantity = ! empty($request->quantity) ? $request->quantity : 1;
                 if (Cart::count() > 0) {
-                    $status = true;
-                    $message = 'product already added in cart.';
-                    $cartItem = Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);
+                    $res = Cart::search(function ($cartItem, $rowId) use ($product) {
+                        return $cartItem->id === $product->id;
+                    });
+                    if(count($res) == 0) {
+                        $status = true;
+                        $message = $product->name.' added in cart.';
+                        Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);
+                    } else {
+                        $status = false;
+                        $message = 'Product already exists in cart.';
+                    }
                 } else {
                     $status = true;
                     $message = $product->name.' added in cart.';
-                    $cartItem = Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);
+                    Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);
                 }
             }
 

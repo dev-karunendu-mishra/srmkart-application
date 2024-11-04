@@ -30,10 +30,12 @@ $('.btn-cart').click(function () {
             })
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data);
                     if (data.status) {
                         $('.cart-count').html(data.cartItemsCount);
                         $('.cart-price span').html(data.subTotal);
+                    } else {
+                        console.log(data);
+                        alert(data.message);
                     }
                 })
                 .catch(error => {
