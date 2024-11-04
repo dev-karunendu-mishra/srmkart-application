@@ -48,53 +48,26 @@
                 <label>Email Address *</label>
                 <input type="email" class="form-control" name="email" required>
 
-                <!-- <label>Company Name (Optional)</label>
-                    <input type="text" class="form-control" name="company-name" required=""> -->
-                <!-- <label>Location *</label>
-                <select name="location" class="form-control" id="location_dd">
-                    <option value="NA" selected disabled>Select Location</option>
-                    <option value="hostel">Hostel</option>
-                    <option value="estancia">Estancia</option>
-                    <option value="abode">Abode</option>
-                </select>
-
-                <div id="location_hostel" class="location-options d-none">
-                    <label>Hostel *</label>
-                    <select name="hostel" class="form-control">
-                        <option value="NA" selected disabled>Select Hostel</option>
-                    </select>
+                <div id="" class="">
+                    <label>File Attachment *</label>
+                    <input name="attachment[]" type="file" class="form-control" multiple/>
                 </div>
-
-                <div id="location_estancia" class="location-options d-none">
-                    <label>Estancia *</label>
-                    <select name="estancia" class="form-control">
-                        <option value="NA" selected disabled>Select Estancia</option>
-                    </select>
-                </div>
-
-                <div id="location_abode" class="location-options d-none">
-                    <label>Abode *</label>
-                    <select name="abode" class="form-control">
-                        <option value="NA" selected disabled>Select Abode</option>
-                    </select>
-                </div>
-
-                <label>Flat No. / Room No. *</label>
-                <input type="text" class="form-control" name="flat_no" required> -->
+    
+                <textarea name="message" class="form-control pb-2 pt-2" cols="30" rows="5"
+                    placeholder="Message"></textarea>
+                <button type="submit" class="btn btn-primary btn-rounded btn-order">Submit</button>
                 
             </div>
             <aside class="col-md-6 sticky-sidebar-wrapper">
                 <div class="sticky-sidebar mt-1" data-sticky-options="{'bottom': 50}">
                     <div class="summary pt-5">
-
-                        <div id="" class="">
-                            <label>File Attachment *</label>
-                            <input name="attachment[]" type="file" class="form-control" multiple/>
-                        </div>
-
-                        <textarea name="message" class="form-control pb-2 pt-2" cols="30" rows="5"
-                            placeholder="Message"></textarea>
-                        <button type="submit" class="btn btn-primary btn-rounded btn-order">Submit</button>
+                    <h2 class="h3 summary-subtitle">Why Join Us?</h2>
+                        <ul>
+                            <li><strong>Flexible Hours:</strong> Balance your shifts with classes, assignments, and social life.</li>
+                            <li><strong>Earn on Your Schedule:</strong> Pick the times that work for you, all while helping your fellow students.</li>
+                            <li><strong>Be Part of the Community:</strong> Get to know SRM better, meet new people, and make an impact on campus life.</li>
+                            <p>If you’re responsible, know your way around campus, and want to help redefine convenience for SRM students, apply below to become part of our SRMKart Delivery Squad!</p>
+                        </ul>
                     </div>
                 </div>
             </aside>

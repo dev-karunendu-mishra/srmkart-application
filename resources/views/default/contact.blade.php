@@ -15,7 +15,7 @@
         </div>
     </nav>
     <div class="page-header" style="background-image: url({{!empty($siteData->page_header) ? $siteData->page_header : '/assets/images/page-header/about-us.jpg' }})">
-        <h1 class="page-title font-weight-bold text-capitalize ls-l">Custom/Essentials</h1>
+        <h1 class="page-title font-weight-bold text-capitalize ls-l">Custom / Essentials</h1>
     </div>
     <div class="page-content mt-10 pt-7">
         <section class="contact-section">

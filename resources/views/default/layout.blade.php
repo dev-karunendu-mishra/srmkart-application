@@ -168,6 +168,11 @@
                 height: 160px;
             }
         }  
+        @media (max-width: 576px) {
+            .page-header {
+                height: auto;
+            }
+        }
     </style>
 </head>
 
@@ -258,10 +263,10 @@
                         href="/internship">Internship</a> </li>
                 <li class="{{Route::currentRouteName()=='course'? 'active':''}}"> <a href="/course">Courses</a> </li>
                 <li class="{{Route::currentRouteName()=='delivery_agent'? 'active':''}}"> 
-                    <a href="{{route('delivery_agent.index')}}">Join as delivery boy</a>
+                    <a href="{{route('delivery_agent.index')}}">Partner as an Agent</a>
                 </li>   
                 <li class="{{Route::currentRouteName()=='assignment_writer'? 'active':''}}"> 
-                    <a href="{{route('assignment_writer.index')}}"> Assignment Writer</a> 
+                    <a href="{{route('assignment_writer.index')}}">Partner as an Assignment Writer</a> 
                 </li>
                 <li class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Custom/Essentials</a> </li>
 

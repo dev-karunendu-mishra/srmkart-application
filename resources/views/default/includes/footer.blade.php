@@ -5,9 +5,9 @@
                 <div class="col-lg-3">
                     <a href="/" class="logo-footer">
                         @if($siteData)
-                        <img src="{{ asset($siteData->logo) }}" alt="logo" class="bg-white" width="43" height="43" />
+                        <img src="{{ asset($siteData->logo) }}" alt="logo" class="bg-dark" width="80" height="80" />
                         @else
-                        <img src="/assets/images/logo.jpg" alt="logo-footer" class="bg-white" width="43" height="43">
+                        <img src="/assets/images/logo.jpg" alt="logo-footer" class="bg-dark" width="80" height="80">
                         @endif
                     </a>
 
@@ -210,10 +210,10 @@
             <div class="footer-center">
                 <p class="copyright">SRM Kart &copy; 2024. All Rights Reserved</p>
             </div>
-            <div class="footer-right" style="padding-right: 74px;">
+            <div class="footer-right">
                 <div class="social-links">
                     <a  href="{{!empty($siteData->instagram) ? $siteData->instagram : '#'}}" title="social-link">
-                        <img src="/assets/images/instagram.png" alt="" width="32px" height="32px">
+                        <img src="/assets/images/instagram.png" alt="" width="200px" height="40px">
                     </a>
                     <!-- <a title="social-link" class="social-link social-facebook fab fa-instagram"></a> -->
                     <!-- <a href="#" title="social-link" class="social-link social-twitter fab fa-twitter"></a>
