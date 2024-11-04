@@ -24,19 +24,26 @@
                     <span class="d-inline-block label-star bg-white text-primary slide-animate"
                         data-animation-options="{'name': 'fadeInRightShorter', 'duration': '1s', 'delay': '.4s'}">1
                         Free</span>
-                </h4>
+                </h4> -->
+                @if(!empty($slider->title))
                 <h2 class="banner-title font-weight-bold text-white lh-1 ls-md slide-animate"
                     data-animation-options="{'name': 'fadeInUpShorter', 'duration': '1.2s', 'delay': '1s'}">
-                    Fashionable</h2>
-                <h3 class="font-weight-normal lh-1 ls-l text-white slide-animate"
+                    {{$slider->title}}</h2>
+                @endif
+                <!-- <h3 class="font-weight-normal lh-1 ls-l text-white slide-animate"
                     data-animation-options="{'name': 'fadeInUpShorter', 'duration': '1.2s', 'delay': '1s'}">
-                    Collection</h3>
+                    Collection</h3> -->
+                
+                @if(!empty($slider->sub_title))
                 <p class="slide-animate text-white ls-s mb-7"
                     data-animation-options="{'name': 'fadeInUpShorter', 'duration': '1.2s', 'delay': '1s'}">
-                    Get Free Shipping on all orders over ₹99.00</p>
-                <a href="shop.html" class="btn btn-dark btn-rounded slide-animate"
+                    {{$slider->sub_title}}</p>
+                @endif
+                @if(!empty($slider->shop_link))
+                <a href="{{$slider->shop_link}}" class="btn btn-dark btn-rounded slide-animate"
                     data-animation-options="{'name': 'fadeInUpShorter', 'duration': '1s', 'delay': '1.8s'}">Shop
-                    Now<i class="d-icon-arrow-right"></i></a> -->
+                    Now<i class="d-icon-arrow-right"></i></a>
+                @endif
             </div>
         </div>
     </div>
