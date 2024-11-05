@@ -232,7 +232,7 @@ class WebsiteController extends Controller
     public function placePropertyEnquiry(Request $request, $id)
     {
         try {
-            $detail = Property::where('id', $id)->orWhere('uuid', $id)->first();
+            $detail = Property::where('uuid', $id)->first();
             $formAction = Route('property-enquiry.store');
             $enquiryFor = ['service' => 'property_id', 'value' => $detail->id];
 
@@ -246,7 +246,7 @@ class WebsiteController extends Controller
     public function placeFurnitureEnquiry(Request $request, $id)
     {
         try {
-            $detail = Furniture::where('id', $id)->orWhere('uuid', $id)->first();
+            $detail = Furniture::where('uuid', $id)->first();
             $formAction = Route('furniture-enquiry.store');
             $enquiryFor = ['service' => 'furniture_id', 'value' => $detail->id];
 
@@ -260,7 +260,7 @@ class WebsiteController extends Controller
     {
         try {
             try {
-                $detail = Bike::where('id', $id)->orWhere('uuid', $id)->first();
+                $detail = Bike::where('uuid', $id)->first();
                 $formAction = Route('bike-enquiry.store');
                 $enquiryFor = ['service' => 'bike_id', 'value' => $detail->id];
 
@@ -276,7 +276,7 @@ class WebsiteController extends Controller
     public function placeInternshipEnquiry(Request $request, $id)
     {
         try {
-            $detail = Internship::where('id', $id)->orWhere('uuid', $id)->first();
+            $detail = Internship::where('uuid', $id)->first();
             $formAction = Route('internship-enquiry.store');
             $enquiryFor = ['service' => 'internship_id', 'value' => $detail->id];
 
@@ -289,7 +289,7 @@ class WebsiteController extends Controller
     public function placeCourseEnquiry(Request $request, $id)
     {
         try {
-            $detail = Course::where('id', $id)->orWhere('uuid', $id)->first();
+            $detail = Course::where('uuid', $id)->first();
             $formAction = Route('course-enquiry.store');
             $enquiryFor = ['service' => 'course_id', 'value' => $detail->id];
 
