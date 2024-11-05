@@ -200,7 +200,7 @@
                                                 <h4 class="summary-subtitle">Delivery Charge</h4>
                                             </td>
                                             <td class="summary-subtotal-price pb-0 pt-0">
-                                                ₹{{Cart::count() > 0 && Cart::total() <= 100 ? 20 : 0 }}
+                                                ₹{{Cart::count() > 0 && Cart::total() <= 299 ? 20 : 0 }}
                                             </td>
                                         </tr>
                                        
@@ -210,7 +210,7 @@
                                             </td>
                                             <td class=" pt-0 pb-0">
                                                 <p class="summary-total-price ls-s text-primary">
-                                                    ₹{{Cart::count() > 0 && Cart::total() <= 100 ? (Cart::total() + 20) : Cart::total() }}</p>
+                                                    ₹{{Cart::count() > 0 && Cart::total() <= 299 ? (Cart::total() + 20) : Cart::total() }}</p>
                                             </td>
                                         </tr>
                                         <tr class="summary-total">
@@ -220,7 +220,7 @@
                                         </tr>
                                         <tr class="summary-total">
                                             <td class="w-100" style="text-align: left;padding-block: 8px;">
-                                                <label>Make Payment and Attach screenshot here *</label>
+                                                <label>Make Payment and Attach screenshot here *. Once order is received we’ll confirm the order on whatsapp</label>
                                                 <input name="attachment" type="file" class="" />
                                             </td>
                                         </tr>

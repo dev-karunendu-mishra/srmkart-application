@@ -76,7 +76,7 @@
 
             </div>
             <div class="header-right">
-                <a href="tel:#" class="icon-box icon-box-side">
+                <a href="tel:{{$siteData ? $siteData->mobile : '#'}}" class="icon-box icon-box-side">
                     <div class="icon-box-icon mr-0 mr-lg-2">
                         <i class="d-icon-phone"></i>
                     </div>

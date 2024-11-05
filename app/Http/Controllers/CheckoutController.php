@@ -114,9 +114,9 @@ class CheckoutController extends Controller
                 'regex:/^[\p{L}\s.-]+$/u', // Allows letters, spaces, and some punctuation
             ],
             'slot_deadline' => 'nullable|string',
-            'attachment' => 'required|file|mimes:pdf,png,docx,jpg,jpeg,webp',
+            'attachment' => 'nullable|file|mimes:pdf,png,docx,jpg,jpeg,webp',
         ],[
-            'attachment.required' => 'Payment screenshot is mandatory.',
+            //'attachment.required' => 'Payment screenshot is mandatory.',
             'attachment.file' => 'The screenshot must be a valid file.',
             'attachment.mimes' => 'The screenshot must be a file of type: pdf, png, docx, jpg, jpeg, webp.',
         ]);
@@ -146,8 +146,8 @@ class CheckoutController extends Controller
             'subtotal' => Cart::subtotal(),
             'tax' => Cart::tax(),
             'discount' => Cart::discount(),
-            'delivery_charge' => Cart::total() <= 100 ? 20 : 0 ,
-            'total' => Cart::total() <= 100 ? (Cart::total() + 20) : Cart::total() ,
+            'delivery_charge' => Cart::total() <= 299 ? 20 : 0 ,
+            'total' => Cart::total() <= 299 ? (Cart::total() + 20) : Cart::total() ,
             'payment_status' => 'pending',
             'items' => $items, // Store items as JSON,
             'payment_screenshot' => $paymentScreenshots

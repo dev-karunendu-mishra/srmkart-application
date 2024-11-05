@@ -49,7 +49,7 @@
                 <input type="email" class="form-control" name="email" required>
 
                 <div id="" class="">
-                    <label>File Attachment *</label>
+                    <label>Attach Your CV FILE</label>
                     <input name="attachment[]" type="file" class="form-control" multiple/>
                 </div>
     

@@ -40,17 +40,17 @@
                         <ul class="widget-body">
                             <li>
                                 <label>Phone:</label>
-                                <a href="tel:#">Toll Free {{$siteData ? $siteData->mobile : "Mobile No"}}</a>
+                                <a href="tel:{{$siteData ? $siteData->mobile : '#'}}">Toll Free {{$siteData ? $siteData->mobile : "Mobile No"}}</a>
                             </li>
                             <li>
                                 <label>Phone:</label>
-                                <a href="tel:#">
+                                <a href="tel:7665433060">
                                     7665433060
                                 </a>
                             </li>
                             <li>
                                 <label>Phone:</label>
-                                <a href="tel:#">7665433060</a>
+                                <a href="tel:7665433060">7665433060</a>
                             </li>
                             <li>
                                 <label>Email:</label>

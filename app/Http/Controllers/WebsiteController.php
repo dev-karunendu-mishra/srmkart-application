@@ -59,7 +59,7 @@ class WebsiteController extends Controller
     public function getPropertyPage(Request $request)
     {
         try {
-            $records = Property::all();
+            $records = Property::orderBy('location', 'desc')->get();
             $pageTemplate = 'default.property';
 
             return view($pageTemplate, compact('records'));
@@ -71,7 +71,7 @@ class WebsiteController extends Controller
     public function getPropertyDetailPage(Request $request, $propertyId)
     {
         try {
-            $detail = Property::where('id', $propertyId)->orWhere('uuid', $propertyId)->first();
+            $detail = Property::where('uuid', $propertyId)->first();
             $showAddToCart = false;
             $serviceUrl = Route('property');
             $serviceText = 'Properties';
@@ -98,7 +98,7 @@ class WebsiteController extends Controller
     public function getFurnitureDetailPage(Request $request, $furnitureId)
     {
         try {
-            $detail = Furniture::where('id', $furnitureId)->orWhere('uuid', $furnitureId)->first();
+            $detail = Furniture::where('uuid', $furnitureId)->first();
             $showAddToCart = false;
             $serviceUrl = Route('furniture');
             $serviceText = 'Furniture';
@@ -125,7 +125,7 @@ class WebsiteController extends Controller
     public function getInternshipDetailPage(Request $request, $internshipId)
     {
         try {
-            $detail = Internship::where('id', $internshipId)->orWhere('uuid', $internshipId)->first();
+            $detail = Internship::where('uuid', $internshipId)->first();
             $showAddToCart = false;
             $serviceUrl = Route('internship');
             $serviceText = 'Internship';
@@ -152,7 +152,7 @@ class WebsiteController extends Controller
     public function getBikeDetailPage(Request $request, $bikeId)
     {
         try {
-            $detail = Bike::where('id', $bikeId)->orWhere('uuid', $bikeId)->first();
+            $detail = Bike::where('uuid', $bikeId)->first();
             $showAddToCart = false;
             $serviceUrl = Route('bikes');
             $serviceText = 'Bike';
@@ -179,7 +179,7 @@ class WebsiteController extends Controller
     public function getCourseDetailPage(Request $request, $courseId)
     {
         try {
-            $detail = Course::where('id', $courseId)->orWhere('uuid', $courseId)->first();
+            $detail = Course::where('uuid', $courseId)->first();
             $showAddToCart = false;
             $serviceUrl = Route('course');
             $serviceText = 'Course';
