@@ -17,6 +17,8 @@ use App\Http\Controllers\DeliveryAgentController;
 use App\Http\Controllers\EssentialsController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+
 
 require __DIR__.'/auth.php';
 require __DIR__.'/admin-auth.php';
@@ -35,6 +37,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::prefix('/')->group(function () {
+    Route::get('/run-seeders', function () {
+        // You can call individual seeders or run all seeders
+        Artisan::call('db:seed --class=DatabaseSeeder');  // This runs all seeders defined in DatabaseSeeder
+    
+        // Alternatively, run a specific seeder:
+        // Artisan::call('db:seed', ['--class' => 'UserSeeder']);
+    
+        return "Seeders have been run!";
+    });
     Route::get('link', function () {
         Artisan::call('storage:link');
         $target = $_SERVER['DOCUMENT_ROOT'].'/storage/uploads';
