@@ -44,7 +44,10 @@ class CartController extends Controller
                         // $message = 'Product already exists in cart.';
                         $status = true;
                         $message = $product->name.' added in cart.';
-                        Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);
+                        foreach($res as $rowId=>$item) {
+                            Cart::update($rowId, $quantity);
+                        }
+                        //Cart::add(['id' => $product->id, 'name' => $product->name, 'qty' => $quantity, 'price' => $product->price, 'weight' => 0, 'options' => ['productImage' => (! empty($product->images) ? $product->images->first()->path : null)]]);
                     }
                 } else {
                     $status = true;
