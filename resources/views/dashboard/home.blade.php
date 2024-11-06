@@ -27,10 +27,9 @@
             <x-all-records
                 :records="$orderHistory"
                 :columns="$foodOrderColumns"
-                enableActionColumn="{{ true }}"
                 model="foods"
                 id="foodOrders"
-                enableActionColumn="{{ false }}"
+                enableActionColumn="{{false}}" :statusOptions="$statusOptions" :updateRoute="$updateRoute"
             />
         </div>
     </div>

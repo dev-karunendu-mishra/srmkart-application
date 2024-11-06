@@ -30,7 +30,7 @@
                 <a href="{{route('assignment_writer.index')}}" class="help text-primary d-lg-show"><i class="d-icon-info"></i> Partner as an Assignment Writer</a>
                 <!-- <a href="#" class="help d-lg-show"><i class="d-icon-info"></i> Need Help</a> -->
                 @auth
-                <a href="{{ url('/dashboard') }}" class="link-to-tab d-md-show">
+                <a href="{{ url('/dashboard') }}" class="link-to-tab">
                     Dashboard
                 </a>
                 @else

@@ -59,7 +59,10 @@ class OrderController extends Controller
 
         $order->update($validatedData);
 
-        return redirect()->back()->with('success', 'Status updated successfully!');
+        return redirect()->back()->with([
+            'success' => 'Status updated successfully!',
+            'order_status' => true,
+        ]);
     }
 
     /**

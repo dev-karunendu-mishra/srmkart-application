@@ -16,6 +16,7 @@ use App\Http\Controllers\AssignmentWriterController;
 use App\Http\Controllers\DeliveryAgentController;
 use App\Http\Controllers\EssentialsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\OrderController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -28,6 +29,11 @@ require __DIR__.'/admin-auth.php';
 // });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::resource('/orders', OrderController::class)->only([
+    'update',
+])->names([
+    'update' => 'orders.update',
+])->middleware(['auth', 'verified']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
