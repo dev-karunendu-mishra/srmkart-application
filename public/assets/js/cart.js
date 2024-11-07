@@ -33,6 +33,7 @@ $('.btn-cart').click(function () {
                     if (data.status) {
                         $('.cart-count').html(data.cartItemsCount);
                         $('.cart-price span').html(data.subTotal);
+                        swal("Added to card", data.message, "success");
                     } else {
                         alert(data.message);
                     }

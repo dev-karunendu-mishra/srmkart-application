@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\OrderPaymentDetail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use App\Events\OrderCreated;
 
 class CheckoutController extends Controller
 {
@@ -168,6 +169,8 @@ class CheckoutController extends Controller
 
         // Clear the cart
         Cart::destroy();
+        // Dispatch the OrderCreated event
+        event(new OrderCreated($order));
 
         //Flash success message
         $request->session()->flash('status', 'Your order has been placed successfully!');

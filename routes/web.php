@@ -17,6 +17,7 @@ use App\Http\Controllers\DeliveryAgentController;
 use App\Http\Controllers\EssentialsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -43,6 +44,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 Route::prefix('/')->group(function () {
+    // routes/web.php
+    Route::get('/orders/stream', [NotificationController::class, 'streamOrders']);
+
     Route::get('/run-seeders', function () {
         // You can call individual seeders or run all seeders
         Artisan::call('db:seed --class=DatabaseSeeder');  // This runs all seeders defined in DatabaseSeeder
