@@ -7,12 +7,44 @@
                 <i class="ti ti-menu-2"></i>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
-                <i class="ti ti-bell-ringing"></i>
-                <div class="notification bg-primary rounded-circle"></div>
-              </a>
-            </li>
+            <!--<li class="nav-item">-->
+            <!--  <a class="nav-link position-relative nav-icon-hover" href="javascript:void(0)">-->
+            <!--    <i class="ti ti-bell-ringing"></i>-->
+            <!--    <div class="popup-badge rounded-pill bg-danger text-white fs-2">{{$notificationCount}}</div>-->
+            <!--  </a>-->
+            <!--</li>-->
+            <li class="nav-item dropdown">
+                <a class="nav-link position-relative nav-icon-hover" href="javascript:void(0)" id="drop3" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                    <i class="ti ti-bell-ringing"></i>
+                    <div class="popup-badge rounded-pill bg-danger text-white fs-2">{{$notificationCount}}</div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-start dropdown-menu-animate-up" aria-labelledby="drop3">
+                  <div class="message-body">
+                    <a href="{{route('admin.foods')}}" class="d-flex align-items-center gap-2 dropdown-item">
+                      <p class="mb-0 fs-3">Food Orders</p>
+                      <div class="popup-badge-notify rounded-pill bg-danger text-white fs-2">{{$orderNotificationCount}}</div>
+                    </a>
+                    
+                    <a href="{{route('admin.properties')}}" class="d-flex align-items-center gap-2 dropdown-item">
+                      <p class="mb-0 fs-3">Property Enquiries</p>
+                      <div class="popup-badge-notify rounded-pill bg-danger text-white fs-2">{{$propertyNotificationCount}}</div>
+                    </a>
+                    
+                    <a href="{{route('admin.assignments')}}" class="d-flex align-items-center gap-2 dropdown-item">
+                      <p class="mb-0 fs-3">Assignment Enquiries</p>
+                      <div class="popup-badge-notify rounded-pill bg-danger text-white fs-2">{{$assignmentNotificationCount}}</div>
+                    </a>
+                    
+                    
+                    <a href="{{route('admin.print_outs')}}" class="d-flex align-items-center gap-2 dropdown-item">
+                      <p class="mb-0 fs-3">Printout Enquiries</p>
+                      <div class="popup-badge-notify rounded-pill bg-danger text-white fs-2">{{$printOutNotificationCount}}</div>
+                    </a>
+                    
+                  </div>
+                </div>
+              </li>
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">

@@ -72,14 +72,18 @@
                                                 </div>
                                             </div> -->
 
-                                        <label>Name *</label>
-                                        <input type="text" class="form-control" name="name" required>
+                                            <label>Name *</label>
+                <input type="text" class="form-control" name="name" value="{{!empty(old('name')) ? old('name') : ''}}"  required/>
+                <x-input-error-new :messages="$errors->get('name')" class="mt-2"/>
 
-                                        <label>Phone *</label>
-                                        <input type="text" class="form-control" name="mobile" required>
+                <label>Mobile *</label>
+                <input type="text" class="form-control" name="mobile" value="{{!empty(old('mobile')) ? old('mobile') : ''}}" required/>
+                <x-input-error-new :messages="$errors->get('mobile')" class="mt-2"/>
 
-                                        <label>Email Address *</label>
-                                        <input type="email" class="form-control" name="email" required>
+                <label>Email Address *</label>
+                <input type="email" class="form-control" name="email" value="{{!empty(old('email')) ? old('email') : ''}}" required/>
+                <x-input-error-new :messages="$errors->get('email')" class="mt-2"/>
+
 
                                         <!-- <label>Company Name (Optional)</label>
                                                 <input type="text" class="form-control" name="company-name" required=""> -->
@@ -113,7 +117,7 @@
                                         </div>
 
                                         <label>Flat No. / Room No. *</label>
-                                        <input type="text" class="form-control" name="flat_no" required>
+                                        <input type="text" class="form-control" name="flat_no" value="{{!empty(old('flat_no')) ? old('flat_no') : ''}}" required>
                                         <!-- <div class="select-box">
                                                 </div> -->
                                         <!-- <label>Street Address *</label>
@@ -167,8 +171,8 @@
                                                         :slotOptions="$slotOptions" />
                                                 </div>--}}
 
-                                                <textarea name="message" class="form-control pb-2 pt-2" cols="30"
-                                                    rows="5" placeholder="Message"></textarea>
+                                                <textarea name="message" class="form-control pb-2 pt-2" cols="30" rows="5" placeholder="Message"></textarea>
+                                                <x-input-error-new :messages="$errors->get('message')" class="mt-2"/>
                                                 <button type="submit"
                                                     class="btn btn-primary btn-rounded btn-order">Submit</button>
                                             </div>

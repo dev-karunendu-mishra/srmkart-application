@@ -66,6 +66,16 @@ class PropertyEnquiryController extends Controller
 
         // $validatedData[$validatedData['location']] = $request[$validatedData['location']];
 
+        // Check if there is an existing enquiry with the same email, phone, and property_id with status "pending"
+        if (PropertyEnquiry::where('email', $request->email)
+            ->where('mobile', $request->phone)
+            ->where('property_id', $request->property_id)
+            ->where('status', 'pending')
+            ->exists()) {
+
+            return redirect()->back()->with('error', 'There is already a pending enquiry for this email, phone, and property.');
+        }
+
         $assignment = PropertyEnquiry::create($validatedData);
         // Handle file uploads if provided
         if ($request->hasFile('attachment')) {
