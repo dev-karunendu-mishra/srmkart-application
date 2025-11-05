@@ -38,6 +38,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\SubscriberController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\SellerListingController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -180,6 +181,15 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
             'destroy' => 'print_outs.destroy',
         ]);
         Route::resource('/orders', OrderController::class);
+        Route::resource('/seller_listings', SellerListingController::class)->names([
+            'index' => 'seller_listings',
+            'create' => 'seller_listings.create',
+            'store' => 'seller_listings.store',
+            'show' => 'seller_listings.show',
+            'edit' => 'seller_listings.edit',
+            'update' => 'seller_listings.update',
+            'destroy' => 'seller_listings.destroy'
+        ]);
 
         Route::resource('/assignments', AssignmentController::class)->names([
             'index' => 'assignments',

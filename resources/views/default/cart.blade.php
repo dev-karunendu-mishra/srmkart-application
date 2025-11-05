@@ -35,7 +35,7 @@
                                 </td>
                                 <td class="product-name">
                                     <div class="product-name-section">
-                                        <a href="">{{$item->name}}</a>
+                                        <a href="">{{!empty($item->product_name) ? $item->product_name : $item->name }}</a>
                                     </div>
                                 </td>
                                 <td class="product-subtotal">

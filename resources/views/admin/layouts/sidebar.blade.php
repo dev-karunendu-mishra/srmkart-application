@@ -62,6 +62,15 @@
           </a>
         </li>
 
+        <li class="sidebar-item">
+          <a class="sidebar-link" href="{{ route('admin.seller_listings') }}" aria-expanded="false">
+            <span>
+              <i class="ti ti-layout-dashboard"></i>
+            </span>
+            <span class="hide-menu">Seller Listing</span>
+          </a>
+        </li>
+
 
         <!-- <li class="sidebar-item">
           <a class="sidebar-link" href="{{ route('admin.furniture') }}" aria-expanded="false">

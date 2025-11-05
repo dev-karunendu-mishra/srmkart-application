@@ -17,6 +17,8 @@ use App\Http\Controllers\DeliveryAgentController;
 use App\Http\Controllers\EssentialsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\SellerListingController;
+use App\Http\Controllers\BuyController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 
@@ -166,6 +168,22 @@ Route::prefix('/')->group(function () {
     ])->names([
         'index' => 'printout',
         'store' => 'printout.store',
+    ]);
+
+    Route::resource('sell', SellerListingController::class)->only([
+        'index',
+        'store',
+    ])->names([
+        'index' => 'sell',
+        'store' => 'sell.store',
+    ]);
+
+    Route::resource('buy', BuyController::class)->only([
+        'index',
+        'store',
+    ])->names([
+        'index' => 'buy',
+        'store' => 'buy.store',
     ]);
 
     Route::resource('property-enquiry', PropertyEnquiryController::class)->only([

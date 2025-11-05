@@ -71,7 +71,7 @@
                     <tbody>
                         @foreach($order->items as $item)
                         <tr>
-                            <td class="product-name">{{$item['name']}} <span> <i class="fas fa-times"></i>
+                            <td class="product-name">{{!empty($item['product_name']) ? $item['product_name'] : $item['name']}} <span> <i class="fas fa-times"></i>
                                     {{$item['quantity']}}</span></td>
                             <td class="product-price">₹{{$item['price']}}</td>
                         </tr>

@@ -261,6 +261,8 @@
                                 href="/internship">Internship</a> </li>
                         <li class="{{Route::currentRouteName()=='course'?'active':''}}"> <a href="/course">Courses</a> </li>
                         <li class="{{Route::currentRouteName()=='contact'?'active':''}}"> <a href="/contact-us">Custom/Essentials</a> </li>
+                        <li class="{{Route::currentRouteName()=='buy'?'active':''}}"> <a href="/buy">Buy</a> </li>
+                        <li class="{{Route::currentRouteName()=='sell'?'active':''}}"> <a href="/sell">Sell</a> </li>
                         <!-- <li>
                                     <a href="shop.html">Categories</a>
                                     <div class="megamenu">

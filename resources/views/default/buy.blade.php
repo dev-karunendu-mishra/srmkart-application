@@ -1,0 +1,267 @@
+@extends('default.layout')
+@section('main')
+@push('style')
+<link rel="stylesheet" type="text/css" href="/assets/css/style.min.css">
+@endpush
+<main class="main">
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="/"><i class="d-icon-home"></i></a></li>
+                <li>Buy Product</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-header pl-4 pr-4" style="background-image: url({{!empty($siteData->page_header) ? $siteData->page_header : '/assets/images/page-header/about-us.jpg' }})">
+        <h3 class="page-subtitle font-weight-bold">Category</h3>
+        <h1 class="page-title font-weight-bold lh-1 text-white text-capitalize">Product collection</h1>
+        <p class="page-desc text-white mb-0 container"></p>
+
+    </div>
+    <div class="page-content mb-10 pb-6">
+        <div class="container">
+            <div class="row main-content-wrap gutter-lg">
+                <div class="main-content">
+                    <nav class="toolbox sticky-toolbox sticky-content fix-top">
+                        <div class="toolbox-left">
+                            <!-- <a href="#"
+                                class="toolbox-item left-sidebar-toggle btn btn-outline btn-primary btn-rounded btn-icon-right">Filter<i
+                                    class="d-icon-arrow-right"></i></a>-->
+                            <div class="toolbox-item toolbox-sort select-box text-dark">
+                                <label>Category :</label>
+                                <select id="product_category" name="product_category" class="form-control">
+                                    <option value="All">All</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Furniture">Furniture</option>
+                                    <option value="Books">Books</option>
+                                </select>
+                            </div>
+                            <div class="toolbox-item toolbox-sort select-box text-dark">
+                                <label>Condition :</label>
+                                <select id="product_condition" name="product_condition" class="form-control">
+                                    <option value="All">All</option>
+                                    <option value="New">New</option>
+                                    <option value="Used">Used</option>
+                                </select>
+                            </div>
+                            <div class="toolbox-item toolbox-sort text-dark">
+                                <label>Min Price :</label>
+                                <input type="number" id="min_price" class="form-control" placeholder="Min Price"/>
+                                
+                            </div>
+                            <div class="toolbox-item toolbox-sort text-dark">
+                                <label>Max Price :</label>
+                                <input type="number" id="max_price" class="form-control" placeholder="Max Price"/>
+                            </div>
+                        </div>
+                        <div class="toolbox-right">
+                            <!-- PageSize -->
+                            <!-- <div class="toolbox-item toolbox-show select-box text-dark">
+                                <label>Show :</label>
+                                <select name="count" class="form-control">
+                                    <option value="12">12</option>
+                                    <option value="24">24</option>
+                                    <option value="36">36</option>
+                                </select>
+                            </div> -->
+                            {{--<div class="toolbox-item toolbox-layout">
+                                <a href="shop-list-mode" class="d-icon-mode-list btn-layout"></a>
+                                <a href="shop.html" class="d-icon-mode-grid btn-layout active"></a>
+                            </div>--}}
+                        </div>
+                    </nav>
+
+                    <div class="row cols-2 cols-md-3 cols-lg-4 product-wrapper">
+                        @forelse($sellerListings as $sellerListing)
+                        <div class="col-xs-6 col-lg-3 mb-4 card-col">
+                            <x-buy-product-card :details="$sellerListing" path="/buy"/>
+                        </div>
+                        @empty
+                        
+                        @endforelse
+
+                    </div>
+
+                    <!-- Pagination -->
+                    <!-- <nav class="toolbox toolbox-pagination">
+                        <p class="show-info">Showing <span>12 of 56</span> Products</p>
+                        <ul class="pagination">
+                            <li class="page-item disabled">
+                                <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1"
+                                    aria-disabled="true">
+                                    <i class="d-icon-arrow-left"></i>Prev
+                                </a>
+                            </li>
+                            <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item page-item-dots"><a class="page-link" href="#">6</a></li>
+                            <li class="page-item">
+                                <a class="page-link page-link-next" href="#" aria-label="Next">
+                                    Next<i class="d-icon-arrow-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav> -->
+                </div>
+                <aside class="col-lg-3 sidebar shop-sidebar">
+                    <div class="sidebar-overlay"></div>
+                    <a class="sidebar-close" href="#"><i class="d-icon-times"></i></a>
+                    <div class="sidebar-content">
+                        <div class="filter-actions mb-4">
+                            <a href="#" class="sidebar-toggle-btn toggle-remain btn btn-sm btn-outline 
+                                        btn-primary btn-rounded btn-icon-right">Filter<i
+                                    class="d-icon-arrow-left"></i></a>
+                            <a href="#" class="filter-clean text-primary">Clean All</a>
+                        </div>
+                        <div class="widget widget-collapsible">
+                            <h3 class="widget-title">Product Categories</h3>
+                            <ul class="widget-body filter-items search-ul">
+                                <li>
+                                    <a href="#">Clothing<span class="count">(6)</span></a>
+                                    <ul>
+                                        <li><a href="#">Summer sale<span class="count">(2)</span></a></li>
+                                        <li><a href="#">Shirts<span class="count">(3)</span></a></li>
+                                        <li><a href="#">Trunks<span class="count">(1)</span></a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Shoes<span class="count">(5)</span></a></li>
+                                <li><a href="#">Men<span class="count">(8)</span></a></li>
+                                <li><a href="#">Women<span class="count">(3)</span></a></li>
+                                <li><a href="#">Bags & Backpacks<span class="count">(5)</span></a></li>
+                                <li>
+                                    <a href="#">Watches<span class="count">(4)</span></a>
+                                    <ul>
+                                        <li><a href="#">Men's<span class="count">(2)</span></a></li>
+                                        <li><a href="#">Woment's<span class="count">(2)</span></a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">Accessosries<span class="count">(1)</span></a>
+                                    <ul>
+                                        <li><a href="#">Ring<span class="count">(1)</span></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget widget-collapsible">
+                            <h3 class="widget-title">Filter by Price</h3>
+                            <div class="widget-body">
+                                <form action="#">
+                                    <div class="filter-price-slider"></div>
+                                    <div class="filter-actions">
+                                        <div class="filter-price-text mb-4">Price:
+                                            <span class="filter-price-range"></span>
+                                        </div>
+                                        <button type="submit"
+                                            class="btn btn-sm btn-dark btn-filter btn-rounded">Filter</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="widget widget-collapsible">
+                            <h3 class="widget-title">Size</h3>
+                            <ul class="widget-body filter-items">
+                                <li><a href="#">Extra Large<span class="count">(2)</span></a></li>
+                                <li><a href="#">Large<span class="count">(5)</span></a></li>
+                                <li><a href="#">Medium<span class="count">(8)</span></a></li>
+                                <li><a href="#">Small<span class="count">(1)</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="widget widget-collapsible">
+                            <h3 class="widget-title">Color</h3>
+                            <ul class="widget-body filter-items">
+                                <li><a href="#">Black<span class="count">(2)</span></a></li>
+                                <li><a href="#">Blue<span class="count">(5)</span></a></li>
+                                <li><a href="#">Green<span class="count">(8)</span></a></li>
+                                <li><a href="#">White<span class="count">(1)</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="widget widget-collapsible">
+                            <h3 class="widget-title">Brands</h3>
+                            <ul class="widget-body filter-items">
+                                <li><a href="#">SLS<span>(2)</span></a></li>
+                                <li><a href="#">Cinderella<span>(5)</span></a></li>
+                                <li><a href="#">Comedy<span>(8)</span></a></li>
+                                <li><a href="#">Rightcheck<span>(1)</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</main>
+
+@endsection
+@push('scripts')
+<script>
+    // $('#food_category').change((e) => {
+    //     const foodCategory = e.target.value;
+    //     if (foodCategory !== "All") {
+    //         $('.seller-product-card').parent().addClass('d-none');
+    //         filteredCards = $('.seller-product-card').filter(function () {
+    //             return $(this).data('category') === foodCategory;
+    //         });
+    //         filteredCards.parent().removeClass('d-none');
+    //     } else {
+    //         $('.seller-product-card').parent().removeClass('d-none');
+    //     }
+
+    // })
+
+    function filterCards() {
+    // Get filter values
+    const selectedCategory = document.getElementById("product_category").value;
+    const selectedCondition = document.getElementById("product_condition").value;
+    const minPrice = parseFloat(document.getElementById("min_price").value) || 0;
+    const maxPrice = parseFloat(document.getElementById("max_price").value) || Infinity;
+
+    // Get all product cards
+    const cards = document.querySelectorAll(".product.seller-product-card");
+
+    cards.forEach(card => {
+        // Get data attributes of the card
+        const cardCategory = card.getAttribute("data-category");
+        const cardCondition = card.getAttribute("data-condition");
+        const cardPrice = parseFloat(card.getAttribute("data-price"));
+        
+        // Check if the card matches the selected filters
+        let isMatch = true;
+
+        // Filter by category
+        if (selectedCategory !== "All" && selectedCategory !== cardCategory) {
+            isMatch = false;
+        }
+
+        // Filter by condition
+        if (selectedCondition !== "All" && selectedCondition !== cardCondition) {
+            isMatch = false;
+        }
+
+        // Filter by price range
+        if (cardPrice < minPrice || cardPrice > maxPrice) {
+            isMatch = false;
+        }
+
+        // Find the parent div element that contains the card
+        const parentDiv = card.closest('.card-col');
+
+        // Show or hide the card based on the match
+        if (isMatch) {
+            parentDiv.style.display = "block";  // Show the card
+        } else {
+            parentDiv.style.display = "none";   // Hide the card
+        }
+    });
+}
+
+// Add event listeners to trigger the filter function when filter values change
+document.getElementById("product_category").addEventListener("change", filterCards);
+document.getElementById("product_condition").addEventListener("change", filterCards);
+document.getElementById("min_price").addEventListener("input", filterCards);
+document.getElementById("max_price").addEventListener("input", filterCards);
+
+</script>
+@endpush
